@@ -1,0 +1,16 @@
+Member List:
+1. 
+  - primary method of communication:
+2. 
+  - primary method of communication:
+3. 
+  - primary method of communication:
+4. 
+  - primary method of communication:
+5. 
+  - primary method of communication:
+6.
+  - primary method of communication:
+
+Scheduled times for all daily standup meetings:
+The projecct will be version controlled at GitHub.
