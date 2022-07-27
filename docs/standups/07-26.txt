@@ -19,3 +19,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nil
+
+Name: Christine Zhao
+
+What have you done since yesterday?
+	- Created Jira account, connected Git
+
+What are you planning on doing today?
+	- Learn more about Scrum
+
+Any impediments or stumbling blocks?
+	- nil
