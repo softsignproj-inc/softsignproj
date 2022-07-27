@@ -8,3 +8,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nil
+
+Name: Daniel Grishanov
+
+What have you done since yesterday?
+	- cloned repo, read assignment, read about Scrum
+
+What are you planning on doing today?
+	- nothing else
+
+Any impediments or stumbling blocks?
+	- nil
