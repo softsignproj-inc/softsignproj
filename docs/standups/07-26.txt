@@ -19,3 +19,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nil
+
+Name: Ishaan Upadhyay
+
+What have you done since yesterday?
+	- cloned the repository, picked user story
+
+What are you planning on doing today?
+	- exploring ways to structure data
+
+Any impediments or stumbling blocks?
+	- nil
