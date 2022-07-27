@@ -1,0 +1,10 @@
+Name: Chelsea Chan
+
+What have you done since yesterday?
+	- formed group, created project
+
+What are you planning on doing today?
+	- cloned repository
+
+Any impediments or stumbling blocks?
+	- nil
