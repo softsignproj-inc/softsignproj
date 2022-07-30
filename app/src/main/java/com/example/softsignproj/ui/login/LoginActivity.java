@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -22,6 +23,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.softsignproj.HomePage;
 import com.example.softsignproj.R;
 import com.example.softsignproj.ui.login.LoginViewModel;
 import com.example.softsignproj.ui.login.LoginViewModelFactory;
@@ -133,4 +135,11 @@ public class LoginActivity extends AppCompatActivity {
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
+
+    /** Called when the user taps the Sign In button */
+    public void openHomePage(View view) {
+        Intent intent = new Intent(this, HomePage.class);
+        startActivity(intent);
+    }
+
 }
