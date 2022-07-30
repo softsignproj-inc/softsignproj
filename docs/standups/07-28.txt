@@ -1,0 +1,32 @@
+Name:Christine Zhao
+
+What have you done since yesterday?
+	- nothing
+
+What are you planning on doing today?
+	- start coding
+
+Any impediments or stumbling blocks?
+	- busy catching up on other courses
+
+Name:Chelsea Chan
+
+What have you done since yesterday?
+	- nothing
+
+What are you planning on doing today?
+	- start coding
+
+Any impediments or stumbling blocks?
+	- do not have access to firebase yet
+	
+Name:Catherine Sun
+
+What have you done since yesterday?
+	- Reviewed sample code from Monday's lecture
+
+What are you planning on doing today?
+	- Make a plan for the first user story
+
+Any impediments or stumbling blocks?
+	- Stuck on b09 assignment
