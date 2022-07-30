@@ -15,8 +15,8 @@
         tools:targetApi="31">
         <activity
             android:name=".HomePage"
-            android:parentActivityName=".ui.login.LoginActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".ui.login.LoginActivity" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="true">
@@ -26,6 +26,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".addVenue.AddVenue"
+            android:exported="true"
+            android:parentActivityName=".HomePage" />
+        <activity
+            android:name=".addVenue.AddVenueEnterSports"
+            android:exported="true"
+            android:parentActivityName=".addVenue.AddVenue" />
     </application>
 
 </manifest>

@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.softsignproj.addVenue.*;
+
 public class HomePage extends AppCompatActivity {
 
     @Override
@@ -20,6 +22,8 @@ public class HomePage extends AppCompatActivity {
         Intent intent = new Intent(this, Venue.class);
         startActivity(intent);
         */
-
+        if (view.getId() == R.id.addVenueButton){
+            this.startActivity(new Intent(HomePage.this, AddVenue.class));
+        }
     }
 }
