@@ -30,3 +30,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- Stuck on b09 assignment
+
+Name:Sarah Liu
+
+What have you done since yesterday?
+	- Learn Firebase -ish
+
+What are you planning on doing today?
+	- Continue working on layout
+
+Any impediments or stumbling blocks?
+	- Other courses
