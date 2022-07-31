@@ -38,7 +38,7 @@ public class CreateVenue {
         newVenue.sports = sports;
         newVenue.events = new ArrayList<>();
 
-        db.write(venueName, newVenue, onSuccess, onFailure);
+        db.write("venue/" + venueName, newVenue, onSuccess, onFailure);
 
     }
 }
