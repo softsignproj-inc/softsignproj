@@ -31,3 +31,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	-nil
+	
+Name: Catherine Sun
+
+What have you done since yesterday?
+	- Planned out how to tackle user story 1 and 5
+
+What are you planning on doing today?
+	- Creating a basic sign in page
+
+Any impediments or stumbling blocks?
+	- nil
