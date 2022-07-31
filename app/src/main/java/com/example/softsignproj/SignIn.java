@@ -3,6 +3,7 @@ package com.example.softsignproj;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -15,7 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class SignInActivity extends AppCompatActivity {
+public class SignIn extends AppCompatActivity {
     private DatabaseReference customers;
     private EditText usernameField, passwordField;
 
@@ -25,25 +26,33 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
 
         customers = FirebaseDatabase.getInstance("https://softsignproj-default-rtdb.firebaseio.com").getReference("customers");
-        customers.addValueEventListener(listener);
 
         usernameField = findViewById(R.id.usernameField);
         passwordField = findViewById(R.id.passwordField);
 
         Button signInButton = findViewById(R.id.signInButton);
-        Button createAccountButton = findViewById(R.id.createAccountButton);
+        Button signUpButton = findViewById(R.id.signUpButton);
 
-
-        signInButton.setOnClickListener(view -> customers.addValueEventListener(listener));
-
-        createAccountButton.setOnClickListener(view -> {
-            Intent intent = new Intent(SignInActivity.this, createAccount.class);
-            startActivity(intent);
-        });
-
+        signInButton.setOnClickListener(clickListener1);
+        signUpButton.setOnClickListener(clickListener2);
     }
 
-    ValueEventListener listener = new ValueEventListener() {
+    View.OnClickListener clickListener1 = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            customers.addValueEventListener(eventListener);
+        }
+    };
+
+    View.OnClickListener clickListener2 = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) { 
+            Intent intent = new Intent(SignIn.this, createAccount.class);
+            startActivity(intent);
+        }
+    };
+
+    ValueEventListener eventListener = new ValueEventListener() {
         @Override
         public void onDataChange(DataSnapshot dataSnapshot) {
             DataSnapshot snapshot = dataSnapshot.child(usernameField.getText().toString());
@@ -52,9 +61,13 @@ public class SignInActivity extends AppCompatActivity {
                 Customer customer = snapshot.getValue(Customer.class);
 
                 if (customer != null && passwordField.getText().toString().equals(customer.getPassword())) {
-                    Intent intent = new Intent(SignInActivity.this, HomePage.class);
+                    Intent intent = new Intent(SignIn.this, HomePage.class);
                     startActivity(intent);
+                } else {
+                    Log.e("Sign in", "Incorrect password");
                 }
+            } else {
+                Log.e("Sign in", "Username does not exist");
             }
         }
 
