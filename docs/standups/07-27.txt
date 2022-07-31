@@ -19,3 +19,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nill
+
+Name: Sarah Liu
+
+What have you done since yesterday?
+	- Added Firebase to repository
+
+What are you planning on doing today?
+	- Creating basic layout, learn Firebase
+
+Any impediments or stumbling blocks?
+	- Learning how to use Firebase

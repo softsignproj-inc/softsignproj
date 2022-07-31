@@ -7,5 +7,5 @@ Member List:
 6. Ishaan Upadhyay
 
 Primary method of communication: Discord
-Scheduled times for all daily standup meetings: Weekdays at 17:00 EST
+Scheduled times for all daily standup meetings: Weekdays at 20:00 EST
 The project will be version controlled at GitHub.
