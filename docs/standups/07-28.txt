@@ -30,3 +30,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- Stuck on b09 assignment
+
+Name: Ishaan Upadhyay
+
+What have you done since yesterday?
+	- Reviewed sample code from Monday's lecture
+
+What are you planning on doing today?
+	- Add user story and repository to Jira
+
+Any impediments or stumbling blocks?
+	- Have not finalized details for Firebase

@@ -8,3 +8,16 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nil
+
+Name: Ishaan Upadhyay
+
+What have you done since yesterday?
+	- Set up user story on Jira as an epic with subtasks
+	- Tried adding Github repository to Jira
+
+What are you planning on doing today?
+	- Finalizing the first sprint's tasks
+	- Use Planning Poker to evaluate user stories
+
+Any impediments or stumbling blocks?
+	- Some authentication failures with Jira since I don't own the repository
