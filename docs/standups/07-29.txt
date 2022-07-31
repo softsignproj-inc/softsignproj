@@ -21,3 +21,13 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- Some authentication failures with Jira since I don't own the repository
+Name:Sarah Liu
+
+What have you done since yesterday?
+	- Planned out how to make layout
+
+What are you planning on doing today?
+	- Creating layout on a new activity
+
+Any impediments or stumbling blocks?
+	-nil

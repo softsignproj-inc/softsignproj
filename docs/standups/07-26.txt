@@ -51,3 +51,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nil
+
+Name: Sarah Liu
+
+What have you done since yesterday?
+	- Cloned repository
+
+What are you planning on doing today?
+	- Add Firebase to project
+
+Any impediments or stumbling blocks?
+	- nil

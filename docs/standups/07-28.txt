@@ -41,3 +41,13 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- Have not finalized details for Firebase
+Name:Sarah Liu
+
+What have you done since yesterday?
+	- Learn Firebase -ish
+
+What are you planning on doing today?
+	- Continue working on layout
+
+Any impediments or stumbling blocks?
+	- Other courses

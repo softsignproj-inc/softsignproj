@@ -1,0 +1,11 @@
+Name:Christine Zhao
+
+What have you done since yesterday?
+	- Created components for layout
+
+What are you planning on doing today?
+	- Figure out how to use firebase
+	- Create main functionality of user story #6
+
+Any impediments or stumbling blocks?
+	- nil
