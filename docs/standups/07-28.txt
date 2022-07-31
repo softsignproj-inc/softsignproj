@@ -34,7 +34,7 @@ Any impediments or stumbling blocks?
 Name: Ishaan Upadhyay
 
 What have you done since yesterday?
-	- Reviewed sample code from Monday's lecture
+	- Read the Firebase docs
 
 What are you planning on doing today?
 	- Add user story and repository to Jira

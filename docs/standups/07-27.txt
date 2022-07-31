@@ -23,10 +23,10 @@ Any impediments or stumbling blocks?
 Name: Ishaan Upadhyay
 
 What have you done since yesterday?
-	- nothing
+	- discussed a basic framework for how to store data
 
 What are you planning on doing today?
-	- read more of the handly links provided by Navinn
+	- familiarize myself with Firebase
 
 Any impediments or stumbling blocks?
 	- nill
