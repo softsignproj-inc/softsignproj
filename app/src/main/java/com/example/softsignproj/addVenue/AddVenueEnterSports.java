@@ -1,16 +1,23 @@
 package com.example.softsignproj.addVenue;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.softsignproj.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddVenueEnterSports extends AppCompatActivity {
 
@@ -56,7 +63,32 @@ public class AddVenueEnterSports extends AppCompatActivity {
         ((TextView)findViewById(R.id.addVenueSportsOfferedTitle)).setText("Sports offered: " + selectedSports.getSize());
     }
 
-    public void createVenue(){
+    public void createVenue(View view){
+
         System.out.println("firebase stuff");
+
+        ArrayList<String> sportsStringList = new ArrayList<String>();
+        for (int i = 0; i < selectedSports.getSize(); i++){
+            sportsStringList.add(selectedSports.get(i));
+        }
+
+        CreateVenue.setSports(sportsStringList);
+
+        Intent intent = new Intent(this, AddVenue.class);
+
+        CreateVenue.writeToDatabase(new OnSuccessListener<Object>() {
+            @Override
+            public void onSuccess(Object s) {
+                System.out.println("Success writing to db");
+                startActivity(intent);
+            }
+
+        }, new OnFailureListener(){
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                System.out.println("Failure writing to db");
+                e.printStackTrace();
+            }
+        });
     }
 }

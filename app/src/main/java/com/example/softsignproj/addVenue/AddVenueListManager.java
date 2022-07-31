@@ -33,4 +33,5 @@ public class AddVenueListManager<E> {
     public int getSize(){
         return list.size();
     }
+
 }
