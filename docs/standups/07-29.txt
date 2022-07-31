@@ -42,3 +42,13 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nil
+
+Name: Chelsea Chan
+
+What have you done since yesterday?
+	- discussed the difficulties in user story 2
+
+What are you planning on doing today?
+	- learning how implement user story 2
+Any impediments or stumbling blocks?
+	- unfamiliar with RecycleView
