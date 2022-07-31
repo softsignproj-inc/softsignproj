@@ -46,10 +46,7 @@ public class SignIn extends AppCompatActivity {
 
     View.OnClickListener clickListener2 = new View.OnClickListener() {
         @Override
-        public void onClick(View view) {
-            if (view.getId() == R.id.signInButton) {
-                customers.addValueEventListener(eventListener);
-            }
+        public void onClick(View view) { 
             Intent intent = new Intent(SignIn.this, createAccount.class);
             startActivity(intent);
         }
@@ -66,7 +63,11 @@ public class SignIn extends AppCompatActivity {
                 if (customer != null && passwordField.getText().toString().equals(customer.getPassword())) {
                     Intent intent = new Intent(SignIn.this, HomePage.class);
                     startActivity(intent);
+                } else {
+                    Log.e("Sign in", "Incorrect password");
                 }
+            } else {
+                Log.e("Sign in", "Username does not exist");
             }
         }
 
