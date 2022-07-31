@@ -12,8 +12,6 @@ import android.widget.TextView;
 
 import com.example.softsignproj.R;
 
-import java.util.ArrayList;
-
 public class AddVenueEnterSports extends AppCompatActivity {
 
     public static AddVenueEnterSports activity;

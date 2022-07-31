@@ -68,6 +68,7 @@
         android:id="@+id/button"
         android:layout_width="160dp"
         android:layout_height="72dp"
+        android:layout_marginTop="24dp"
         android:text="FINISH"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
