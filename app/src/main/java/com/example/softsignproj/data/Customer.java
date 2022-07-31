@@ -5,7 +5,7 @@ public class Customer {
 
     public Customer() {}
 
-    public Customer(String username, String password) {
+    public Customer(String password) {
         this.password = password;
     }
 
