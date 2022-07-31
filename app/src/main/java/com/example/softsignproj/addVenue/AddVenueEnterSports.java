@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.softsignproj.R;
 
@@ -16,26 +16,29 @@ import java.util.ArrayList;
 
 public class AddVenueEnterSports extends AppCompatActivity {
 
-    private int numTotalSports;
-    private ArrayList<String> selectedSports;
-    RecyclerView sportsRecyclerView;
-    AddVenueRecyclerAdapter adapter;
+    public static AddVenueEnterSports activity;
+    private AddVenueListManager<String> selectedSports;
+    private RecyclerView sportsRecyclerView;
+    private AddVenueRecyclerAdapter adapter;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AddVenueEnterSports.activity = this;
         setContentView(R.layout.activity_add_venue_select_sports);
-        selectedSports = new ArrayList<String>();
-        selectedSports.add("BasketBall");
-        selectedSports.add("Soccer");
-        selectedSports.add("Swimming");
+        selectedSports = new AddVenueListManager<String>();
+        createSportsList();
+    }
 
+    private void createSportsList(){
         sportsRecyclerView = findViewById(R.id.addVenueEnterSportsRecyclerView);
         adapter = new AddVenueRecyclerAdapter(selectedSports);
+        adapter.setOnRemove(new AddVenueOnRemove(this, selectedSports, adapter));
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         sportsRecyclerView.setLayoutManager(layoutManager);
         sportsRecyclerView.setItemAnimator(new DefaultItemAnimator());
         sportsRecyclerView.setAdapter(adapter);
-
     }
 
     public void enterSport(View view){
@@ -47,13 +50,15 @@ public class AddVenueEnterSports extends AppCompatActivity {
             System.out.println(" sport entered " + sport);
             sportsRecyclerView.scrollToPosition(0);
             inputField.setText("");
-
+            update();
         }
     }
 
-    public void removeSport(View view){
-        //remove = view.findViewById(R.id.addVenueSportsRemoveButton);
-        System.out.println(view.toString());
-        adapter.notifyDataSetChanged();
+    public void update(){
+        ((TextView)findViewById(R.id.addVenueSportsOfferedTitle)).setText("Sports offered: " + selectedSports.getSize());
+    }
+
+    public void createVenue(){
+        System.out.println("firebase stuff");
     }
 }

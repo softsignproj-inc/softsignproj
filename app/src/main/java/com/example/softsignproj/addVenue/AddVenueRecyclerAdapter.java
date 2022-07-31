@@ -11,14 +11,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.softsignproj.R;
 
-import java.util.ArrayList;
-
 public class AddVenueRecyclerAdapter extends RecyclerView.Adapter<AddVenueRecyclerAdapter.AddVenueViewHolder>{
 
-    private ArrayList<String> list;
+    private AddVenueListManager<String> list;
+    private AddVenueOnRemove onRemove;
 
-    public AddVenueRecyclerAdapter(ArrayList a){
+    public AddVenueRecyclerAdapter(AddVenueListManager<String> a){
         this.list = a;
+    }
+
+    public void setOnRemove(AddVenueOnRemove onRemove){
+        this.onRemove = onRemove;
     }
 
     public class AddVenueViewHolder extends RecyclerView.ViewHolder{
@@ -31,23 +34,12 @@ public class AddVenueRecyclerAdapter extends RecyclerView.Adapter<AddVenueRecycl
             super(view);
             txt = view.findViewById(R.id.sportName);
             remove = view.findViewById(R.id.addVenueSportsRemoveButton);
-            remove.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    System.out.println("Removing " + txt.getText().toString());
-                    list.remove(txt.getText().toString());
-                    parent.notifyDataSetChanged();
-                }
-            });
         }
 
         public TextView getTxt(){
             return txt;
         }
 
-        public void setParent(AddVenueRecyclerAdapter p){
-            parent = p;
-        }
     }
 
     @NonNull
@@ -61,11 +53,16 @@ public class AddVenueRecyclerAdapter extends RecyclerView.Adapter<AddVenueRecycl
     public void onBindViewHolder(@NonNull AddVenueRecyclerAdapter.AddVenueViewHolder holder, int position) {
         String name = list.get(position);
         holder.txt.setText(name);
-        holder.setParent(this);
+        holder.remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onRemove.remove(holder.getAdapterPosition());
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return list.getSize();
     }
 }
