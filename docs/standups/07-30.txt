@@ -9,3 +9,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nil
+	
+Name: Catherine Sun
+
+What have you done since yesterday?
+	- Created a basic sign in page for existing users
+
+What are you planning on doing today?
+	- Create a basic sign up page for new users
+
+Any impediments or stumbling blocks?
+	- nil
