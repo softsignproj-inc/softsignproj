@@ -20,3 +20,16 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nil
+
+Name: Catherine Sun
+
+What have you done since yesterday?
+	- Created model class for venue and event
+	- planned out layout for user story 2
+	- wrote sample data for venue and event
+
+What are you planning on doing today?
+	- Create a basic activity for displaying all venues
+
+Any impediments or stumbling blocks?
+	- nil
