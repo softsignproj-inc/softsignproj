@@ -3,6 +3,7 @@ package com.example.softsignproj.addVenue;
 import androidx.annotation.NonNull;
 
 import com.example.softsignproj.Database;
+import com.example.softsignproj.Venue;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
@@ -31,11 +32,13 @@ public class CreateVenue {
     }
 
     public static void writeToDatabase(OnSuccessListener<? super Object> onSuccess, OnFailureListener onFailure){
-        HashMap<String, List<String>> map = new HashMap<String, List<String>>();
 
-        map.put("sports", sports);
-        map.put("events", new ArrayList<>());
+        Venue newVenue = new Venue();
+        newVenue.name = venueName;
+        newVenue.sports = sports;
+        newVenue.events = new ArrayList<>();
 
-        db.write(venueName, map, onSuccess, onFailure);
+        db.write(venueName, newVenue, onSuccess, onFailure);
+
     }
 }
