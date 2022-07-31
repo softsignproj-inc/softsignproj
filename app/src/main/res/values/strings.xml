@@ -11,7 +11,7 @@
     <string name="login_failed">"Login failed"</string>
     <string name="create_new_account">Create New Account</string>
     <string name="sign_in">Sign In</string>
-
+    <string name="create_account">Create Account</string>
     <!--Strings for add venue -->
     <string name="add_venue_page_title">Add A New Venue</string>
     <string name="add_venue_name">Venue Name</string>

@@ -31,6 +31,16 @@ What are you planning on doing today?
 Any impediments or stumbling blocks?
 	- Stuck on b09 assignment
 
+Name: Ishaan Upadhyay
+
+What have you done since yesterday?
+	- Read the Firebase docs
+
+What are you planning on doing today?
+	- Add user story and repository to Jira
+
+Any impediments or stumbling blocks?
+	- Have not finalized details for Firebase
 Name:Sarah Liu
 
 What have you done since yesterday?

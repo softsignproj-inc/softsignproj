@@ -16,9 +16,9 @@
         <activity
             android:name=".createAccount"
             android:exported="false"
-            android:parentActivityName=".SignInActivity" />
+            android:parentActivityName=".SignIn" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".SignIn"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,6 +38,7 @@
             android:name=".addVenue.AddVenueEnterSports"
             android:exported="true"
             android:parentActivityName=".addVenue.AddVenue" />
+            android:parentActivityName=".SignIn" />
     </application>
 
 </manifest>
