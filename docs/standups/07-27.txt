@@ -1,0 +1,53 @@
+Name:Chelsea Chan
+
+What have you done since yesterday?
+	- layout planning
+
+What are you planning on doing today?
+	- start coding
+
+Any impediments or stumbling blocks?
+	- nill
+
+Name: Daniel Grishanov
+
+What have you done since yesterday?
+	- nothing
+
+What are you planning on doing today?
+	- read more of the handly links provided by Navinn
+
+Any impediments or stumbling blocks?
+	- nill
+
+Name: Ishaan Upadhyay
+
+What have you done since yesterday?
+	- discussed a basic framework for how to store data
+
+What are you planning on doing today?
+	- familiarize myself with Firebase
+
+Any impediments or stumbling blocks?
+	- nill
+Name: Sarah Liu
+
+What have you done since yesterday?
+	- Added Firebase to repository
+
+What are you planning on doing today?
+	- Creating basic layout, learn Firebase
+
+Any impediments or stumbling blocks?
+	- Learning how to use Firebase
+	
+Name: Catherine Sun
+
+What have you done since yesterday?
+	- Followed a tutorial on Firebase
+
+What are you planning on doing today?
+	- Reviewing lecture material
+
+Any impediments or stumbling blocks?
+	- nill
