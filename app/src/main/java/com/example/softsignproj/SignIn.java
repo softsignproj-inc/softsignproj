@@ -12,14 +12,15 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.softsignproj.data.Admin;
-import com.example.softsignproj.data.Customer;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 
 public class SignIn extends AppCompatActivity {
     private DatabaseReference db;
@@ -55,6 +56,13 @@ public class SignIn extends AppCompatActivity {
         }
     };
 
+    OnFailureListener failureListener = new OnFailureListener() {
+        @Override
+        public void onFailure(@NonNull Exception e) {
+            Toast.makeText(SignIn.this, "User does not exist", Toast.LENGTH_SHORT).show();
+        }
+    };
+
     View.OnClickListener clickListener2 = new View.OnClickListener() {
         @Override
         public void onClick(View view) { 
@@ -68,33 +76,38 @@ public class SignIn extends AppCompatActivity {
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             DataSnapshot snapshot;
 
+            String u = usernameField.getText().toString();
+            String p = passwordField.getText().toString();
+
             if (adminMode) {
-                snapshot = dataSnapshot.child("administrators").child(usernameField.getText().toString());
+                snapshot = dataSnapshot.child("administrator").child(u);
             } else {
-                snapshot = dataSnapshot.child("customers").child(usernameField.getText().toString());
+                snapshot = dataSnapshot.child("customer").child(u);
             }
 
             if (snapshot.exists()) {
 
-                if (adminMode) {
-                    Admin admin = snapshot.getValue(Admin.class);
+                Object retrievedData = snapshot.getValue();
+                HashMap<String, Object> userInfo;
 
-                    if (admin != null && passwordField.getText().toString().equals(admin.getPassword())) {
-                        Intent intent = new Intent(SignIn.this, AdminPage.class);
+                if (retrievedData instanceof HashMap) {
+                    userInfo = (HashMap<String, Object>) retrievedData;
+
+                    if (userInfo.containsKey("password") && userInfo.get("password").toString().equals(p)) {
+                        Toast.makeText(SignIn.this, "Sign in successful", Toast.LENGTH_SHORT).show();
+
+                        Intent intent;
+                        if (adminMode) {
+                            intent = new Intent(SignIn.this, AdminPage.class);
+                        } else {
+                            intent = new Intent(SignIn.this, HomePage.class);
+                        }
                         startActivity(intent);
+
                     } else {
                         Toast.makeText(SignIn.this, "Incorrect password", Toast.LENGTH_SHORT).show();
                     }
 
-                } else {
-                    Customer customer = snapshot.getValue(Customer.class);
-
-                    if (customer != null && passwordField.getText().toString().equals(customer.getPassword())) {
-                        Intent intent = new Intent(SignIn.this, HomePage.class);
-                        startActivity(intent);
-                    } else {
-                        Toast.makeText(SignIn.this, "Incorrect password", Toast.LENGTH_SHORT).show();
-                    }
                 }
 
             } else {
