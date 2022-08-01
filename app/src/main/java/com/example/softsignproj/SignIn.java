@@ -8,8 +8,8 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SwitchCompat;
 
 import com.example.softsignproj.data.Admin;
 import com.example.softsignproj.data.Customer;
@@ -64,7 +64,7 @@ public class SignIn extends AppCompatActivity {
 
     ValueEventListener eventListener = new ValueEventListener() {
         @Override
-        public void onDataChange(DataSnapshot dataSnapshot) {
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             DataSnapshot snapshot;
 
             if (adminMode) {
