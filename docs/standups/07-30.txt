@@ -21,7 +21,7 @@ What are you planning on doing today?
 Any impediments or stumbling blocks?
 	- nil
 
-Name: Catherine Sun
+Name: Chelsea Chan
 
 What have you done since yesterday?
 	- Created model class for venue and event
