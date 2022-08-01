@@ -22,7 +22,7 @@ import java.util.HashMap;
 
 public class VenueList extends AppCompatActivity {
 
-    ArrayList<Venue> venues;
+    private ArrayList<Venue> venues;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,44 +37,38 @@ public class VenueList extends AppCompatActivity {
     ValueEventListener eventListener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            HashMap<String, Object> map = (HashMap<String, Object>) dataSnapshot.getValue();
-            if (map != null) {
-                for (String key : map.keySet()) {
 
-                    Log.e("info", "" + key);
+            for (DataSnapshot child : dataSnapshot.getChildren()) {
+                Object obj = child.getValue();
 
-                    Object obj = map.get(key);
-                    HashMap<String, String> venueInfo;
-                    if (obj instanceof HashMap) {
-                        venueInfo = (HashMap<String, String>) obj;
-                    } else {
-                        Log.w("error", "Wrong venue info");
-                        return;
+                if (obj instanceof HashMap) {
+                    HashMap<String, Object> venueInfo = (HashMap<String, Object>)obj;
+
+                    ArrayList<String> sports = new ArrayList<>();
+                    ArrayList<String> events = new ArrayList<>();
+
+                    if (venueInfo.containsKey("sports") && venueInfo.get("sports") instanceof ArrayList) {
+                        sports = (ArrayList<String>)(venueInfo.get("sports"));
                     }
 
-                    if (venueInfo.containsKey("sports") && venueInfo.containsKey("events")) {
-                        ArrayList<String> sports, events;
-
-                        if ((Object)venueInfo.get("sports") instanceof ArrayList
-                                && (Object)venueInfo.get("events") instanceof  ArrayList) {
-                            sports = (ArrayList<String>)((Object)venueInfo.get("sports"));
-                            events = (ArrayList<String>)((Object)venueInfo.get("events"));
-
-                            Venue v = new Venue(key, sports, events);
-                            venues.add(v);
-                        }
+                    if (venueInfo.containsKey("events") && venueInfo.get("events") instanceof ArrayList) {
+                        events = (ArrayList<String>)(venueInfo.get("events"));
                     }
-                }
 
-                if (venues != null) {
-
-                    RecyclerView recyclerView = findViewById(R.id.venueRecycler);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(VenueList.this));
-
-                    VenueAdapter venueAdapter = new VenueAdapter(venues, venueListener);
-                    recyclerView.setAdapter(venueAdapter);
+                    Venue v = new Venue(child.getKey(), sports, events);
+                    venues.add(v);
 
                 }
+            }
+
+            if (venues != null) {
+
+                RecyclerView recyclerView = findViewById(R.id.venueRecycler);
+                recyclerView.setLayoutManager(new LinearLayoutManager(VenueList.this));
+
+                VenueAdapter venueAdapter = new VenueAdapter(venues, venueListener);
+                recyclerView.setAdapter(venueAdapter);
+
             }
 
         }
@@ -89,7 +83,7 @@ public class VenueList extends AppCompatActivity {
     VenueAdapter.VenueClickListener venueListener = new VenueAdapter.VenueClickListener() {
         @Override
         public void onVenueClick(View view) {
-            Log.e("HELLO", "YAYYYYY");
+            Log.e("HELLO", "PUT REDIRECTION HERE");
         }
     };
 }
