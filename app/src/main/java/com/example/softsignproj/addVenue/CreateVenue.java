@@ -38,4 +38,12 @@ public class CreateVenue {
         db.write("venue/" + venueName, newVenue, onSuccess, onFailure);
 
     }
+
+    public static String getVenueName(){
+        return venueName;
+    }
+
+    public static ArrayList<String> getSports(){
+        return sports;
+    }
 }

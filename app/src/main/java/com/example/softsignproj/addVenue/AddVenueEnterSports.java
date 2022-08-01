@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.softsignproj.R;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -94,6 +95,7 @@ public class AddVenueEnterSports extends AppCompatActivity {
             public void onSuccess(Object s) {
                 System.out.println("Success writing to db");
                 startActivity(intent);
+                Toast.makeText(AddVenueEnterSports.this, "Successfully added venue: " + CreateVenue.getVenueName(), Toast.LENGTH_SHORT).show();
             }
 
         }, new OnFailureListener(){
