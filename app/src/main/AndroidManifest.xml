@@ -15,7 +15,8 @@
         tools:targetApi="31">
         <activity
             android:name=".AdminPage"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".SignIn"/>
         <activity
             android:name=".VenueList"
             android:exported="false"
@@ -35,7 +36,7 @@
         </activity>
         <activity
             android:name=".HomePage"
-            android:exported="true"
+            android:exported="false"
             android:parentActivityName=".SignIn" />
     </application>
 
