@@ -34,7 +34,7 @@ public class CreateVenue {
     public static void writeToDatabase(OnSuccessListener<? super Object> onSuccess, OnFailureListener onFailure){
 
         Venue newVenue = new Venue();
-        newVenue.name = venueName;
+        //newVenue.name = venueName;
         newVenue.sports = sports;
         newVenue.events = new ArrayList<>();
 

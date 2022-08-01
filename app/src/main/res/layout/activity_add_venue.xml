@@ -7,32 +7,30 @@
     tools:context=".addVenue.AddVenue">
 
     <EditText
-        android:id="@+id/newVenueName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:id="@+id/addVenueNameInput"
+        android:layout_width="339dp"
+        android:layout_height="85dp"
         android:ems="10"
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:hint="@string/add_venue_name"
         android:inputType="textPersonName"
-        android:text="@string/add_venue_name"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddNewVenueTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/addVenueErrorPlaceholder" />
 
     <TextView
         android:id="@+id/AddNewVenueTitle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="64dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/add_venue_page_title"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,27 +43,29 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNUmberOfSports" />
+        app:layout_constraintTop_toBottomOf="@+id/editNUmberOfSports"
+        app:layout_constraintVertical_bias="0.266" />
 
     <EditText
         android:id="@+id/editNUmberOfSports"
         android:layout_width="77dp"
         android:layout_height="45dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/numberOfSports"
-        app:layout_constraintTop_toBottomOf="@+id/newVenueName" />
+        app:layout_constraintTop_toBottomOf="@+id/addVenueNameInput" />
 
     <TextView
         android:id="@+id/numberOfSports"
         android:layout_width="155dp"
         android:layout_height="41dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginBottom="92dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/add_venue_number_of_sports"
         android:textSize="16sp"
@@ -73,7 +73,17 @@
         app:layout_constraintEnd_toStartOf="@+id/editNUmberOfSports"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newVenueName"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/addVenueNameInput" />
+
+    <TextView
+        android:id="@+id/addVenueErrorPlaceholder"
+        android:layout_width="331dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="24dp"
+        android:textAlignment="center"
+        android:textColor="#630000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddNewVenueTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

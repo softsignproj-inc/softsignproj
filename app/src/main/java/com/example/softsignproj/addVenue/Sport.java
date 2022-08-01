@@ -2,9 +2,9 @@ package com.example.softsignproj.addVenue;
 
 public class Sport {
 
-    private String sportName;
+    private String name;
 
     public Sport(String name){
-        this.sportName = name;
+        this.name = name;
     }
 }
