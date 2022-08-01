@@ -38,6 +38,14 @@
             android:name=".HomePage"
             android:exported="false"
             android:parentActivityName=".SignIn" />
+        <activity
+            android:name=".addVenue.AddVenue"
+            android:exported="true"
+            android:parentActivityName=".HomePage" />
+        <activity
+            android:name=".addVenue.AddVenueEnterSports"
+            android:exported="true"
+            android:parentActivityName=".addVenue.AddVenue" />
     </application>
 
 </manifest>

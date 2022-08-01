@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/addVenueFinishButton"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".addVenue.AddVenueEnterSports">
+
+    <TextView
+        android:id="@+id/addVenueErrorPlaceholder2"
+        android:layout_width="369dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="26dp"
+        android:fontFamily="sans-serif-black"
+        android:textAlignment="center"
+        android:textColor="#42007C"
+        app:layout_constraintBottom_toTopOf="@+id/addVenueSportsOfferedTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addVenueEnterSport"
+        app:layout_constraintVertical_bias="0.357"
+        tools:text="Sample text" />
+
+    <TextView
+        android:id="@+id/AddVenueEnterSportsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/add_venue_enter_sports_title"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addVenueEnterSportButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="enterSport"
+        android:text="ENTER"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/addVenueEnterSport"
+        app:layout_constraintTop_toBottomOf="@+id/AddVenueEnterSportsTitle" />
+
+    <EditText
+        android:id="@+id/addVenueEnterSport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Name of sport"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/addVenueEnterSportButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddVenueEnterSportsTitle" />
+
+    <TextView
+        android:id="@+id/addVenueSportsOfferedTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:background="#00FFFFFF"
+        android:text="Sports offered"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/addVenueNumberOfSports"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/addVenueEnterSportsRecyclerView"
+        android:layout_width="359dp"
+        android:layout_height="231dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addVenueSportsOfferedTitle" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="160dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="8dp"
+        android:onClick="createVenue"
+        android:text="FINISH"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addVenueEnterSportsRecyclerView" />
+
+    <TextView
+        android:id="@+id/addVenueNumberOfSports"
+        android:layout_width="54dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="24dp"
+        android:background="#FFFFFF"
+        android:fontFamily="sans-serif-black"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#8A8A8A"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addVenueEnterSportButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,4 +14,10 @@
     <string name="see_all_venues">See All Venues</string>
     <string name="upcoming_events">Upcoming Events</string>
     <string name="my_events">My Events</string>
+    <string name="add_venue_page_title">Add A New Venue</string>
+    <string name="add_venue_name">Venue Name</string>
+    <string name="add_venue_next_button">Next</string>
+    <string name="add_venue_number_of_sports">Number of sports offered:</string>
+    <string name="add_venue_enter_sports_title">Enter Sports:</string>
+
 </resources>
