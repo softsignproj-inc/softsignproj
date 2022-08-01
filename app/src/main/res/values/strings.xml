@@ -12,4 +12,12 @@
     <string name="create_new_account">Create New Account</string>
     <string name="sign_in">Sign In</string>
     <string name="create_account">Create Account</string>
+    <string name="name_of_venue">Name of venue</string>
+    <string name="manage_venues">Manage Venues</string>
+    <string name="schedule_a_venue">Schedule a Venue</string>
+    <string name="add_a_venue">Add a Venue</string>
+    <string name="see_all_venues">See All Venues</string>
+    <string name="upcoming_events">Upcoming Events</string>
+    <string name="my_events">My Events</string>
+    <string name="i_am_an_admin">I am an admin</string>
 </resources>
