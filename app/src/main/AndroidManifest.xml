@@ -30,6 +30,10 @@
             android:name=".HomePage"
             android:exported="true"
             android:parentActivityName=".SignInActivity" />
+        <activity
+            android:name=".AdminEventPageActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

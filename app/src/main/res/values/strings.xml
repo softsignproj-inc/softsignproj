@@ -11,4 +11,8 @@
     <string name="login_failed">"Login failed"</string>
     <string name="create_new_account">Create New Account</string>
     <string name="sign_in">Sign In</string>
+
+    <!-- Strings related to admin event page -->
+    <string name="filter">Filter by venue:</string>
+
 </resources>
