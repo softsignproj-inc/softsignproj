@@ -1,5 +1,7 @@
 package com.example.softsignproj;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -34,7 +36,11 @@ public class Database {
                 DataSnapshot data = dataSnapshot.child(path);
                 Object value = data.getValue();
                 retrievedData = value;
-                onSuccess.onSuccess(retrievedData);
+                if (retrievedData != null) {
+                    onSuccess.onSuccess(retrievedData);
+                } else {
+                    Log.e("Database", "Retrieved data is null");
+                }
             }
 
             @Override
