@@ -60,7 +60,7 @@ public class AddVenueEnterSports extends AppCompatActivity {
     }
 
     public void update(){
-        ((TextView)findViewById(R.id.addVenueSportsOfferedTitle)).setText("Sports offered: " + selectedSports.getSize());
+        ((TextView)findViewById(R.id.addVenueNumberOfSports)).setText(String.valueOf(selectedSports.getSize()));
     }
 
     public void createVenue(View view){

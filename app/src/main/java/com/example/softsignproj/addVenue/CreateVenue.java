@@ -1,25 +1,22 @@
 package com.example.softsignproj.addVenue;
 
-import androidx.annotation.NonNull;
-
 import com.example.softsignproj.Database;
-import com.example.softsignproj.Venue;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import com.example.softsignproj.data.model.Venue;
+
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import java.util.List;
 
 public class CreateVenue {
 
     private static String venueName;
-    private static List<String> sports;
+    private static ArrayList<String> sports;
     private static Database db;
 
-    public static void setSports(List<String> s){
+    public static void setSports(ArrayList<String> s){
         sports = s;
     }
 
@@ -34,9 +31,9 @@ public class CreateVenue {
     public static void writeToDatabase(OnSuccessListener<? super Object> onSuccess, OnFailureListener onFailure){
 
         Venue newVenue = new Venue();
-        //newVenue.name = venueName;
-        newVenue.sports = sports;
-        newVenue.events = new ArrayList<>();
+        newVenue.setVenue_name(venueName);
+        newVenue.setSports(sports);
+        newVenue.setEvents(new ArrayList());
 
         db.write("venue/" + venueName, newVenue, onSuccess, onFailure);
 
