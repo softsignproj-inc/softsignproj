@@ -12,4 +12,5 @@
     <string name="create_new_account">Create New Account</string>
     <string name="sign_in">Sign In</string>
     <string name="create_account">Create Account</string>
+    <string name="name_of_venue">Name of venue</string>
 </resources>

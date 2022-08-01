@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class Venue {
     private String venue_name;
     private ArrayList<String> sports;
-    private ArrayList events;
+    private ArrayList<String> events;
 
     public Venue() {
     }
 
-    public Venue(String venue_name, ArrayList<String> sports, ArrayList events) {
+    public Venue(String venue_name, ArrayList<String> sports, ArrayList<String> events) {
         this.venue_name = venue_name;
         this.sports = sports;
         this.events = events;
@@ -38,5 +38,14 @@ public class Venue {
 
     public void setEvents(ArrayList events) {
         this.events = events;
+    }
+
+    @Override
+    public String toString() {
+        return "Venue{" +
+                "venue_name='" + venue_name + '\'' +
+                ", sports=" + sports +
+                ", events=" + events +
+                '}';
     }
 }

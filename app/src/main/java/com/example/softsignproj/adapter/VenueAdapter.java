@@ -13,31 +13,39 @@ import com.example.softsignproj.viewHolder.VenueViewHolder;
 
 import java.util.ArrayList;
 
-public class VenueAdapter extends RecyclerView.Adapter {
+public class VenueAdapter extends RecyclerView.Adapter<VenueViewHolder> {
+    private final ArrayList<Venue> venues;
+    private final VenueClickListener venueListener;
 
-    private ArrayList<Venue> venues;
+    public VenueAdapter(ArrayList<Venue> venues, VenueClickListener venueListener) {
+        this.venues = venues;
+        this.venueListener = venueListener;
+    }
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-         View v = (View) LayoutInflater.from(parent.getContext()).inflate(R.layout.venue_item, parent, false);
-
-         return new VenueViewHolder(v);
+    public VenueViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View view = inflater.inflate(R.layout.venue_item, parent, false);
+        return new VenueViewHolder(this, view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        VenueViewHolder venueholder = (VenueViewHolder)holder;
+    public void onBindViewHolder(@NonNull VenueViewHolder holder, int position) {
         Venue venue = venues.get(position);
-        venueholder.venue_name.setText(venue.getVenue_name());
+        holder.getVenueName().setText(venue.getVenue_name());
     }
 
     @Override
     public int getItemCount() {
-        if (venues != null){
-            return venues.size();
-        } else {
-            return 0;
-        }
+        return venues.size();
+    }
+
+    public interface VenueClickListener {
+        void onVenueClick(View view);
+    }
+
+    public VenueClickListener getVenueListener() {
+        return venueListener;
     }
 }
