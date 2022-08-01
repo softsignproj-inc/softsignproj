@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.softsignproj.data.Customer;
+import com.example.softsignproj.data.model.LoggedInUser;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +20,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.Collections;
+import java.util.HashMap;
 
 public class createAccount extends AppCompatActivity {
     private DatabaseReference customers;
@@ -29,7 +33,7 @@ public class createAccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
 
-        customers = FirebaseDatabase.getInstance("https://softsignproj-default-rtdb.firebaseio.com").getReference("customers");
+        customers = FirebaseDatabase.getInstance("https://softsignproj-default-rtdb.firebaseio.com").getReference("customer");
 
         usernameField = findViewById(R.id.newUsernameField);
         passwordField = findViewById(R.id.newPasswordField);
@@ -54,15 +58,18 @@ public class createAccount extends AppCompatActivity {
 
             if (dataSnapshot.hasChild(u)) {
                 Toast.makeText(createAccount.this, "Username has already been taken", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            if (u.matches("\\w{6,}") && p.length() >= 6 && !p.contains("\\s")) {
-                Customer c = new Customer(p);
-                Database db = new Database();
-                db.write("customers/" + u, c, successListener, failureListener);
             } else {
-                Toast.makeText(createAccount.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+                if (u.matches("\\w{6,}") && p.length() >= 6 && !p.contains("\\s")) {
+                    HashMap<String, String> userInfo = new HashMap<>();
+                    userInfo.put("password", p);
+                    Database db = new Database();
+                    db.write("customer/" + u, userInfo, successListener, failureListener);
+
+                    Toast.makeText(createAccount.this, "Account creation successful", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(createAccount.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+                }
             }
         }
 
