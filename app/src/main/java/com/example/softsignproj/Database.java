@@ -36,11 +36,7 @@ public class Database {
                 DataSnapshot data = dataSnapshot.child(path);
                 Object value = data.getValue();
                 retrievedData = value;
-                if (retrievedData != null) {
-                    onSuccess.onSuccess(retrievedData);
-                } else {
-                    Log.e("Database", "Retrieved data is null");
-                }
+                onSuccess.onSuccess(retrievedData);
             }
 
             @Override
