@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -12,9 +12,14 @@
     tools:context=".SignIn">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <EditText
             android:id="@+id/usernameField"
@@ -22,8 +27,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="120dp"
             android:layout_marginEnd="8dp"
-            android:ems="10"
             android:autofillHints="emailAddress"
+            android:ems="10"
             android:hint="@string/prompt_user"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true" />
@@ -32,50 +37,64 @@
             android:id="@+id/passwordField"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:ems="10"
+            android:layout_weight="1"
             android:autofillHints="password"
+            android:ems="10"
             android:hint="@string/prompt_password"
             android:inputType="textPassword"
             android:selectAllOnFocus="true" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:paddingTop="@dimen/activity_vertical_margin"
         android:weightSum="2"
-        android:paddingTop="@dimen/activity_vertical_margin">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <Button
-            style="?attr/materialButtonStyle"
             android:id="@+id/signUpButton"
+            style="?attr/materialButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="fill_vertical"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:layout_weight="1"
             android:ems="10"
             android:enabled="true"
-            android:text="@string/create_account"/>
+            android:text="@string/create_account" />
 
         <Button
-            style="?attr/materialButtonStyle"
             android:id="@+id/signInButton"
+            style="?attr/materialButtonStyle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_gravity="fill_vertical"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:layout_weight="1"
             android:ems="10"
             android:enabled="true"
             android:text="@string/sign_in" />
 
     </LinearLayout>
 
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/adminToggle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="8dp"
+        android:text="@string/i_am_an_admin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
