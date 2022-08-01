@@ -8,11 +8,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".HomePage">
+    tools:context=".AdminPage">
 
     <Button
         style="?attr/materialButtonStyle"
-        android:id="@+id/venueListButton"
+        android:id="@+id/manageVenueButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -22,34 +22,35 @@
         android:gravity="center"
         android:ems="10"
         android:enabled="true"
-        android:text="@string/see_all_venues"/>
+        android:text="@string/manage_venues"/>
 
     <Button
         style="?attr/materialButtonStyle"
-        android:id="@+id/eventListButton"
+        android:id="@+id/scheduleEventButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_marginTop="24dp"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
-        android:gravity="center"
         android:ems="10"
+        android:gravity="center"
         android:enabled="true"
-        android:text="@string/upcoming_events" />
+        android:text="@string/schedule_a_venue"/>
 
     <Button
         style="?attr/materialButtonStyle"
-        android:id="@+id/myEventsButton"
+        android:id="@+id/addVenueButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_marginTop="24dp"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
-        android:gravity="center"
         android:ems="10"
+        android:gravity="center"
         android:enabled="true"
-        android:text="@string/my_events"/>
+        android:text="@string/add_a_venue"/>
+
 
 </LinearLayout>

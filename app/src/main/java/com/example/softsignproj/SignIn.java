@@ -5,11 +5,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.softsignproj.data.Admin;
 import com.example.softsignproj.data.Customer;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,30 +22,36 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class SignIn extends AppCompatActivity {
-    private DatabaseReference customers;
+    private DatabaseReference db;
     private EditText usernameField, passwordField;
+    private Button signUpButton;
+    private boolean adminMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        customers = FirebaseDatabase.getInstance("https://softsignproj-default-rtdb.firebaseio.com").getReference("customers");
+        db = FirebaseDatabase.getInstance("https://softsignproj-default-rtdb.firebaseio.com").getReference();
 
         usernameField = findViewById(R.id.usernameField);
         passwordField = findViewById(R.id.passwordField);
 
         Button signInButton = findViewById(R.id.signInButton);
-        Button signUpButton = findViewById(R.id.signUpButton);
+        signUpButton = findViewById(R.id.signUpButton);
 
         signInButton.setOnClickListener(clickListener1);
         signUpButton.setOnClickListener(clickListener2);
+
+        adminMode = false;
+        SwitchMaterial adminToggle = findViewById(R.id.adminToggle);
+        adminToggle.setOnCheckedChangeListener(changeListener);
     }
 
     View.OnClickListener clickListener1 = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            customers.addValueEventListener(eventListener);
+            db.addValueEventListener(eventListener);
         }
     };
 
@@ -54,26 +65,54 @@ public class SignIn extends AppCompatActivity {
 
     ValueEventListener eventListener = new ValueEventListener() {
         @Override
-        public void onDataChange(DataSnapshot dataSnapshot) {
-            DataSnapshot snapshot = dataSnapshot.child(usernameField.getText().toString());
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            DataSnapshot snapshot;
+
+            if (adminMode) {
+                snapshot = dataSnapshot.child("administrators").child(usernameField.getText().toString());
+            } else {
+                snapshot = dataSnapshot.child("customers").child(usernameField.getText().toString());
+            }
 
             if (snapshot.exists()) {
-                Customer customer = snapshot.getValue(Customer.class);
 
-                if (customer != null && passwordField.getText().toString().equals(customer.getPassword())) {
-                    Intent intent = new Intent(SignIn.this, HomePage.class);
-                    startActivity(intent);
+                if (adminMode) {
+                    Admin admin = snapshot.getValue(Admin.class);
+
+                    if (admin != null && passwordField.getText().toString().equals(admin.getPassword())) {
+                        Intent intent = new Intent(SignIn.this, AdminPage.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(SignIn.this, "Incorrect password", Toast.LENGTH_SHORT).show();
+                    }
+
                 } else {
-                    Log.e("Sign in", "Incorrect password");
+                    Customer customer = snapshot.getValue(Customer.class);
+
+                    if (customer != null && passwordField.getText().toString().equals(customer.getPassword())) {
+                        Intent intent = new Intent(SignIn.this, HomePage.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(SignIn.this, "Incorrect password", Toast.LENGTH_SHORT).show();
+                    }
                 }
+
             } else {
-                Log.e("Sign in", "Username does not exist");
+                Toast.makeText(SignIn.this, "User does not exist", Toast.LENGTH_SHORT).show();
             }
         }
 
         @Override
         public void onCancelled(DatabaseError databaseError) {
             Log.w("warning", "loadPost:onCancelled", databaseError.toException());
+        }
+    };
+
+    CompoundButton.OnCheckedChangeListener changeListener = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+            adminMode = isChecked;
+            signUpButton.setEnabled(!isChecked);
         }
     };
 }

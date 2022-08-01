@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.softsignproj.data.Customer;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -37,11 +38,6 @@ public class createAccount extends AppCompatActivity {
         createAccountButton.setOnClickListener(clickListener);
     }
 
-    public void openPage(View view) {
-        Intent intent = new Intent(this, HomePage.class);
-        startActivity(intent);
-    }
-
     View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -53,11 +49,11 @@ public class createAccount extends AppCompatActivity {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-            String u = String.valueOf(usernameField.getText());
-            String p = String.valueOf(passwordField.getText());
+            String u = usernameField.getText().toString();
+            String p = passwordField.getText().toString();
 
             if (dataSnapshot.hasChild(u)) {
-                Log.e("createAccount.java", "Username has already been taken");
+                Toast.makeText(createAccount.this, "Username has already been taken", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -66,7 +62,7 @@ public class createAccount extends AppCompatActivity {
                 Database db = new Database();
                 db.write("customers/" + u, c, successListener, failureListener);
             } else {
-                Log.e("createAccount.java", "Invalid entry");
+                Toast.makeText(createAccount.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -76,7 +72,7 @@ public class createAccount extends AppCompatActivity {
         }
     };
 
-    OnSuccessListener successListener = new OnSuccessListener() {
+    OnSuccessListener<? super Object> successListener = new OnSuccessListener<Object>() {
         @Override
         public void onSuccess(Object o) {
             Intent intent = new Intent(createAccount.this, HomePage.class);

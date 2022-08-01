@@ -1,0 +1,11 @@
+Name: Chelsea Chan
+
+What have you done since yesterday?
+	- Implemented adapter class for venues
+	- trying to populate recycleView with Firebase data
+
+What are you planning on doing today?
+	- finish VenueList activity
+
+Any impediments or stumbling blocks?
+	- data fetched from Firebase is null
