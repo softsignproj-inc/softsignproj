@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -82,7 +83,7 @@ public class SignIn extends AppCompatActivity {
                         Intent intent = new Intent(SignIn.this, AdminPage.class);
                         startActivity(intent);
                     } else {
-                        Log.e("Sign in", "Incorrect password");
+                        Toast.makeText(SignIn.this, "Incorrect password", Toast.LENGTH_SHORT).show();
                     }
 
                 } else {
@@ -92,12 +93,12 @@ public class SignIn extends AppCompatActivity {
                         Intent intent = new Intent(SignIn.this, HomePage.class);
                         startActivity(intent);
                     } else {
-                        Log.e("Sign in", "Incorrect password");
+                        Toast.makeText(SignIn.this, "Incorrect password", Toast.LENGTH_SHORT).show();
                     }
                 }
 
             } else {
-                Log.e("Sign in", "User does not exist");
+                Toast.makeText(SignIn.this, "User does not exist", Toast.LENGTH_SHORT).show();
             }
         }
 

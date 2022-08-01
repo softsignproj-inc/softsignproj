@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.softsignproj.data.Customer;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -52,7 +53,7 @@ public class createAccount extends AppCompatActivity {
             String p = passwordField.getText().toString();
 
             if (dataSnapshot.hasChild(u)) {
-                Log.e("createAccount.java", "Username has already been taken");
+                Toast.makeText(createAccount.this, "Username has already been taken", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -61,7 +62,7 @@ public class createAccount extends AppCompatActivity {
                 Database db = new Database();
                 db.write("customers/" + u, c, successListener, failureListener);
             } else {
-                Log.e("createAccount.java", "Invalid entry");
+                Toast.makeText(createAccount.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
             }
         }
 
