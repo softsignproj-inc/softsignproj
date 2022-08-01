@@ -34,13 +34,13 @@ public class AdminEventPageActivity extends Activity implements AdapterView.OnIt
 
         ArrayList<String> display_venues = new ArrayList<>();
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("venue");
+        /*DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("venues");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 display_venues.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    display_venues.add(snapshot.child("venueName").getValue().toString());
+                    display_venues.add(snapshot.getValue().toString());
                 }
             }
 
@@ -48,7 +48,9 @@ public class AdminEventPageActivity extends Activity implements AdapterView.OnIt
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
+        });*/
+
+
 
         Spinner spinner = findViewById(R.id.spinner);
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, display_venues); //selected item will look like a spinner set from XML
