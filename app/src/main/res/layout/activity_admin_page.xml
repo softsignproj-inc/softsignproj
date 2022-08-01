@@ -17,13 +17,12 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_marginTop="24dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
         android:gravity="center"
         android:ems="10"
         android:enabled="true"
         android:text="@string/manage_venues"/>
-
 
     <Button
         style="?attr/materialButtonStyle"
@@ -32,13 +31,12 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_marginTop="24dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
         android:ems="10"
         android:gravity="center"
         android:enabled="true"
         android:text="@string/schedule_a_venue"/>
-
 
     <Button
         style="?attr/materialButtonStyle"
@@ -47,8 +45,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_marginTop="24dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
         android:ems="10"
         android:gravity="center"
         android:enabled="true"

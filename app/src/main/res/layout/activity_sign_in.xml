@@ -69,7 +69,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:enabled="true"
-            android:text="@string/create_account" />
+            android:text="@string/don_t_have_an_account" />
 
         <Button
             android:id="@+id/signInButton"

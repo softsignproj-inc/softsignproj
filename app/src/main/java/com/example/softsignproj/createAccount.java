@@ -37,11 +37,6 @@ public class createAccount extends AppCompatActivity {
         createAccountButton.setOnClickListener(clickListener);
     }
 
-    public void openPage(View view) {
-        Intent intent = new Intent(this, HomePage.class);
-        startActivity(intent);
-    }
-
     View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -53,8 +48,8 @@ public class createAccount extends AppCompatActivity {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-            String u = String.valueOf(usernameField.getText());
-            String p = String.valueOf(passwordField.getText());
+            String u = usernameField.getText().toString();
+            String p = passwordField.getText().toString();
 
             if (dataSnapshot.hasChild(u)) {
                 Log.e("createAccount.java", "Username has already been taken");
@@ -76,7 +71,7 @@ public class createAccount extends AppCompatActivity {
         }
     };
 
-    OnSuccessListener successListener = new OnSuccessListener() {
+    OnSuccessListener<? super Object> successListener = new OnSuccessListener<Object>() {
         @Override
         public void onSuccess(Object o) {
             Intent intent = new Intent(createAccount.this, HomePage.class);

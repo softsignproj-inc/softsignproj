@@ -52,6 +52,4 @@
         android:enabled="true"
         android:text="@string/my_events"/>
 
-
-
 </LinearLayout>

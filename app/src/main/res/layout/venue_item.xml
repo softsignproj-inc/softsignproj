@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/name_of_venue"
         android:textSize="40sp"
         android:layout_margin="6dp" />
 
