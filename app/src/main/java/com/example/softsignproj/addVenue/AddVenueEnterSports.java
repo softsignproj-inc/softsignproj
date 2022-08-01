@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AddVenueEnterSports extends AppCompatActivity {
 
@@ -49,7 +51,17 @@ public class AddVenueEnterSports extends AppCompatActivity {
     public void enterSport(View view){
         EditText inputField = (EditText)findViewById(R.id.addVenueEnterSport);
         String sport = inputField.getText().toString().trim();
+        Pattern venueNamePattern = Pattern.compile("\\w+");
+        Matcher matcher = venueNamePattern.matcher(sport);
+        if (!matcher.matches()){
+            ((TextView) findViewById(R.id.addVenueErrorPlaceholder2)).setText("Sport names may only contain letters, digits and whitespaces");
+            return;
+        }
         if (!sport.equals("")){
+            if (selectedSports.contains(sport)){
+                ((TextView) findViewById(R.id.addVenueErrorPlaceholder2)).setText(sport + "already added");
+                return;
+            }
             selectedSports.add(0, sport);
             adapter.notifyItemInserted(0);
             System.out.println(" sport entered " + sport);
@@ -60,6 +72,7 @@ public class AddVenueEnterSports extends AppCompatActivity {
     }
 
     public void update(){
+        ((TextView) findViewById(R.id.addVenueErrorPlaceholder2)).setText("");
         ((TextView)findViewById(R.id.addVenueNumberOfSports)).setText(String.valueOf(selectedSports.getSize()));
     }
 

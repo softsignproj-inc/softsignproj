@@ -45,12 +45,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addVenueErrorPlaceholder"
-        app:layout_constraintVertical_bias="0.058" />
+        app:layout_constraintVertical_bias="0.075" />
 
     <TextView
         android:id="@+id/addVenueErrorPlaceholder"
-        android:layout_width="331dp"
-        android:layout_height="24dp"
+        android:layout_width="369dp"
+        android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:textAlignment="center"
         android:textColor="#42007C"

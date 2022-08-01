@@ -34,4 +34,8 @@ public class AddVenueListManager<E> {
         return list.size();
     }
 
+    public boolean contains(E item){
+        return list.contains(item);
+    }
+
 }
