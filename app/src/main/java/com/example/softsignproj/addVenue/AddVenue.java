@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
 public class AddVenue extends AppCompatActivity {
 
     private Database db;
-
+    private Database db2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +48,6 @@ public class AddVenue extends AppCompatActivity {
                 } else {
                     System.out.println("New Venue " + venueName);
                     Intent intent = new Intent(this, AddVenueEnterSports.class);
-
                     db.read("venue", new OnSuccessListener<Object>() {
                         @Override
                         public void onSuccess(Object o) {
@@ -65,7 +64,7 @@ public class AddVenue extends AppCompatActivity {
                         public void onFailure(@NonNull Exception e) {
                             ((TextView) findViewById(R.id.addVenueErrorPlaceholder)).setText("Error reading from database.");
                         }
-                    });
+                    }, false);
                 }
             }
         }

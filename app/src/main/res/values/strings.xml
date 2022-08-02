@@ -6,6 +6,7 @@
     <string name="create_account">Create Account</string>
     <string name="i_am_an_admin">I am an admin</string>
     <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="preference_file_key">com.example.softsignproj.PREFERENCE_FILE_KEY</string>
     <string name="name_of_venue">Name of venue</string>
     <string name="manage_venues">Manage Venues</string>
     <string name="schedule_a_venue">Schedule a Venue</string>
