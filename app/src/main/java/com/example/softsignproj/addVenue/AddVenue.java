@@ -23,13 +23,15 @@ import java.util.regex.Pattern;
 public class AddVenue extends AppCompatActivity {
 
     private Database db;
-
+    private Database db2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_venue);
         db = new Database();
         CreateVenue.setDatabase(db);
+        db2 = new Database();
+
     }
 
     public void onEnter(View view){
@@ -55,6 +57,13 @@ public class AddVenue extends AppCompatActivity {
                             HashMap<String, Venue> listOfVenues = (HashMap<String, Venue>) o;
                             if (!listOfVenues.containsKey(venueName)) {
                                 CreateVenue.setVenueName(venueName);
+                                Database db2 = new Database();
+                                db2.write("testtesttest", "testo" + venueName, new OnSuccessListener<Object>() {
+                                    @Override
+                                    public void onSuccess(Object o) {
+                                        System.out.println("TESTETSTESTTSETEST");
+                                    }
+                                }, null);
                                 startActivity(intent);
                             } else {
                                 ((TextView) findViewById(R.id.addVenueErrorPlaceholder)).setText(venueName + " already exists.");
@@ -65,7 +74,7 @@ public class AddVenue extends AppCompatActivity {
                         public void onFailure(@NonNull Exception e) {
                             ((TextView) findViewById(R.id.addVenueErrorPlaceholder)).setText("Error reading from database.");
                         }
-                    });
+                    }, false);
                 }
             }
         }

@@ -51,9 +51,9 @@ public class SignIn extends AppCompatActivity {
                 String u = usernameField.getText().toString();
 
                 if (adminMode) {
-                    db.read("administrator/" + u, successListener, failureListener);
+                    db.read("administrator/" + u, successListener, failureListener, false);
                 } else {
-                    db.read("customer/" + u, successListener, failureListener);
+                    db.read("customer/" + u, successListener, failureListener, false);
                 }
             }
         });

@@ -1,5 +1,6 @@
 package com.example.softsignproj;
 
+import android.renderscript.Sampler;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -15,22 +16,21 @@ import com.google.firebase.database.ValueEventListener;
 public class Database {
 
     private FirebaseDatabase database;
-    private DatabaseReference ref;
+    private static DatabaseReference ref = FirebaseDatabase.getInstance("https://softsignproj-default-rtdb.firebaseio.com/").getReference();
     private Object retrievedData;
 
 
     public Database(){
         database = FirebaseDatabase.getInstance("https://softsignproj-default-rtdb.firebaseio.com/");
-        ref = database.getReference();
+        //ref = database.getReference();
     }
 
     public void write(String path, Object value, OnSuccessListener<? super Object> onSuccess, OnFailureListener onFailure){
         ref.child(path).setValue(value).addOnSuccessListener(onSuccess).addOnFailureListener(onFailure);
     }
 
-    public void read(String path, OnSuccessListener<? super Object> onSuccess, OnFailureListener onFailure){
-        DatabaseReference ref = database.getReference();
-        ref.addValueEventListener(new ValueEventListener() {
+    public void read(String path, OnSuccessListener<? super Object> onSuccess, OnFailureListener onFailure, boolean continuous){
+        ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 DataSnapshot data = dataSnapshot.child(path);
@@ -44,7 +44,12 @@ public class Database {
                 Exception e = databaseError.toException();
                 onFailure.onFailure(e);
             }
-        });
+        };
+        if (continuous){
+            ref.addValueEventListener(valueEventListener);
+        } else {
+            ref.addListenerForSingleValueEvent(valueEventListener);
+        }
     }
 
     public void delete(String path, OnSuccessListener<? super Object> onSuccess, OnFailureListener onFailure){
