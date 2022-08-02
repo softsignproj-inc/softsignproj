@@ -60,7 +60,7 @@ public class AddVenueEnterSports extends AppCompatActivity {
         }
         if (!sport.equals("")){
             if (selectedSports.contains(sport)){
-                ((TextView) findViewById(R.id.addVenueErrorPlaceholder2)).setText(sport + "already added");
+                ((TextView) findViewById(R.id.addVenueErrorPlaceholder2)).setText(sport + " already added");
                 return;
             }
             selectedSports.add(0, sport);
