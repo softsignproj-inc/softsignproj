@@ -31,7 +31,7 @@ public class VenueList extends AppCompatActivity {
 
         venues = new ArrayList<>();
         Database db = new Database();
-        DatabaseReference venueList = FirebaseDatabase.getInstance("https://softsignproj-default-rtdb.firebaseio.com/").getReference("venues");
+        DatabaseReference venueList = FirebaseDatabase.getInstance("https://softsignproj-default-rtdb.firebaseio.com/").getReference("venue");
         venueList.addValueEventListener(eventListener);
     }
 

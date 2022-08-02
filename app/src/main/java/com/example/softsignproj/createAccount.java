@@ -28,6 +28,7 @@ import java.util.HashMap;
 public class createAccount extends AppCompatActivity {
     private DatabaseReference customers;
     private EditText usernameField, passwordField;
+    private Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,8 @@ public class createAccount extends AppCompatActivity {
 
         Button createAccountButton = findViewById(R.id.createAccountButton);
         createAccountButton.setOnClickListener(clickListener);
+
+        toast = Toast.makeText(getApplicationContext(), null, Toast.LENGTH_SHORT);
     }
 
     View.OnClickListener clickListener = new View.OnClickListener() {
@@ -58,7 +61,9 @@ public class createAccount extends AppCompatActivity {
             String p = passwordField.getText().toString();
 
             if (dataSnapshot.hasChild(u)) {
-                Toast.makeText(createAccount.this, "Username has already been taken", Toast.LENGTH_SHORT).show();
+                toast.setText("Username has already been taken");
+                toast.show();
+
             } else {
                 if (u.matches("\\w{6,}") && p.length() >= 6 && !p.contains("\\s")) {
                     HashMap<String, String> userInfo = new HashMap<>();
@@ -66,10 +71,12 @@ public class createAccount extends AppCompatActivity {
                     Database db = new Database();
                     db.write("customer/" + u, userInfo, successListener, failureListener);
 
-                    Toast.makeText(createAccount.this, "Account creation successful", Toast.LENGTH_SHORT).show();
+                    toast.setText("Account creation successful");
+                    toast.show();
 
                 } else {
-                    Toast.makeText(createAccount.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+                    toast.setText("Invalid username or password");
+                    toast.show();
                 }
             }
         }

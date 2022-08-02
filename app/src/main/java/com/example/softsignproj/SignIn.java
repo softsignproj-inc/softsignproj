@@ -24,6 +24,7 @@ public class SignIn extends AppCompatActivity {
     private Button signUpButton;
     private boolean adminMode;
     private SharedPreferences sharedPref;
+    private Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,33 +34,38 @@ public class SignIn extends AppCompatActivity {
         usernameField = findViewById(R.id.usernameField);
         passwordField = findViewById(R.id.passwordField);
 
-        Button signInButton = findViewById(R.id.signInButton);
         signUpButton = findViewById(R.id.signUpButton);
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignIn.this, createAccount.class);
+                startActivity(intent);
+            }
+        });
 
-        signInButton.setOnClickListener(clickListener1);
-        signUpButton.setOnClickListener(clickListener2);
+        Button signInButton = findViewById(R.id.signInButton);
+        signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Database db = new Database();
+                String u = usernameField.getText().toString();
+
+                if (adminMode) {
+                    db.read("administrator/" + u, successListener, failureListener);
+                } else {
+                    db.read("customer/" + u, successListener, failureListener);
+                }
+            }
+        });
 
         adminMode = false;
         SwitchMaterial adminToggle = findViewById(R.id.adminToggle);
         adminToggle.setOnCheckedChangeListener(changeListener);
 
+        toast = Toast.makeText(getApplicationContext(), null, Toast.LENGTH_SHORT);
+
         sharedPref = SignIn.this.getSharedPreferences(getString(R.string.preference_file_key), MODE_PRIVATE);
     }
-
-    View.OnClickListener clickListener1 = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-
-            Database db = new Database();
-            String u = usernameField.getText().toString();
-
-            if (adminMode) {
-                db.read("administrator/" + u, successListener, failureListener);
-            } else {
-                db.read("customer/" + u, successListener, failureListener);
-            }
-        }
-    };
 
     OnSuccessListener<? super Object> successListener = new OnSuccessListener<Object>() {
         @Override
@@ -74,7 +80,8 @@ public class SignIn extends AppCompatActivity {
                 userInfo = (HashMap<String, Object>) retrievedData;
 
                 if (userInfo.containsKey("password") && Objects.requireNonNull(userInfo.get("password")).toString().equals(p)) {
-                    Toast.makeText(SignIn.this, "Sign in successful", Toast.LENGTH_SHORT).show();
+                    toast.setText("Sign in successful");
+                    toast.show();
 
                     SharedPreferences.Editor editor = sharedPref.edit();
                     editor.putString("Users", u);
@@ -89,7 +96,8 @@ public class SignIn extends AppCompatActivity {
                     startActivity(intent);
 
                 } else {
-                    Toast.makeText(SignIn.this, "Incorrect password", Toast.LENGTH_SHORT).show();
+                    toast.setText("Incorrect password");
+                    toast.show();
                 }
             }
         }
@@ -98,15 +106,8 @@ public class SignIn extends AppCompatActivity {
     OnFailureListener failureListener = new OnFailureListener() {
         @Override
         public void onFailure(@NonNull Exception e) {
-            Toast.makeText(SignIn.this, "User does not exist", Toast.LENGTH_SHORT).show();
-        }
-    };
-
-    View.OnClickListener clickListener2 = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) { 
-            Intent intent = new Intent(SignIn.this, createAccount.class);
-            startActivity(intent);
+            toast.setText("User does not exist");
+            toast.show();
         }
     };
 
