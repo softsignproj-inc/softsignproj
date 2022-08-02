@@ -16,13 +16,13 @@ import com.google.firebase.database.ValueEventListener;
 public class Database {
 
     private FirebaseDatabase database;
-    private static DatabaseReference ref = FirebaseDatabase.getInstance("https://softsignproj-default-rtdb.firebaseio.com/").getReference();
+    private DatabaseReference ref;
     private Object retrievedData;
 
 
     public Database(){
         database = FirebaseDatabase.getInstance("https://softsignproj-default-rtdb.firebaseio.com/");
-        //ref = database.getReference();
+        ref = database.getReference();
     }
 
     public void write(String path, Object value, OnSuccessListener<? super Object> onSuccess, OnFailureListener onFailure){
@@ -30,6 +30,7 @@ public class Database {
     }
 
     public void read(String path, OnSuccessListener<? super Object> onSuccess, OnFailureListener onFailure, boolean continuous){
+        ref = database.getReference();
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

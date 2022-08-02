@@ -30,8 +30,6 @@ public class AddVenue extends AppCompatActivity {
         setContentView(R.layout.activity_add_venue);
         db = new Database();
         CreateVenue.setDatabase(db);
-        db2 = new Database();
-
     }
 
     public void onEnter(View view){
@@ -50,20 +48,12 @@ public class AddVenue extends AppCompatActivity {
                 } else {
                     System.out.println("New Venue " + venueName);
                     Intent intent = new Intent(this, AddVenueEnterSports.class);
-
                     db.read("venue", new OnSuccessListener<Object>() {
                         @Override
                         public void onSuccess(Object o) {
                             HashMap<String, Venue> listOfVenues = (HashMap<String, Venue>) o;
                             if (!listOfVenues.containsKey(venueName)) {
                                 CreateVenue.setVenueName(venueName);
-                                Database db2 = new Database();
-                                db2.write("testtesttest", "testo" + venueName, new OnSuccessListener<Object>() {
-                                    @Override
-                                    public void onSuccess(Object o) {
-                                        System.out.println("TESTETSTESTTSETEST");
-                                    }
-                                }, null);
                                 startActivity(intent);
                             } else {
                                 ((TextView) findViewById(R.id.addVenueErrorPlaceholder)).setText(venueName + " already exists.");
