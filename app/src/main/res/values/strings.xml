@@ -14,5 +14,5 @@
 
     <!-- Strings related to admin event page -->
     <string name="filter">Filter by venue:</string>
-
+    <string name="default_spinner">All venues</string>
 </resources>

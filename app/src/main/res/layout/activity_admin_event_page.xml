@@ -25,6 +25,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="5dp"
+        android:contentDescription="@string/default_spinner"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView" />
