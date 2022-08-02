@@ -34,6 +34,12 @@ public class VenueAdapter extends RecyclerView.Adapter<VenueViewHolder> {
     public void onBindViewHolder(@NonNull VenueViewHolder holder, int position) {
         Venue venue = venues.get(position);
         holder.getVenueName().setText(venue.getVenue_name());
+        ArrayList<String> sportsList = venue.getSports();
+        String sports = "";
+        for (String a: sportsList){
+            sports = sports + a + '\n';
+        }
+        holder.getSportsList().setText(sports);
     }
 
     @Override
