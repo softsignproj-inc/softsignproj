@@ -1,0 +1,22 @@
+Name: Catherine Sun
+
+What have you done since yesterday?
+	- Fixed success listener bug
+
+What are you planning on doing today?
+	- Add ui layout for notifying user of incorrect sign in info
+  
+Any impediments or stumbling blocks?
+	- nil
+	
+Name: Christine Zhao
+
+What have you done since yesterday?
+	- Changed layout
+
+What are you planning on doing today?
+	- nothing
+  
+Any impediments or stumbling blocks?
+	- nil
+

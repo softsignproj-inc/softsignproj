@@ -1,0 +1,10 @@
+Name: Catherine Sun
+
+What have you done since yesterday?
+	- Added error messages for incorrect input
+  
+What are you planning on doing today?
+	- Look into changing home page layout into tabs
+
+Any impediments or stumbling blocks?
+	- nil
