@@ -8,3 +8,15 @@ What are you planning on doing today?
   
 Any impediments or stumbling blocks?
 	- nil
+	
+Name: Catherine Sun
+
+What have you done since yesterday?
+	- Changed layout
+
+What are you planning on doing today?
+	- nothing
+  
+Any impediments or stumbling blocks?
+	- nil
+
