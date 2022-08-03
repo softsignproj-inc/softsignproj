@@ -20,3 +20,14 @@ What are you planning on doing today?
   
 Any impediments or stumbling blocks?
 	- Sign in success listener kept being run whenever someone wrote to database
+
+Name: Chelsea Chan
+
+What have you done since yesterday?
+	- reading venue data from database
+
+What are you planning on doing today?
+	- finish VenueList activity
+
+Any impediments or stumbling blocks?
+	- nil
