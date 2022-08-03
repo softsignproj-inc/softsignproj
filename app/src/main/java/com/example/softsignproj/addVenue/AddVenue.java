@@ -28,28 +28,26 @@ import java.util.regex.Pattern;
 public class AddVenue extends AppCompatActivity {
 
     private Database db;
-    private Database db2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_venue);
         db = new Database();
         CreateVenue.setDatabase(db);
-        ActionBar bar = getSupportActionBar();
-
     }
 
     public void onEnter(View view){
         if (view.getId() == R.id.addVenueNextButton){
-
-            String venueName = ((EditText)findViewById(R.id.addVenueNameInput)).getText().toString();
+            EditText inputField = (EditText)findViewById(R.id.addVenueNameInput);
+            String venueName = inputField.getText().toString();
             System.out.println("New Venue " + venueName);
             if (!venueName.equals("")) {
 
                 Pattern venueNamePattern = Pattern.compile("[A-Za-z\\d\\s]+");
                 Matcher matcher = venueNamePattern.matcher(venueName);
                 if (!matcher.matches()) {
-                    ((TextView) findViewById(R.id.addVenueErrorPlaceholder)).setText("Name may only contain letters, digits and whitespaces");
+                    inputField.setError("Name may only contain letters, digits and whitespaces");
+                    //((TextView) findViewById(R.id.addVenueErrorPlaceholder)).setText("Name may only contain letters, digits and whitespaces");
                 } else if (venueName.equalsIgnoreCase("sports") || venueName.equalsIgnoreCase("events")){
                     ((TextView) findViewById(R.id.addVenueErrorPlaceholder)).setText("Name cannot be 'sports' or 'events'");
                 } else {

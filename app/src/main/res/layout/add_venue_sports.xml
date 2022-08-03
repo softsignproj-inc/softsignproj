@@ -7,23 +7,25 @@
 
     <TextView
         android:id="@+id/sportName"
-        android:layout_width="252dp"
-        android:layout_height="22dp"
+        android:layout_width="333dp"
+        android:layout_height="31dp"
         android:text="TextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/addVenueSportsRemoveButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/addVenueSportsRemoveButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/addVenueSportsRemoveButton"
-        android:layout_width="102dp"
-        android:layout_height="37dp"
+        android:layout_width="23dp"
+        android:layout_height="21dp"
         android:layout_marginTop="4dp"
+        android:background="@drawable/remove_button_circle"
         android:onClick="removeSport"
-        android:text="REMOVE"
-        android:textSize="12sp"
+        android:src="@drawable/remove_sport_button"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/sportName"
