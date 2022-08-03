@@ -61,23 +61,23 @@ public class createAccount extends AppCompatActivity {
             String p = passwordField.getText().toString();
 
             if (dataSnapshot.hasChild(u)) {
-                toast.setText("Username has already been taken");
+                usernameField.setError("Username has already been taken");
+            }
+
+            if (p.length() < 6 || p.contains("\\s")) {
+                passwordField.setError("Password must be at least 6 characters and must not contain any whitespace");
+            }
+
+            if (u.matches("\\w{6,}")) {
+                HashMap<String, String> userInfo = new HashMap<>();
+                userInfo.put("password", p);
+                Database db = new Database();
+                db.write("customer/" + u, userInfo, successListener, failureListener);
+
+                toast.setText("Account creation successful");
                 toast.show();
-
             } else {
-                if (u.matches("\\w{6,}") && p.length() >= 6 && !p.contains("\\s")) {
-                    HashMap<String, String> userInfo = new HashMap<>();
-                    userInfo.put("password", p);
-                    Database db = new Database();
-                    db.write("customer/" + u, userInfo, successListener, failureListener);
-
-                    toast.setText("Account creation successful");
-                    toast.show();
-
-                } else {
-                    toast.setText("Invalid username or password");
-                    toast.show();
-                }
+                usernameField.setError("Username must be at least 6 characters");
             }
         }
 

@@ -21,30 +21,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/usernameField"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="120dp"
-            android:layout_marginEnd="8dp"
-            android:autofillHints="emailAddress"
-            android:ems="10"
-            android:hint="@string/prompt_user"
-            android:inputType="textEmailAddress"
-            android:selectAllOnFocus="true" />
+            android:layout_marginBottom="4dp"
+            app:endIconMode="clear_text" >
 
-        <EditText
-            android:id="@+id/passwordField"
+            <EditText
+                android:id="@+id/usernameField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:autofillHints="emailAddress"
+                android:hint="@string/prompt_user"
+                android:inputType="textEmailAddress"
+                android:selectAllOnFocus="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_weight="1"
-            android:autofillHints="password"
-            android:ems="10"
-            android:hint="@string/prompt_password"
-            android:inputType="textPassword"
-            android:selectAllOnFocus="true" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp" >
+
+            <EditText
+                android:id="@+id/passwordField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:autofillHints="password"
+                android:hint="@string/prompt_password"
+                android:inputType="textPassword"
+                android:selectAllOnFocus="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 
@@ -65,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             android:layout_weight="1"
             android:ems="10"
             android:enabled="true"
@@ -78,7 +93,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="fill_vertical"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_weight="1"
             android:ems="10"
             android:enabled="true"
