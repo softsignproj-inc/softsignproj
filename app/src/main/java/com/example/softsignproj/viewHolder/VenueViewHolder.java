@@ -12,24 +12,20 @@ import com.example.softsignproj.adapter.VenueAdapter;
 public class VenueViewHolder extends RecyclerView.ViewHolder{
     private final VenueAdapter venueAdapter;
     private final TextView venueName;
+    private final TextView sportsList;
 
     public VenueViewHolder(VenueAdapter venueAdapter, @NonNull View view) {
         super(view);
         this.venueAdapter = venueAdapter;
         venueName = view.findViewById(R.id.venueItem);
-        view.setOnClickListener(clickListener);
+        sportsList = view.findViewById(R.id.sportsList);
     }
 
     public TextView getVenueName() {
         return venueName;
     }
 
-    View.OnClickListener clickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            if (venueAdapter.getVenueListener() != null) {
-                venueAdapter.getVenueListener().onVenueClick(view);
-            }
-        }
-    };
+    public TextView getSportsList() {
+        return sportsList;
+    }
 }

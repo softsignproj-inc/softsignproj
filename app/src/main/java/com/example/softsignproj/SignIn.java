@@ -104,7 +104,7 @@ public class SignIn extends AppCompatActivity {
                     toast.show();
 
                     SharedPreferences.Editor editor = sharedPref.edit();
-                    editor.putString("Users", u);
+                    editor.putString("Current User", u);
                     editor.apply();
 
                     Intent intent;
