@@ -1,6 +1,8 @@
 package com.example.softsignproj.addVenue;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,8 +11,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.softsignproj.AdminPage;
 import com.example.softsignproj.Database;
+import com.example.softsignproj.HomePage;
 import com.example.softsignproj.R;
+import com.example.softsignproj.SignIn;
 import com.example.softsignproj.data.model.Venue;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -30,6 +35,8 @@ public class AddVenue extends AppCompatActivity {
         setContentView(R.layout.activity_add_venue);
         db = new Database();
         CreateVenue.setDatabase(db);
+        ActionBar bar = getSupportActionBar();
+
     }
 
     public void onEnter(View view){
@@ -69,4 +76,5 @@ public class AddVenue extends AppCompatActivity {
             }
         }
     }
+
 }

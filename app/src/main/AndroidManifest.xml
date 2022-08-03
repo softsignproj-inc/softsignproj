@@ -41,7 +41,7 @@
         <activity
             android:name=".addVenue.AddVenue"
             android:exported="true"
-            android:parentActivityName=".HomePage" />
+            android:parentActivityName=".AdminPage" />
         <activity
             android:name=".addVenue.AddVenueEnterSports"
             android:exported="true"

@@ -52,7 +52,7 @@ public class AddVenueEnterSports extends AppCompatActivity {
     public void enterSport(View view){
         EditText inputField = (EditText)findViewById(R.id.addVenueEnterSport);
         String sport = inputField.getText().toString().trim();
-        Pattern venueNamePattern = Pattern.compile("\\w+");
+        Pattern venueNamePattern = Pattern.compile("[\\w|\\s]+");
         Matcher matcher = venueNamePattern.matcher(sport);
         if (!matcher.matches()){
             ((TextView) findViewById(R.id.addVenueErrorPlaceholder2)).setText("Sport names may only contain letters, digits and whitespaces");
