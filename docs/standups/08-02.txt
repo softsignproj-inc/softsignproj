@@ -1,0 +1,10 @@
+Name: Catherine Sun
+
+What have you done since yesterday?
+	- Fixed success listener bug
+
+What are you planning on doing today?
+	- Add ui layout for notifying user of incorrect sign in info
+  
+Any impediments or stumbling blocks?
+	- nil
