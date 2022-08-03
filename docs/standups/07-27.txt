@@ -51,3 +51,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nill
+
+Name:Christine Zhao
+
+What have you done since yesterday?
+	- learn about android
+
+What are you planning on doing today?
+	- start coding
+
+Any impediments or stumbling blocks?
+	- nill
