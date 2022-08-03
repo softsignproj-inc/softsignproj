@@ -1,0 +1,11 @@
+Name: Catherine Sun
+
+What have you done since yesterday?
+	- Created a toggle for administrators to sign in
+  - Created a recycler view to read venue info from Firebase
+
+What are you planning on doing today?
+	- Wrote locally logged in usernames to a shared preference file
+  
+Any impediments or stumbling blocks?
+	- Sign in success listener kept being run whenever someone wrote to database
