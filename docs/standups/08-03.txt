@@ -8,3 +8,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nil
+
+Name: Chelsea Chan
+
+What have you done since yesterday?
+	- nothing
+
+What are you planning on doing today?
+	- impleminting scedule activity method
+
+Any impediments or stumbling blocks?
+	- nil
