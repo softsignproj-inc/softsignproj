@@ -9,3 +9,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- data fetched from Firebase is null
+
+Name: Catherine Sun
+
+What have you done since yesterday?
+	- Created a basic sign in page for new users
+
+What are you planning on doing today?
+	- Create a way for administrators to sign in
+
+Any impediments or stumbling blocks?
+	- nil
