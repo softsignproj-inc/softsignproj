@@ -20,3 +20,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nil
+
+Name: Sarah Liu
+
+What have you done since yesterday?
+	- made the activity and learning about RecyclerView
+
+What are you planning on doing today?
+	- make classes for RecyclerView
+	
+Any impediments or stumbling blocks?
+	- nil
