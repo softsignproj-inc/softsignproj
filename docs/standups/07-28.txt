@@ -51,3 +51,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- Other courses
+	
+Name: Daniel Grishanov
+
+What have you done since yesterday?
+	- read the handly links provided by Navinn, as well as some Firebase documentation
+
+What are you planning on doing today?
+	- Add user story to Jira, create some subtasks
+
+Any impediments or stumbling blocks?
+	- nill
