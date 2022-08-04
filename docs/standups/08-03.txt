@@ -19,3 +19,13 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nil
+
+Name: Daniel Grishanov
+
+What have you done since yesterday?
+	- nothing
+
+What are you planning on doing today?
+	- display retrieved info from database to recyclerView, fix issue with data not displaying on app start
+Any impediments or stumbling blocks?
+	- issues with type conversion when retrieving from database
