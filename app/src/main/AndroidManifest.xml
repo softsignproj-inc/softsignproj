@@ -14,9 +14,12 @@
         android:theme="@style/Theme.Softsignproj"
         tools:targetApi="31">
         <activity
+            android:name=".MyEvents"
+            android:exported="false" />
+        <activity
             android:name=".AdminPage"
             android:exported="false"
-            android:parentActivityName=".SignIn"/>
+            android:parentActivityName=".SignIn" />
         <activity
             android:name=".VenueList"
             android:exported="false"
