@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 
+import com.example.softsignproj.adapter.VenueAdapter;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.switchmaterial.SwitchMaterial;
@@ -51,30 +52,33 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String u = usernameField.getText().toString();
-                String p = passwordField.getText().toString();
+                Intent intent = new Intent(SignIn.this, MyEvents.class);
+                startActivity(intent);
 
-                if (u.matches("")) {
-                    usernameField.setError("Username cannot be empty");
-                    //usernameField.setBackgroundResource(R.drawable.invalid_input_border);
-                }
-
-                if (p.matches("")) {
-                    passwordField.setError("Password cannot be empty");
-                }
-
-                if (usernameField.getError() != null || passwordField.getError() != null) {
-                    usernameField.clearFocus();
-                    passwordField.clearFocus();
-                    return;
-                }
-
-                Database db = new Database();
-                if (adminMode) {
-                    db.read("administrator/" + u, successListener, failureListener, false);
-                } else {
-                    db.read("customer/" + u, successListener, failureListener, false);
-                }
+//                String u = usernameField.getText().toString();
+//                String p = passwordField.getText().toString();
+//
+//                if (u.matches("")) {
+//                    usernameField.setError("Username cannot be empty");
+//                    //usernameField.setBackgroundResource(R.drawable.invalid_input_border);
+//                }
+//
+//                if (p.matches("")) {
+//                    passwordField.setError("Password cannot be empty");
+//                }
+//
+//                if (usernameField.getError() != null || passwordField.getError() != null) {
+//                    usernameField.clearFocus();
+//                    passwordField.clearFocus();
+//                    return;
+//                }
+//
+//                Database db = new Database();
+//                if (adminMode) {
+//                    db.read("administrator/" + u, successListener, failureListener, false);
+//                } else {
+//                    db.read("customer/" + u, successListener, failureListener, false);
+//                }
             }
         });
 

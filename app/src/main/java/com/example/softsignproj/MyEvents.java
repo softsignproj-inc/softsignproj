@@ -41,7 +41,6 @@ public class MyEvents extends AppCompatActivity {
         DatabaseReference scheduledEventList = FirebaseDatabase.getInstance("https://softsignproj-default-rtdb.firebaseio.com/").getReference("customer/username1/scheduledEvents");
         joinedEventList.addValueEventListener(eventListener1);
         scheduledEventList.addValueEventListener(eventListener2);
-
     }
 
     ValueEventListener eventListener1 = new ValueEventListener() {
@@ -54,9 +53,8 @@ public class MyEvents extends AppCompatActivity {
 
                 if (obj instanceof HashMap) {
                     HashMap<String, Object> eventInfo = (HashMap<String, Object>)obj;
-
+                    Log.e("testy",obj.toString());
                     String eventName = obj.toString();
-                    Log.e("testy",eventName);
                     String venue = "";
                     int currCount = 0;
                     int maxCount = 0;
@@ -95,7 +93,7 @@ public class MyEvents extends AppCompatActivity {
 
             if (myJoinedEvents != null) {
 
-                RecyclerView recyclerView = findViewById(R.id.venueRecycler);
+                RecyclerView recyclerView = findViewById(R.id.eventRecycler);
                 recyclerView.setLayoutManager(new LinearLayoutManager(MyEvents.this));
 
                 EventAdapter eventAdapter = new EventAdapter(myJoinedEvents, joinedEventsListener);
@@ -163,7 +161,7 @@ public class MyEvents extends AppCompatActivity {
 
             if (myScheduledEvents != null) {
 
-                RecyclerView recyclerView = findViewById(R.id.venueRecycler);
+                RecyclerView recyclerView = findViewById(R.id.eventRecycler);
                 recyclerView.setLayoutManager(new LinearLayoutManager(MyEvents.this));
 
                 EventAdapter eventAdapter = new EventAdapter(myScheduledEvents, scheduledEventsListener);
