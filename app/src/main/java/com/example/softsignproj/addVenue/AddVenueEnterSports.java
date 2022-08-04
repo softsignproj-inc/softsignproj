@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -86,6 +87,7 @@ public class AddVenueEnterSports extends AppCompatActivity {
             sportsStringList.add(selectedSports.get(i));
         }
 
+        Collections.sort(sportsStringList);
         CreateVenue.setSports(sportsStringList);
 
         Intent intent = new Intent(this, AddVenue.class);

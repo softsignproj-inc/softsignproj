@@ -8,7 +8,6 @@ import com.example.softsignproj.data.model.Venue;
 
 import java.util.ArrayList;
 
-import java.util.List;
 
 public class CreateVenue {
 
@@ -29,7 +28,6 @@ public class CreateVenue {
     }
 
     public static void writeToDatabase(OnSuccessListener<? super Object> onSuccess, OnFailureListener onFailure){
-
         Venue newVenue = new Venue();
         newVenue.setVenue_name(venueName);
         newVenue.setSports(sports);

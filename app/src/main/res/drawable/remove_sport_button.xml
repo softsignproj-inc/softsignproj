@@ -9,7 +9,7 @@
             android:pivotY="50%"
             android:toDegrees="45">
             <shape android:shape="rectangle">
-                <solid android:color="#FFFFFF" android:width="10dp" android:height="50dp"/>
+                <solid android:color="#D8D8D8" android:width="10dp" android:height="50dp"/>
                 <corners android:radius="5dp"/>
             </shape>
         </rotate>
@@ -21,9 +21,9 @@
             android:pivotY="50%"
             android:toDegrees="45">
             <shape android:shape="rectangle">
-                <solid android:color="#FFFFFF" android:width="10dp" android:height="50dp"/>
+                <solid android:color="#D8D8D8" android:width="10dp" android:height="50dp"/>
                 <corners android:radius="5dp"/>
-                <size android:width="2dp" android:height="12dp"/>
+                <size android:width="2.5dp" android:height="12dp"/>
             </shape>
 
         </rotate>
