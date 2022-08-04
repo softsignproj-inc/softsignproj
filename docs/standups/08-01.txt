@@ -31,3 +31,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nil
+
+Name: Ishaan Upadhyay
+
+What have you done since yesterday?
+	- Created custom RecyclerView adapter and RecyclerView item to display all loaded events 
+
+What are you planning on doing today?
+	- figure out fetching data from Firebase
+
+Any impediments or stumbling blocks?
+	- nil
