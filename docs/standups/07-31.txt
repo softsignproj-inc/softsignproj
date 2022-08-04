@@ -20,3 +20,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nil
+	
+Name: Catherine Sun
+
+What have you done since yesterday?
+	- Created activty and layout
+
+What are you planning on doing today?
+	- Write code for spinner
+	
+Any impediments or stumbling blocks?
+	- nil
