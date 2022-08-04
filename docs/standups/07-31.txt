@@ -31,3 +31,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- Can't test my code, Android emulator doesn't work
+	
+Name: Daniel Grishanov
+
+What have you done since yesterday?
+	- Created activty and layout
+
+What are you planning on doing today?
+	- Write code for spinner
+	
+Any impediments or stumbling blocks?
+	- nil
