@@ -67,4 +67,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         }
     }
+
+    public void updateEventsList(ArrayList<Event> evnts) {
+        events.clear();
+
+        events.addAll(evnts);
+        System.out.println(events.toString());
+        //this.notifyDataSetChanged();
+    }
 }

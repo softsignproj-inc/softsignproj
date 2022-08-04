@@ -36,8 +36,9 @@ import com.google.firebase.ktx.Firebase;
 
 public class AdminEventPageActivity extends Activity implements AdapterView.OnItemSelectedListener {
     private ArrayList<String> display_venues;
-    private ArrayList<Event> all_events;
+    private ArrayList<Event> all_events = new ArrayList<>();
     private ArrayList<Event> display_events;
+    private MyAdapter myAdapter = new MyAdapter(this, all_events);
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -48,16 +49,23 @@ public class AdminEventPageActivity extends Activity implements AdapterView.OnIt
         display_venues = new ArrayList<>();
         display_venues.add("All");
 
-        all_events = new ArrayList<>();
+        //all_events = new ArrayList<>();
         display_events = new ArrayList<>();
 
+        System.out.println("Outside listner");
+        System.out.println(all_events.toString());
 
-        //String id, int cur, int max, LocalDateTime start, LocalDateTime end, String sport, String venue
-       /* display_events.add(new Event("123", 0, 4, now, now, "Test Sport", "Test Venue"));
-        display_events.add(new Event("1234", 1, 4, now, now, "Test Sport 2", "Test Venue 2"));
+        Spinner spinner = findViewById(R.id.spinner);
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, display_venues); //selected item will look like a spinner set from XML
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerArrayAdapter);
+        spinner.setOnItemSelectedListener(this);
 
-        display_venues.add("Test Venue");
-        display_venues.add("Test Venue 2");*/
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        //MyAdapter myAdapter = new MyAdapter(this, all_events);
+        recyclerView.setAdapter(myAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        System.out.println("End");
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("venue");
         reference.addValueEventListener(new ValueEventListener() {
@@ -69,6 +77,7 @@ public class AdminEventPageActivity extends Activity implements AdapterView.OnIt
                     display_venues.add(snapshot.getKey());
                 }
                 System.out.println("In venues");
+                //myAdapter.updateEventsList(all_events);
             }
 
             @Override
@@ -81,29 +90,29 @@ public class AdminEventPageActivity extends Activity implements AdapterView.OnIt
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-ddTHH:mm");
-                //all_events.clear();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+                display_events.clear();
                 System.out.println("Entered Data change");
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     System.out.println("Entered loop");
                     System.out.println(snapshot.getKey());
-                    //int curCount = (int) snapshot.child("curCount").getValue();
-                    //int maxCount = (int) snapshot.child("maxCount").getValue();
-                    //String sport = (String) snapshot.child("sport").getValue();
-                    //String venue = (String) snapshot.child("venue").getValue();
-                    //LocalDateTime startTime = LocalDateTime.parse((String) snapshot.child("startTime").getValue(), formatter);
-                    //LocalDateTime endTime = LocalDateTime.parse((String) snapshot.child("endTime").getValue(), formatter);
+                    int currCount = Integer.parseInt(String.valueOf(snapshot.child("currCount").getValue()));
+                    int maxCount = Integer.parseInt(String.valueOf(snapshot.child("maxCount").getValue()));
+                    String sport = (String) snapshot.child("sport").getValue();
+                    String venue = (String) snapshot.child("venue").getValue();
+                    LocalDateTime startTime = LocalDateTime.parse((String) snapshot.child("startTime").getValue(), formatter);
+                    LocalDateTime endTime = LocalDateTime.parse((String) snapshot.child("endTime").getValue(), formatter);
 
-                    //System.out.println(curCount + " " + maxCount + " " + sport + " " + venue);
-                    LocalDateTime now = LocalDateTime.now();
                     //String id, int cur, int max, LocalDateTime start, LocalDateTime end, String sport, String venue
-                    //all_events.add(new Event(snapshot.getKey(), curCount, maxCount, startTime, endTime, sport, venue));
-                    //all_events.add(new Event(snapshot.getKey(), (Integer) snapshot.child("currCount").getValue(), (Integer) snapshot.child("maxCount").getValue(),
-                    //        now, now, "test", "test"));
-                    all_events.add(new Event("1", 1, 2, now, now, "test", "test"));
+                    display_events.add(new Event(snapshot.getKey(), currCount, maxCount, startTime, endTime, sport, venue));
                 }
+
                 System.out.println("Exited loop");
                 System.out.println(all_events.toString());
+
+                //display_events.addAll(all_events);
+                myAdapter.updateEventsList(display_events);
+                myAdapter.notifyDataSetChanged();
             }
 
 
@@ -113,23 +122,6 @@ public class AdminEventPageActivity extends Activity implements AdapterView.OnIt
             }
         });
 
-        LocalDateTime now = LocalDateTime.now();
-        System.out.println("Outside listner");
-        all_events.add(new Event("1", 1, 1, now, now, "tes1t", "test1"));
-        System.out.println(all_events.toString());
-
-        Spinner spinner = findViewById(R.id.spinner);
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, display_venues); //selected item will look like a spinner set from XML
-        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(spinnerArrayAdapter);
-        spinner.setOnItemSelectedListener(this);
-
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        MyAdapter myAdapter = new MyAdapter(this, all_events);
-        recyclerView.setAdapter(myAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        System.out.println("End");
-
     }
 
     @Override
@@ -138,13 +130,13 @@ public class AdminEventPageActivity extends Activity implements AdapterView.OnIt
         Toast.makeText(adapterView.getContext(), text, Toast.LENGTH_SHORT).show();
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        MyAdapter myAdapter = new MyAdapter(this, all_events);
+        //MyAdapter myAdapter = new MyAdapter(this, all_events);
         recyclerView.setAdapter(null);
         recyclerView.setLayoutManager(null);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //myAdapter.notifyDataSetChanged();
+        myAdapter.notifyDataSetChanged();
     }
 
     @Override
