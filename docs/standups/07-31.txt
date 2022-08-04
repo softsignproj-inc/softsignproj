@@ -21,7 +21,7 @@ What are you planning on doing today?
 Any impediments or stumbling blocks?
 	- nil
 	
-Name: Catherine Sun
+Name: Daniel Grishanov
 
 What have you done since yesterday?
 	- Created activty and layout
