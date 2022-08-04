@@ -31,3 +31,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nil
+
+Name: Sarah Liu
+
+What have you done since yesterday?
+	- reading event data from database
+
+What are you plannign on doing today?
+	- add event_item
+
+Any impediments or stumbling blocks?
+	- no
