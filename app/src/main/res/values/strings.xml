@@ -19,5 +19,7 @@
     <string name="add_venue_next_button">Next</string>
     <string name="add_venue_number_of_sports">Number of sports offered:</string>
     <string name="add_venue_enter_sports_title">Enter Sports:</string>
+    <string name="list_of_sports_available">list of sports available:</string>
+    <string name="schedule_an_activity">schedule an activity</string>
 
 </resources>
