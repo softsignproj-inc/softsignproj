@@ -66,10 +66,8 @@ public class createAccount extends AppCompatActivity {
 
                 if (customers.containsKey(u)) {
                     usernameField.setError("Username has already been taken");
-                    return;
-                }
 
-                if (u.matches("\\w{6,}")) {
+                } else if (u.matches("\\w{6,}")) {
                     HashMap<String, String> userInfo = new HashMap<>();
                     userInfo.put("password", passwordField.getText().toString());
                     Database db = new Database();
@@ -77,13 +75,13 @@ public class createAccount extends AppCompatActivity {
 
                     toast.setText("Account creation successful");
                     toast.show();
+
+                    Intent intent = new Intent(createAccount.this, HomePage.class);
+                    startActivity(intent);
+
                 } else {
                     usernameField.setError("Username must be at least 6 characters");
-                    return;
                 }
-
-                Intent intent = new Intent(createAccount.this, HomePage.class);
-                startActivity(intent);
             }
         }
     };
