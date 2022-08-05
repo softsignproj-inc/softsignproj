@@ -15,7 +15,10 @@ What have you done since yesterday?
 	- nil
 
 What are you planning on doing today?
-	- improve layout
+	- Clear any preset errors upon clicking 'Sign in' or 'Create Account' buttons
+	- Exit function after an input error occurs
+	- Read from databse once instead of using a persistent listener
 
 Any impediments or stumbling blocks?
-	- nil
+	- Cannot log in after getting an error in username/password field without retyping the field
+	- If you delete an account from the database right before you create it, the "Username has already been taken" error appears for a split second before redirection
