@@ -32,6 +32,26 @@ What are you planning on doing today?
 Any impediments or stumbling blocks?
 	- nil
 
+Name: Ishaan Upadhyay
+
+What have you done since yesterday?
+	- Created custom RecyclerView adapter and RecyclerView item to display all loaded events 
+
+What are you planning on doing today?
+	- figure out fetching data from Firebase
+
+Any impediments or stumbling blocks?
+	- nil
+Name: Daniel Grishanov
+
+What have you done since yesterday?
+	- connected to database to get venue data, and displayed in the spinner
+
+What are you planning on doing today?
+	- write code for recyclerView
+
+Any impediments or stumbling blocks?
+	- nil
 Name: Sarah Liu
 
 What have you done since yesterday?

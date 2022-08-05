@@ -31,6 +31,24 @@ What are you planning on doing today?
 Any impediments or stumbling blocks?
 	- nil
 
+Name: Ishaan Upadhyay
+
+What have you done since yesterday?
+	- figured out how to fetch data from the Firebase using FirebaseDatabase and snapshots with Daniel
+
+What are you planning on doing today?
+	- nothing
+
+Any impediments or stumbling blocks?
+	- type errors, view not updating when using onDataChanged event listener in onCreate
+	
+Name: Daniel Grishanov
+
+What have you done since yesterday?
+	- wrote code for recyclerView and tested that it works with some dummy code
+
+What are you planning on doing today?
+	- nothing
 Name: Sarah Liu
 
 What have you done since yesterday?

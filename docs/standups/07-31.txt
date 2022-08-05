@@ -21,6 +21,24 @@ What are you planning on doing today?
 Any impediments or stumbling blocks?
 	- nil
 
+Name: Ishaan Upadhyay
+
+What have you done since yesterday?
+	- Created the activity class for viewing events and a local events class in data model
+
+What are you planning on doing today?
+	- Figuring out what kind of view is best for displaying a large set of items to scroll through
+
+Any impediments or stumbling blocks?
+	- Can't test my code, Android emulator doesn't work
+	
+Name: Daniel Grishanov
+
+What have you done since yesterday?
+	- Created activty and layout
+
+What are you planning on doing today?
+	- Write code for spinner
 Name: Sarah Liu
 
 What have you done since yesterday?
