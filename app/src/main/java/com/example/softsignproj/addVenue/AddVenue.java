@@ -53,11 +53,10 @@ public class AddVenue extends AppCompatActivity {
                 } else {
                     System.out.println("New Venue " + venueName);
                     Intent intent = new Intent(this, AddVenueEnterSports.class);
-                    db.read("venue", new OnSuccessListener<Object>() {
+                    db.read("venue/" + venueName, new OnSuccessListener<Object>() {
                         @Override
                         public void onSuccess(Object o) {
-                            HashMap<String, Venue> listOfVenues = (HashMap<String, Venue>) o;
-                            if (!listOfVenues.containsKey(venueName)) {
+                            if (o == null) {
                                 CreateVenue.setVenueName(venueName);
                                 startActivity(intent);
                             } else {
