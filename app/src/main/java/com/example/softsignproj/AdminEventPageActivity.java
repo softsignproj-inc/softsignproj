@@ -37,6 +37,7 @@ import com.google.firebase.ktx.Firebase;
 public class AdminEventPageActivity extends Activity implements AdapterView.OnItemSelectedListener {
     private ArrayList<String> display_venues;
     private ArrayList<Event> all_events = new ArrayList<>();
+    private ArrayList<Event> temp_events;
     private ArrayList<Event> display_events;
     private MyAdapter myAdapter = new MyAdapter(this, all_events);
 
@@ -50,6 +51,7 @@ public class AdminEventPageActivity extends Activity implements AdapterView.OnIt
         display_venues.add("All");
 
         //all_events = new ArrayList<>();
+        temp_events = new ArrayList<>();
         display_events = new ArrayList<>();
 
         System.out.println("Outside listner");
@@ -72,6 +74,7 @@ public class AdminEventPageActivity extends Activity implements AdapterView.OnIt
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 display_venues.clear();
+                display_venues.add("All");
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     display_venues.add(snapshot.getKey());
@@ -91,7 +94,7 @@ public class AdminEventPageActivity extends Activity implements AdapterView.OnIt
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
-                display_events.clear();
+                temp_events.clear();
                 System.out.println("Entered Data change");
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     System.out.println("Entered loop");
@@ -104,15 +107,16 @@ public class AdminEventPageActivity extends Activity implements AdapterView.OnIt
                     LocalDateTime endTime = LocalDateTime.parse((String) snapshot.child("endTime").getValue(), formatter);
 
                     //String id, int cur, int max, LocalDateTime start, LocalDateTime end, String sport, String venue
-                    display_events.add(new Event(snapshot.getKey(), currCount, maxCount, startTime, endTime, sport, venue));
+                    temp_events.add(new Event(snapshot.getKey(), currCount, maxCount, startTime, endTime, sport, venue));
                 }
 
-                System.out.println("Exited loop");
-                System.out.println(all_events.toString());
+                //System.out.println("Exited loop");
+                //System.out.println(all_events.toString());
 
-                //display_events.addAll(all_events);
-                myAdapter.updateEventsList(display_events);
+                //temp_events.addAll(all_events);
+                myAdapter.updateEventsList(temp_events);
                 myAdapter.notifyDataSetChanged();
+                System.out.println(all_events.toString());
             }
 
 
@@ -129,14 +133,33 @@ public class AdminEventPageActivity extends Activity implements AdapterView.OnIt
         String text = adapterView.getItemAtPosition(i).toString();
         Toast.makeText(adapterView.getContext(), text, Toast.LENGTH_SHORT).show();
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        ArrayList<Event> temp = new ArrayList<>();
+
+        if (text.equals("All")) {
+            temp.addAll(temp_events);
+        }
+
+        //temp.clear();
+        for (Event e:temp_events) {
+            if (e.venue.equals(text)) {
+                temp.add(e);
+            }
+        }
+
+        myAdapter.updateEventsList(temp);
+        myAdapter.notifyDataSetChanged();
+        System.out.println("Filter test");
+        System.out.println(temp_events.toString());
+
+        //RecyclerView recyclerView = findViewById(R.id.recyclerView);
         //MyAdapter myAdapter = new MyAdapter(this, all_events);
-        recyclerView.setAdapter(null);
+
+        /*recyclerView.setAdapter(null);
         recyclerView.setLayoutManager(null);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        myAdapter.notifyDataSetChanged();
+        myAdapter.notifyDataSetChanged();*/
     }
 
     @Override
