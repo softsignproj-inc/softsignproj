@@ -60,6 +60,7 @@
         android:ems="10"
         android:hint="Name of sport"
         android:inputType="textPersonName"
+        android:imeOptions="actionDone"
         app:layout_constraintEnd_toStartOf="@+id/addVenueEnterSportButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

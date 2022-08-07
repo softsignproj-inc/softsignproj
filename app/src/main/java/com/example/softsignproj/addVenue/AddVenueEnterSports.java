@@ -28,7 +28,6 @@ import java.util.regex.Pattern;
 
 public class AddVenueEnterSports extends AppCompatActivity {
 
-    public static AddVenueEnterSports activity;
     private ArrayList<Sport> selectedSports;
     private RecyclerView sportsRecyclerView;
     private AddVenueRecyclerAdapter adapter;
@@ -37,7 +36,6 @@ public class AddVenueEnterSports extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AddVenueEnterSports.activity = this;
         setContentView(R.layout.activity_add_venue_select_sports);
         selectedSports = new ArrayList<Sport>();
         createSportsList();
