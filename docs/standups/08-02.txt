@@ -1,64 +1,61 @@
-Name:Chelsea Chan
+Name: Catherine Sun
 
 What have you done since yesterday?
-	- layout planning
+	- Fixed success listener bug
 
 What are you planning on doing today?
-	- start coding
-
+	- Add ui layout for notifying user of incorrect sign in info
+  
 Any impediments or stumbling blocks?
-	- nill
+	- nil
+	
+Name: Christine Zhao
 
-Name: Daniel Grishanov
+What have you done since yesterday?
+	- Changed layout
+
+What are you planning on doing today?
+	- nothing
+  
+Any impediments or stumbling blocks?
+	- nil
+
+Name: Chelsea Chan
 
 What have you done since yesterday?
 	- nothing
 
 What are you planning on doing today?
-	- read more of the handly links provided by Navinn
+	- nothing
 
 Any impediments or stumbling blocks?
-	- nill
+	- nil
 
 Name: Ishaan Upadhyay
 
 What have you done since yesterday?
-	- discussed a basic framework for how to store data
+	- figured out how to fetch data from the Firebase using FirebaseDatabase and snapshots with Daniel
 
 What are you planning on doing today?
-	- familiarize myself with Firebase
+	- nothing
 
 Any impediments or stumbling blocks?
-	- nill
+	- type errors, view not updating when using onDataChanged event listener in onCreate
+	
+Name: Daniel Grishanov
+
+What have you done since yesterday?
+	- wrote code for recyclerView and tested that it works with some dummy code
+
+What are you planning on doing today?
+	- nothing
 Name: Sarah Liu
 
 What have you done since yesterday?
-	- Added Firebase to repository
+	- added event_item
 
 What are you planning on doing today?
-	- Creating basic layout, learn Firebase
+	- layout of event_item
 
 Any impediments or stumbling blocks?
-	- Learning how to use Firebase
-	
-Name: Catherine Sun
-
-What have you done since yesterday?
-	- Followed a tutorial on Firebase
-
-What are you planning on doing today?
-	- Reviewing lecture material
-
-Any impediments or stumbling blocks?
-	- nill
-
-Name:Christine Zhao
-
-What have you done since yesterday?
-	- learn about android
-
-What are you planning on doing today?
-	- start coding
-
-Any impediments or stumbling blocks?
-	- nill
+	- nil
