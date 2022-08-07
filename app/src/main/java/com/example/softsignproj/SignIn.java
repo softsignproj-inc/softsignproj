@@ -103,14 +103,14 @@ public class SignIn extends AppCompatActivity {
                     toast.setText("Sign in successful");
                     toast.show();
 
-                    SharedPreferences.Editor editor = sharedPref.edit();
-                    editor.putString("Current User", u);
-                    editor.apply();
-
                     Intent intent;
                     if (adminMode) {
                         intent = new Intent(SignIn.this, AdminPage.class);
                     } else {
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putString("Current User", u);
+                        editor.apply();
+
                         intent = new Intent(SignIn.this, HomePage.class);
                     }
                     startActivity(intent);
