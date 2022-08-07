@@ -3,6 +3,7 @@ package com.example.softsignproj.data.model;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Event {
 
@@ -10,9 +11,9 @@ public class Event {
     String id, sport, venue, scheduledBy;
     int curCount, maxCount;
     LocalDateTime start, end;
-    ArrayList<String> signedUp;
+    HashMap<String, String> signedUp;
 
-    public Event(String id, int cur, int max, LocalDateTime start, LocalDateTime end, String sport, String venue, String scheduledBy, ArrayList<String> signedUp) {
+    public Event(String id, int cur, int max, LocalDateTime start, LocalDateTime end, String sport, String venue, HashMap<String, String> signedUp) {
         this.id = id;
         this.curCount = cur;
         this.maxCount = max;
@@ -37,7 +38,7 @@ public class Event {
     }
 
     public String getHeadCount() {
-        return String.format("%d/%d", this.curCount, this.maxCount)
+        return String.format("%d/%d", this.curCount, this.maxCount);
     }
 
     public String getTime() {
@@ -49,6 +50,6 @@ public class Event {
     }
 
     public boolean isSignedUp(String username) {
-        return this.signedUp.contains(username);
+        return this.signedUp.containsValue(username);
     }
 }

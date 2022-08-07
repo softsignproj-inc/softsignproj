@@ -39,7 +39,7 @@ public class Database {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                onFailure.onFailure(databaseError);
+                // onFailure.onFailure(databaseError);
             }
         });
     }
