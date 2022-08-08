@@ -24,13 +24,13 @@ What are you planning on doing today?
 Any impediments or stumbling blocks?
 	- need to learn how to work with action bar
 
-Name: Christine Zhao
+Name: Catherine Sun
 
 What have you done since yesterday?
-	- added more input validation, menu bar
+	- nil
 
 What are you planning on doing today?
-	- refine my pages
+	- Add sign out button to action bar
 	
 Any impediments or stumbling blocks?
 	- nil
