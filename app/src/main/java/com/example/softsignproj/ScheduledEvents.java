@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -60,13 +61,16 @@ public class ScheduledEvents extends AppCompatActivity {
             }
         });
 
+        SharedPreferences shared = ScheduledEvents.this.getSharedPreferences(getString(R.string.preference_file_key), MODE_PRIVATE);
+        String user = shared.getString("Current User", "");
+
         myScheduledEvents = new ArrayList<Event>();
         allEvents = new ArrayList<Event>();
 
         firebaseDatabase = FirebaseDatabase.getInstance("https://softsignproj-default-rtdb.firebaseio.com/");
         eventsRef = eventsRef = firebaseDatabase.getReference("event");
         eventsRef.addValueEventListener(eventListener2);
-        joinedEventsRef = firebaseDatabase.getReference("customer").child("username1").child("scheduledEvents");
+        joinedEventsRef = firebaseDatabase.getReference("customer").child(user).child("scheduledEvents");
         joinedEventsRef.addValueEventListener(eventListener);
     }
 
@@ -116,7 +120,7 @@ public class ScheduledEvents extends AppCompatActivity {
                 }
             }
 
-            if (myScheduledEvents.get(0) != null) {
+            if (!myScheduledEvents.isEmpty() && myScheduledEvents.get(0) != null) {
 
                 Collections.sort(myScheduledEvents, new EventComparator());
 

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -65,8 +66,8 @@ public class MyEvents extends AppCompatActivity {
             }
         });
 
-//        SharedPreferences shared = MyEvents.this.getSharedPreferences(getString(R.string.preference_file_key), MODE_PRIVATE);
-//        String user = shared.getString("Current User", "");
+        SharedPreferences shared = MyEvents.this.getSharedPreferences(getString(R.string.preference_file_key), MODE_PRIVATE);
+        String user = shared.getString("Current User", "");
 
         myJoinedEvents = new ArrayList<Event>();
         allEvents = new ArrayList<Event>();
@@ -74,7 +75,7 @@ public class MyEvents extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance("https://softsignproj-default-rtdb.firebaseio.com/");
         eventsRef = eventsRef = firebaseDatabase.getReference("event");
         eventsRef.addValueEventListener(eventListener2);
-        joinedEventsRef = firebaseDatabase.getReference("customer").child("username1").child("joinedEvents");
+        joinedEventsRef = firebaseDatabase.getReference("customer").child(user).child("joinedEvents");
         joinedEventsRef.addValueEventListener(eventListener);
 
     }
@@ -88,7 +89,6 @@ public class MyEvents extends AppCompatActivity {
             allEvents.clear();
 
             for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                Log.w("yo", snapshot.getKey());
                 int currCount = Integer.parseInt(String.valueOf(snapshot.child("currCount").getValue()));
                 int maxCount = Integer.parseInt(String.valueOf(snapshot.child("maxCount").getValue()));
                 String sport = (String) snapshot.child("sport").getValue();
@@ -115,17 +115,19 @@ public class MyEvents extends AppCompatActivity {
             myJoinedEvents.clear();
 
             for (DataSnapshot child : snapshot.getChildren()) {
-                String eventNum = String.valueOf(child.getValue());
+                if(child.exists()&&!String.valueOf(child.getValue()).equals("")) {
+                    String eventNum = String.valueOf(child.getValue());
 
-                for(int i=0; i<allEvents.size(); i++) {
-                    if(allEvents.get(i).getEvent_name().equals(eventNum)) {
-                        myJoinedEvents.add(allEvents.get(i));
-                        break;
+                    for (int i = 0; i < allEvents.size(); i++) {
+                        if (allEvents.get(i).getEvent_name().equals(eventNum)) {
+                            myJoinedEvents.add(allEvents.get(i));
+                            break;
+                        }
                     }
                 }
             }
 
-            if (myJoinedEvents.get(0) != null) {
+            if (!myJoinedEvents.isEmpty() && myJoinedEvents.get(0) != null) {
 
                 Collections.sort(myJoinedEvents, new EventComparator());
 
