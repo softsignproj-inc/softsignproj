@@ -5,11 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.softsignproj.Database;
+import com.example.softsignproj.MenuHandler;
 import com.example.softsignproj.R;
 import com.example.softsignproj.data.model.Venue;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -68,5 +72,17 @@ public class AddVenue extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        return MenuHandler.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        MenuItem it = MenuHandler.onOptionsItemSelected(item, this, true);
+        return super.onOptionsItemSelected(it);
     }
 }

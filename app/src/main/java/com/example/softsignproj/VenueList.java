@@ -2,6 +2,9 @@ package com.example.softsignproj;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -86,4 +89,16 @@ public class VenueList extends AppCompatActivity {
             Log.e("HELLO", "PUT REDIRECTION HERE");
         }
     };
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        return MenuHandler.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        MenuItem it = MenuHandler.onOptionsItemSelected(item, this, false);
+        return super.onOptionsItemSelected(it);
+    }
 }
