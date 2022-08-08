@@ -22,5 +22,14 @@ public class HomePage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button myEvents = findViewById(R.id.myEventsButton);
+        myEvents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePage.this, MyEvents.class);
+                startActivity(intent);
+            }
+        });
     }
 }

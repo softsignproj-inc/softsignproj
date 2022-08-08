@@ -2,7 +2,6 @@ package com.example.softsignproj;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,12 +11,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.content.res.AppCompatResources;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.switchmaterial.SwitchMaterial;
-import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -26,8 +23,8 @@ public class SignIn extends AppCompatActivity {
     private EditText usernameField, passwordField;
     private Button signUpButton;
     private boolean adminMode;
-    private SharedPreferences sharedPref;
     private Toast toast;
+    private SharedPreferences sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +47,9 @@ public class SignIn extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                usernameField.setError(null);
+                passwordField.setError(null);
 
                 String u = usernameField.getText().toString();
                 String p = passwordField.getText().toString();
@@ -84,7 +84,7 @@ public class SignIn extends AppCompatActivity {
 
         toast = Toast.makeText(getApplicationContext(), null, Toast.LENGTH_SHORT);
 
-        sharedPref = SignIn.this.getSharedPreferences(getString(R.string.preference_file_key), MODE_PRIVATE);
+        sharedPref = getApplicationContext().getSharedPreferences(getString(R.string.preference_file_key), MODE_PRIVATE);
     }
 
     OnSuccessListener<? super Object> successListener = new OnSuccessListener<Object>() {
@@ -103,14 +103,14 @@ public class SignIn extends AppCompatActivity {
                     toast.setText("Sign in successful");
                     toast.show();
 
-                    SharedPreferences.Editor editor = sharedPref.edit();
-                    editor.putString("Current User", u);
-                    editor.apply();
-
                     Intent intent;
                     if (adminMode) {
                         intent = new Intent(SignIn.this, AdminPage.class);
                     } else {
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putString("Current User", u);
+                        editor.apply();
+
                         intent = new Intent(SignIn.this, HomePage.class);
                     }
                     startActivity(intent);
