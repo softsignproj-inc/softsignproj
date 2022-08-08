@@ -1,0 +1,72 @@
+Name: Christine Zhao
+
+What have you done since yesterday?
+	- nothing
+
+What are you planning on doing today?
+	- improve layout
+
+Any impediments or stumbling blocks?
+	- nil
+
+Name: Catherine Sun
+
+What have you done since yesterday?
+	- nil
+
+What are you planning on doing today?
+	- Clear any preset errors upon clicking 'Sign in' or 'Create Account' buttons
+	- Exit function after an input error occurs
+	- Read from database once instead of using a persistent listener
+
+Any impediments or stumbling blocks?
+	- Cannot log in after getting an error in username/password field without retyping the field
+	- If you delete an account from the database right before you create it, the "Username has already been taken" error appears for a split second before redirection
+	
+Name: Chelsea Chan
+
+What have you done since yesterday?
+	- nothing
+
+What are you planning on doing today?
+	- fixing bugs, implement writing data function
+
+Any impediments or stumbling blocks?
+	- discovered undesired behaviours when refreshing Venuelist
+
+Name: Sarah Liu
+
+What have you done since yesterday?
+	- added new page for scheduled events
+	
+What are you planning on doing today?
+	- fixing bugs and stuff
+
+Any impediments or stumbling blocks?
+	- nil
+
+Name: Ishaan Upadhyay
+
+What have you done since yesterday?
+	- figured out the cause of errors relating to fetching from the database 
+	(Firebase was returning values in wrapper types for primitives, i.e. java.lang.Long)
+	- Helped Daniel to fix code relating to fetching from database
+	(adapter was getting dereferenced because it was recreated in onDataChanged, so initially fetched list of events wasn't being drawn)
+
+What are you planning on doing today?
+	- update my own code with the EventsAdapter and recyclerView to fix the errors that arose in Daniel's work
+	- work on properly fetching items from the database, because I need the list of signed up users as well
+
+Any impediments or stumbling blocks?
+	- none
+	
+Name: Daniel Grishanov
+
+What have you done since yesterday?
+	- display retrieved info from database to recyclerView, fix issue with data not displaying on app start
+
+What are you planning on doing today?
+	- attend meeting with TA
+	
+Any impediments or stumbling blocks?
+	- fix All option dispearing from spinner

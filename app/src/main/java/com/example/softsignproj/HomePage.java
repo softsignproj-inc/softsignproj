@@ -3,10 +3,14 @@ package com.example.softsignproj;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-
-//import com.example.softsignproj.addVenue.AddVenue;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class HomePage extends AppCompatActivity {
 
@@ -14,21 +18,35 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
+        Button seeAllVenues = findViewById(R.id.venueListButton);
+        seeAllVenues.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePage.this, VenueList.class);
+                startActivity(intent);
+            }
+        });
+
+        Button myEvents = findViewById(R.id.myEventsButton);
+        myEvents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePage.this, MyEvents.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    public void onClick(View view) {
-        /*
-        if (view.getId().equals(R.id.venueListButton))
-        Intent intent = new Intent(this, Venue.class);
-        startActivity(intent);
-        */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        return MenuHandler.onCreateOptionsMenu(menu, inflater);
+    }
 
-        /*
-        if (view.getId() == R.id.addVenueButton){
-            Intent intent = new Intent(this, AddVenue.class);
-            setContentView(R.layout.activity_add_venue);
-            startActvity(intent);
-        }
-         */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        MenuItem it = MenuHandler.onOptionsItemSelected(item, this, false);
+        return super.onOptionsItemSelected(it);
     }
 }

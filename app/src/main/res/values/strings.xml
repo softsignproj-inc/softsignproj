@@ -1,16 +1,28 @@
 <resources>
     <string name="app_name">softsignproj</string>
-    <!-- Strings related to login -->
-    <string name="prompt_user">User</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
-    <string name="create_new_account">Create New Account</string>
+    <string name="prompt_user">Enter username</string>
+    <string name="prompt_password">Enter password</string>
     <string name="sign_in">Sign In</string>
     <string name="textview">Events</string>
     <string name="goHome">Go to the home page</string>
+    <string name="filter">Filter by venue:</string>
+    <string name="default_spinner">All venues</string>
+    <string name="create_account">Create Account</string>
+    <string name="i_am_an_admin">I am an admin</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="preference_file_key">com.example.softsignproj.customer_file</string>
+    <string name="name_of_venue">Name of venue</string>
+    <string name="manage_venues">Manage Venues</string>
+    <string name="schedule_a_venue">Schedule a Venue</string>
+    <string name="add_a_venue">Add a Venue</string>
+    <string name="see_all_venues">See All Venues</string>
+    <string name="upcoming_events">Upcoming Events</string>
+    <string name="my_events">My Events</string>
+    <string name="add_venue_page_title">Add A New Venue</string>
+    <string name="add_venue_name">Venue Name</string>
+    <string name="add_venue_next_button">Next</string>
+    <string name="add_venue_number_of_sports">Number of sports offered:</string>
+    <string name="add_venue_enter_sports_title">Enter Sports:</string>
+    <string name="list_of_sports_available">list of sports available:</string>
+    <string name="schedule_an_activity">schedule an activity</string>
 </resources>

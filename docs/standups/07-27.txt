@@ -40,3 +40,25 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- Learning how to use Firebase
+	
+Name: Catherine Sun
+
+What have you done since yesterday?
+	- Followed a tutorial on Firebase
+
+What are you planning on doing today?
+	- Reviewing lecture material
+
+Any impediments or stumbling blocks?
+	- nill
+
+Name:Christine Zhao
+
+What have you done since yesterday?
+	- learn about android
+
+What are you planning on doing today?
+	- start coding
+
+Any impediments or stumbling blocks?
+	- nill

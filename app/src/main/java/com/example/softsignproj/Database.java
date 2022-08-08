@@ -1,5 +1,8 @@
 package com.example.softsignproj;
 
+import android.renderscript.Sampler;
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -26,9 +29,9 @@ public class Database {
         ref.child(path).setValue(value).addOnSuccessListener(onSuccess).addOnFailureListener(onFailure);
     }
 
-    public void read(String path, OnSuccessListener<? super Object> onSuccess, OnFailureListener onFailure){
-        DatabaseReference ref = database.getReference();
-        ref.addValueEventListener(new ValueEventListener() {
+    public void read(String path, OnSuccessListener<? super Object> onSuccess, OnFailureListener onFailure, boolean continuous){
+        ref = database.getReference();
+        ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 DataSnapshot data = dataSnapshot.child(path);
@@ -39,9 +42,15 @@ public class Database {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // onFailure.onFailure(databaseError);
+                Exception e = databaseError.toException();
+                onFailure.onFailure(e);
             }
-        });
+        };
+        if (continuous){
+            ref.addValueEventListener(valueEventListener);
+        } else {
+            ref.addListenerForSingleValueEvent(valueEventListener);
+        }
     }
 
     public void delete(String path, OnSuccessListener<? super Object> onSuccess, OnFailureListener onFailure){
