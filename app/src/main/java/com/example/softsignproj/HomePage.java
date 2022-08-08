@@ -3,9 +3,14 @@ package com.example.softsignproj;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class HomePage extends AppCompatActivity {
 
@@ -22,5 +27,26 @@ public class HomePage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button myEvents = findViewById(R.id.myEventsButton);
+        myEvents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePage.this, MyEvents.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        return MenuHandler.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        MenuItem it = MenuHandler.onOptionsItemSelected(item, this, false);
+        return super.onOptionsItemSelected(it);
     }
 }

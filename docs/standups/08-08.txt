@@ -1,0 +1,25 @@
+Name: Ishaan Upadhyay
+
+What have you done since yesterday?
+    - added functionality to buttons
+    - made EventsAdatper use a SortedList
+    - changed listener to childEventListener
+
+What are you planning on doing today?
+	- merging my changes into the master bracnh and fixing any conflicts that arise, making code grab user name from SharedPreferences
+    - discussing extra functionality like unjoining events
+    - figuring out a way to return to the home screen
+
+Any impediments or stumbling blocks?
+	- none
+	
+Name: Daniel Grishanov
+
+What have you done since yesterday?
+	- nothing
+
+What are you planning on doing today?
+	- add menu bar at top, beautify my layout, attend TA meeting
+	
+Any impediments or stumbling blocks?
+	- need to learn how to work with action bar

@@ -40,6 +40,7 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- unfamiliar with the code required
+	
 Name: Sarah Liu
 
 What have you dont since yesterday?
