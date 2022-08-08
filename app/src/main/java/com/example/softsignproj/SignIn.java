@@ -23,8 +23,8 @@ public class SignIn extends AppCompatActivity {
     private EditText usernameField, passwordField;
     private Button signUpButton;
     private boolean adminMode;
-    private SharedPreferences sharedPref;
     private Toast toast;
+    private SharedPreferences sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +84,7 @@ public class SignIn extends AppCompatActivity {
 
         toast = Toast.makeText(getApplicationContext(), null, Toast.LENGTH_SHORT);
 
-        sharedPref = SignIn.this.getSharedPreferences(getString(R.string.preference_file_key), MODE_PRIVATE);
+        sharedPref = getApplicationContext().getSharedPreferences(getString(R.string.preference_file_key), MODE_PRIVATE);
     }
 
     OnSuccessListener<? super Object> successListener = new OnSuccessListener<Object>() {
@@ -103,14 +103,14 @@ public class SignIn extends AppCompatActivity {
                     toast.setText("Sign in successful");
                     toast.show();
 
-                    SharedPreferences.Editor editor = sharedPref.edit();
-                    editor.putString("Current User", u);
-                    editor.apply();
-
                     Intent intent;
                     if (adminMode) {
                         intent = new Intent(SignIn.this, AdminPage.class);
                     } else {
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putString("Current User", u);
+                        editor.apply();
+
                         intent = new Intent(SignIn.this, HomePage.class);
                     }
                     startActivity(intent);
