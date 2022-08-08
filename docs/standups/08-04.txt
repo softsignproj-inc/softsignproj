@@ -59,3 +59,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- none
+	
+Name: Daniel Grishanov
+
+What have you done since yesterday?
+	- display retrieved info from database to recyclerView, fix issue with data not displaying on app start
+
+What are you planning on doing today?
+	- attend meeting with TA
+	
+Any impediments or stumbling blocks?
+	- fix All option dispearing from spinner
