@@ -1,0 +1,53 @@
+Name: Catherine Sun
+
+What have you done since yesterday?
+	- Added error messages for incorrect input
+  
+What are you planning on doing today?
+	- Look into changing home page layout into tabs
+
+Any impediments or stumbling blocks?
+	- nil
+
+Name: Chelsea Chan
+
+What have you done since yesterday?
+	- nothing
+
+What are you planning on doing today?
+	- impleminting scedule activity method
+
+Any impediments or stumbling blocks?
+	- nil
+
+Name: Daniel Grishanov
+
+What have you done since yesterday?
+	- nothing
+
+What are you planning on doing today?
+	- display retrieved info from database to recyclerView, fix issue with data not displaying on app start
+Any impediments or stumbling blocks?
+	- issues with type conversion when retrieving from database
+
+Name: Ishaan Upadhyay
+
+What have you done since yesterday?
+	- nothing
+
+What are you planning on doing today?
+	- working with Daniel to figure out the errors causing app to crash, and why the initially fetched list of events wasn't getting drawn
+
+Any impediments or stumbling blocks?
+	- unfamiliar with the code required
+	
+Name: Sarah Liu
+
+What have you dont since yesterday?
+	- attach to homepage
+
+What are you planing on doing today?
+	- event_item layout
+
+any impediments or stumbling blocks?
+	- nil

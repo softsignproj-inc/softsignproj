@@ -14,11 +14,25 @@
         android:theme="@style/Theme.Softsignproj"
         tools:targetApi="31">
         <activity
+            android:name=".ScheduledEvents"
+            android:exported="false" />
+        <activity
+            android:name=".MyEvents"
+            android:exported="false" />
+        <activity
+            android:name=".AdminPage"
+            android:exported="false"
+            android:parentActivityName=".SignIn" />
+        <activity
+            android:name=".VenueList"
+            android:exported="false"
+            android:parentActivityName=".HomePage" />
+        <activity
             android:name=".createAccount"
             android:exported="false"
-            android:parentActivityName=".SignInActivity" />
+            android:parentActivityName=".SignIn" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".SignIn"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,12 +42,19 @@
         </activity>
         <activity
             android:name=".HomePage"
+            android:exported="false"
+            android:parentActivityName=".SignIn" />
+        <activity
+            android:name=".addVenue.AddVenue"
             android:exported="true"
-            android:parentActivityName=".SignInActivity" />
+            android:parentActivityName=".AdminPage" />
+        <activity
+            android:name=".addVenue.AddVenueEnterSports"
+            android:exported="true"
+            android:parentActivityName=".addVenue.AddVenue" />
         <activity
             android:name=".AdminEventPageActivity"
             android:exported="true">
         </activity>
     </application>
-
 </manifest>

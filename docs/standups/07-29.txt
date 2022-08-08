@@ -9,6 +9,18 @@ What are you planning on doing today?
 Any impediments or stumbling blocks?
 	- nil
 
+Name: Ishaan Upadhyay
+
+What have you done since yesterday?
+	- Set up user story on Jira as an epic with subtasks
+	- Tried adding Github repository to Jira
+
+What are you planning on doing today?
+	- Finalizing the first sprint's tasks
+	- Use Planning Poker to evaluate user stories
+
+Any impediments or stumbling blocks?
+	- Some authentication failures with Jira since I don't own the repository
 Name:Sarah Liu
 
 What have you done since yesterday?
@@ -19,3 +31,35 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	-nil
+	
+Name: Catherine Sun
+
+What have you done since yesterday?
+	- Planned out how to tackle user story 1 and 5
+
+What are you planning on doing today?
+	- Creating a basic sign in page
+
+Any impediments or stumbling blocks?
+	- nil
+
+Name: Chelsea Chan
+
+What have you done since yesterday?
+	- discussed the difficulties in user story 2
+
+What are you planning on doing today?
+	- learning how implement user story 2
+Any impediments or stumbling blocks?
+	- unfamiliar with RecycleView
+	
+Name: Daniel Grishanov
+
+What have you done since yesterday?
+	- Created my Jira user story as an epic, created subtasks
+
+What are you planning on doing today?
+	- Participated in planning poker and discussed some specifics of tasks
+	
+Any impediments or stumbling blocks?
+	- still unfamiliar with Android developement
