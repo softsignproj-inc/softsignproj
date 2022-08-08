@@ -15,10 +15,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.softsignproj.adapter.EventAdapter;
-import com.example.softsignproj.data.Customer;
 import com.example.softsignproj.data.model.Event;
 import com.example.softsignproj.data.model.EventComparator;
-import com.example.softsignproj.data.model.Venue;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,29 +27,26 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 
-public class MyEvents extends AppCompatActivity {
+public class ScheduledEvents extends AppCompatActivity {
 
-    private ArrayList<Event> myJoinedEvents;
+    private ArrayList<Event> myScheduledEvents;
     private ArrayList<Event> allEvents;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference joinedEventsRef;
     DatabaseReference eventsRef;
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_events);
+        setContentView(R.layout.activity_scheduled_events);
 
         Button back = findViewById(R.id.backButton);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MyEvents.this, HomePage.class);
+                Intent intent = new Intent(ScheduledEvents.this, HomePage.class);
                 startActivity(intent);
             }
         });
@@ -60,24 +55,21 @@ public class MyEvents extends AppCompatActivity {
         scheduledEventsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MyEvents.this, ScheduledEvents.class);
+                Intent intent = new Intent(ScheduledEvents.this, MyEvents.class);
                 startActivity(intent);
             }
         });
 
-//        SharedPreferences shared = MyEvents.this.getSharedPreferences(getString(R.string.preference_file_key), MODE_PRIVATE);
-//        String user = shared.getString("Current User", "");
-
-        myJoinedEvents = new ArrayList<Event>();
+        myScheduledEvents = new ArrayList<Event>();
         allEvents = new ArrayList<Event>();
 
         firebaseDatabase = FirebaseDatabase.getInstance("https://softsignproj-default-rtdb.firebaseio.com/");
         eventsRef = eventsRef = firebaseDatabase.getReference("event");
         eventsRef.addValueEventListener(eventListener2);
-        joinedEventsRef = firebaseDatabase.getReference("customer").child("username1").child("joinedEvents");
+        joinedEventsRef = firebaseDatabase.getReference("customer").child("username1").child("scheduledEvents");
         joinedEventsRef.addValueEventListener(eventListener);
-
     }
+
 
     ValueEventListener eventListener2 = new ValueEventListener() {
 
@@ -88,7 +80,6 @@ public class MyEvents extends AppCompatActivity {
             allEvents.clear();
 
             for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                Log.w("yo", snapshot.getKey());
                 int currCount = Integer.parseInt(String.valueOf(snapshot.child("currCount").getValue()));
                 int maxCount = Integer.parseInt(String.valueOf(snapshot.child("maxCount").getValue()));
                 String sport = (String) snapshot.child("sport").getValue();
@@ -112,27 +103,27 @@ public class MyEvents extends AppCompatActivity {
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-            myJoinedEvents.clear();
+            myScheduledEvents.clear();
 
             for (DataSnapshot child : snapshot.getChildren()) {
                 String eventNum = String.valueOf(child.getValue());
 
                 for(int i=0; i<allEvents.size(); i++) {
                     if(allEvents.get(i).getEvent_name().equals(eventNum)) {
-                        myJoinedEvents.add(allEvents.get(i));
+                        myScheduledEvents.add(allEvents.get(i));
                         break;
                     }
                 }
             }
 
-            if (myJoinedEvents.get(0) != null) {
+            if (myScheduledEvents.get(0) != null) {
 
-                Collections.sort(myJoinedEvents, new EventComparator());
+                Collections.sort(myScheduledEvents, new EventComparator());
 
                 RecyclerView recyclerView = findViewById(R.id.eventRecycler);
-                recyclerView.setLayoutManager(new LinearLayoutManager(MyEvents.this));
+                recyclerView.setLayoutManager(new LinearLayoutManager(ScheduledEvents.this));
 
-                EventAdapter eventAdapter = new EventAdapter(myJoinedEvents, joinedEventsListener);
+                EventAdapter eventAdapter = new EventAdapter(myScheduledEvents, joinedEventsListener);
                 recyclerView.setAdapter(eventAdapter);
 
                 TextView noEvent = findViewById(R.id.noEvent);
@@ -145,12 +136,12 @@ public class MyEvents extends AppCompatActivity {
 
                 Event e = new Event("", "", 0, 0, "", LocalDateTime.of(2000,1,1,1,0), LocalDateTime.of(2000,1,1,1,1));
 
-                myJoinedEvents.add(e);
+                myScheduledEvents.add(e);
 
                 RecyclerView recyclerView = findViewById(R.id.eventRecycler);
-                recyclerView.setLayoutManager(new LinearLayoutManager(MyEvents.this));
+                recyclerView.setLayoutManager(new LinearLayoutManager(ScheduledEvents.this));
 
-                EventAdapter eventAdapter = new EventAdapter(myJoinedEvents, joinedEventsListener);
+                EventAdapter eventAdapter = new EventAdapter(myScheduledEvents, joinedEventsListener);
                 recyclerView.setAdapter(eventAdapter);
 
                 TextView noEvent = findViewById(R.id.noEvent);
@@ -177,7 +168,4 @@ public class MyEvents extends AppCompatActivity {
         }
 
     };
-
-
-
 }

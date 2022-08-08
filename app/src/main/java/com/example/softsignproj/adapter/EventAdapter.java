@@ -1,19 +1,23 @@
 package com.example.softsignproj.adapter;
 
+import android.os.Build;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.softsignproj.R;
 import com.example.softsignproj.data.model.Event;
-import com.example.softsignproj.data.model.Venue;
 import com.example.softsignproj.viewHolder.EventViewHolder;
-import com.example.softsignproj.viewHolder.VenueViewHolder;
 
+import java.time.LocalDateTime;
+import java.time.format.TextStyle;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class EventAdapter extends RecyclerView.Adapter<EventViewHolder>{
     private final ArrayList<Event> events;
@@ -32,15 +36,15 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder>{
         return new EventViewHolder(this, view);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
         Event event = events.get(position);
-        holder.getEventName().setText(event.getEvent_name());
-//        String sports = "";
-//        for (String a: sportsList){
-//            sports = sports + a + '\n';
-//        }
-//        holder.getSportsList().setText(sports);
+        holder.getEventName().setText(new String(event.getSport() + " at " + event.getVenue()));
+        holder.getStartTime().setText(String.format("%02d:%02d", event.getStartTime().getHour(), event.getStartTime().getMinute()));
+        holder.getEndTime().setText(String.format("%02d:%02d", event.getEndTime().getHour(), event.getEndTime().getMinute()));
+        holder.getParticipants().setText(new String(event.getCurrCount() + "/" + event.getMaxCount()));
+        holder.getDate().setText(String.format("%02d %s, %04d", event.getStartTime().getDayOfMonth(), event.getStartTime().getMonth().getDisplayName(TextStyle.FULL, Locale.CANADA), event.getStartTime().getYear()));
     }
 
     @Override
