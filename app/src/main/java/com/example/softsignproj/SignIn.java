@@ -47,9 +47,29 @@ public class SignIn extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Database db = new Database();
-                String u = usernameField.getText().toString();
 
+                usernameField.setError(null);
+                passwordField.setError(null);
+
+                String u = usernameField.getText().toString();
+                String p = passwordField.getText().toString();
+
+                if (u.matches("")) {
+                    usernameField.setError("Username cannot be empty");
+                    //usernameField.setBackgroundResource(R.drawable.invalid_input_border);
+                }
+
+                if (p.matches("")) {
+                    passwordField.setError("Password cannot be empty");
+                }
+
+                if (usernameField.getError() != null || passwordField.getError() != null) {
+                    usernameField.clearFocus();
+                    passwordField.clearFocus();
+                    return;
+                }
+
+                Database db = new Database();
                 if (adminMode) {
                     db.read("administrator/" + u, successListener, failureListener, false);
                 } else {
@@ -84,7 +104,7 @@ public class SignIn extends AppCompatActivity {
                     toast.show();
 
                     SharedPreferences.Editor editor = sharedPref.edit();
-                    editor.putString("Users", u);
+                    editor.putString("Current User", u);
                     editor.apply();
 
                     Intent intent;
@@ -96,9 +116,10 @@ public class SignIn extends AppCompatActivity {
                     startActivity(intent);
 
                 } else {
-                    toast.setText("Incorrect password");
-                    toast.show();
+                    passwordField.setError("Incorrect password");
                 }
+            } else {
+                usernameField.setError("User does not exist");
             }
         }
     };
@@ -106,7 +127,7 @@ public class SignIn extends AppCompatActivity {
     OnFailureListener failureListener = new OnFailureListener() {
         @Override
         public void onFailure(@NonNull Exception e) {
-            toast.setText("User does not exist");
+            toast.setText("Database error");
             toast.show();
         }
     };

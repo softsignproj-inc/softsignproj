@@ -11,22 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.softsignproj.data.Customer;
-import com.example.softsignproj.data.model.LoggedInUser;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 
 public class createAccount extends AppCompatActivity {
-    private DatabaseReference customers;
     private EditText usernameField, passwordField;
     private Toast toast;
 
@@ -34,8 +24,6 @@ public class createAccount extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
-
-        customers = FirebaseDatabase.getInstance("https://softsignproj-default-rtdb.firebaseio.com").getReference("customer");
 
         usernameField = findViewById(R.id.newUsernameField);
         passwordField = findViewById(R.id.newPasswordField);
@@ -49,49 +37,52 @@ public class createAccount extends AppCompatActivity {
     View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            customers.addValueEventListener(eventListener);
+
+            usernameField.setError(null);
+            passwordField.setError(null);
+
+            String p = passwordField.getText().toString();
+
+            if (p.length() < 6 || p.contains("\\s")) {
+                passwordField.setError("Password must be at least 6 characters and must not contain any whitespace");
+                return;
+            }
+
+            Database db = new Database();
+            db.read("customer", successListener, failureListener, false);
         }
     };
 
-    ValueEventListener eventListener = new ValueEventListener() {
+    OnSuccessListener<? super Object> successListener = new OnSuccessListener<Object>() {
         @Override
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+        public void onSuccess(Object retrievedData) {
+
+            HashMap<String, Object> customers;
 
             String u = usernameField.getText().toString();
-            String p = passwordField.getText().toString();
 
-            if (dataSnapshot.hasChild(u)) {
-                toast.setText("Username has already been taken");
-                toast.show();
+            if (retrievedData instanceof HashMap) {
+                customers = (HashMap<String, Object>) retrievedData;
 
-            } else {
-                if (u.matches("\\w{6,}") && p.length() >= 6 && !p.contains("\\s")) {
+                if (customers.containsKey(u)) {
+                    usernameField.setError("Username has already been taken");
+
+                } else if (u.matches("\\w{6,}")) {
                     HashMap<String, String> userInfo = new HashMap<>();
-                    userInfo.put("password", p);
+                    userInfo.put("password", passwordField.getText().toString());
                     Database db = new Database();
                     db.write("customer/" + u, userInfo, successListener, failureListener);
 
                     toast.setText("Account creation successful");
                     toast.show();
 
+                    Intent intent = new Intent(createAccount.this, HomePage.class);
+                    startActivity(intent);
+
                 } else {
-                    toast.setText("Invalid username or password");
-                    toast.show();
+                    usernameField.setError("Username must be at least 6 characters");
                 }
             }
-        }
-
-        @Override
-        public void onCancelled(@NonNull DatabaseError databaseError) {
-            Log.w("warning", "loadPost:onCancelled", databaseError.toException());
-        }
-    };
-
-    OnSuccessListener<? super Object> successListener = new OnSuccessListener<Object>() {
-        @Override
-        public void onSuccess(Object o) {
-            Intent intent = new Intent(createAccount.this, HomePage.class);
-            startActivity(intent);
         }
     };
 

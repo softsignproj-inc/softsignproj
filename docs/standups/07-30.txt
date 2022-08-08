@@ -33,3 +33,15 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nil
+
+Name: Ishaan Upadhyay
+
+What have you done since yesterday?
+	- Finished Planning Poker
+	- Added all tasks to Jira and to the sprint internally
+
+What are you planning on doing today?
+	- Setting up Firebase structure and outlining classes for data model
+
+Any impediments or stumbling blocks?
+	- Not sure what datatypes Firebase supports
