@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Documents/Code/softsignproj/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.332" />
+        <entry key="..\:/Documents/Code/softsignproj/app/src/main/res/drawable/ic_launcher_background.xml" value="0.332" />
+        <entry key="..\:/Documents/Code/softsignproj/app/src/main/res/drawable/roundedborder.xml" value="0.33" />
+        <entry key="..\:/Documents/Code/softsignproj/app/src/main/res/layout/activity_create_account.xml" value="0.38697916666666665" />
+        <entry key="..\:/Documents/Code/softsignproj/app/src/main/res/layout/activity_events_page.xml" value="0.38697916666666665" />
+        <entry key="..\:/Documents/Code/softsignproj/app/src/main/res/layout/recycler_view_item.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/ishaa/Documents/cscb07/softsignproj/app/src/main/res/layout/recycler_view_item.xml" value="0.4" />
         <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/layout/activity_admin_page.xml" value="0.6" />
         <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/layout/activity_home_page.xml" value="0.536" />
       </map>

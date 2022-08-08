@@ -51,6 +51,11 @@
         <activity
             android:name=".addVenue.AddVenueEnterSports"
             android:exported="true"
+            android:parentActivityName=".SignInActivity" />
+        <activity
+            android:name=".EventsPage"
+            android:exported="true"
+            android:parentActivityName=".SignInActivity" />
             android:parentActivityName=".addVenue.AddVenue" />
         <activity
             android:name=".AdminEventPageActivity"
