@@ -48,8 +48,10 @@ public class AddVenue extends AppCompatActivity {
                 if (!matcher.matches()) {
                     inputField.setError("Name may only contain letters, digits and whitespaces");
                     //((TextView) findViewById(R.id.addVenueErrorPlaceholder)).setText("Name may only contain letters, digits and whitespaces");
-                } else if (venueName.equalsIgnoreCase("sports") || venueName.equalsIgnoreCase("events")){
-                    ((TextView) findViewById(R.id.addVenueErrorPlaceholder)).setText("Name cannot be 'sports' or 'events'");
+                } else if (venueName.equalsIgnoreCase("sports") ||
+                        venueName.equalsIgnoreCase("events")  ||
+                        venueName.equalsIgnoreCase("null")){
+                    ((TextView) findViewById(R.id.addVenueErrorPlaceholder)).setText("Name cannot be 'null', 'sports' or 'events'");
                 } else {
                     System.out.println("New Venue " + venueName);
                     Intent intent = new Intent(this, AddVenueEnterSports.class);

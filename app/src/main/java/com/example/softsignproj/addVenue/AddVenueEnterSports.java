@@ -62,6 +62,9 @@ public class AddVenueEnterSports extends AppCompatActivity {
             if (!matcher.matches()){
                 ((TextView) findViewById(R.id.addVenueErrorPlaceholder2)).setText("Sport names may only contain letters, digits and whitespaces");
                 return;
+            } else if (sportName.equalsIgnoreCase("null")){
+                ((TextView) findViewById(R.id.addVenueErrorPlaceholder2)).setText("Sport names cannot be 'null'");
+                return;
             }
 
             if (selectedSports.contains(sport)){
@@ -86,6 +89,10 @@ public class AddVenueEnterSports extends AppCompatActivity {
 
         System.out.println("firebase stuff");
 
+        if (selectedSports.size() < 1){
+            Toast.makeText(getApplicationContext(), "At least one sport must be listed", Toast.LENGTH_SHORT).show();
+            return;
+        }
         ArrayList<String> sportsStringList = new ArrayList<String>();
         for (int i = 0; i < selectedSports.size(); i++){
             sportsStringList.add(selectedSports.get(i).getName());
