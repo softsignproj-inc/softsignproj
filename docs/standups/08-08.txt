@@ -12,3 +12,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- none
+	
+Name: Daniel Grishanov
+
+What have you done since yesterday?
+	- nothing
+
+What are you planning on doing today?
+	- add menu bar at top, beautify my layout, attend TA meeting
+	
+Any impediments or stumbling blocks?
+	- need to learn how to work with action bar
