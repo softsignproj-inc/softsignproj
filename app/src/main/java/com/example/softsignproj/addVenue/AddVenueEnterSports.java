@@ -18,18 +18,21 @@ import android.widget.Toast;
 
 import com.example.softsignproj.MenuHandler;
 import com.example.softsignproj.R;
+import com.example.softsignproj.Sport;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class AddVenueEnterSports extends AppCompatActivity {
 
-    public static AddVenueEnterSports activity;
-    private AddVenueListManager<String> selectedSports;
+    private ArrayList<Sport> selectedSports;
     private RecyclerView sportsRecyclerView;
     private AddVenueRecyclerAdapter adapter;
 
@@ -37,9 +40,8 @@ public class AddVenueEnterSports extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AddVenueEnterSports.activity = this;
         setContentView(R.layout.activity_add_venue_select_sports);
-        selectedSports = new AddVenueListManager<String>();
+        selectedSports = new ArrayList<Sport>();
         createSportsList();
     }
 
@@ -55,16 +57,22 @@ public class AddVenueEnterSports extends AppCompatActivity {
 
     public void enterSport(View view){
         EditText inputField = (EditText)findViewById(R.id.addVenueEnterSport);
-        String sport = inputField.getText().toString().trim();
+        String sportName = inputField.getText().toString().trim();
         Pattern venueNamePattern = Pattern.compile("[\\w|\\s]+");
-        Matcher matcher = venueNamePattern.matcher(sport);
-        if (!matcher.matches()){
-            ((TextView) findViewById(R.id.addVenueErrorPlaceholder2)).setText("Sport names may only contain letters, digits and whitespaces");
-            return;
-        }
-        if (!sport.equals("")){
+        Matcher matcher = venueNamePattern.matcher(sportName);
+
+        Sport sport = new Sport(sportName);
+        if (!sportName.equals("")){
+            if (!matcher.matches()){
+                ((TextView) findViewById(R.id.addVenueErrorPlaceholder2)).setText("Sport names may only contain letters, digits and whitespaces");
+                return;
+            } else if (sportName.equalsIgnoreCase("null")){
+                ((TextView) findViewById(R.id.addVenueErrorPlaceholder2)).setText("Sport names cannot be 'null'");
+                return;
+            }
+
             if (selectedSports.contains(sport)){
-                ((TextView) findViewById(R.id.addVenueErrorPlaceholder2)).setText(sport + " already added");
+                ((TextView) findViewById(R.id.addVenueErrorPlaceholder2)).setText(sport.getName() + " already added");
                 return;
             }
             selectedSports.add(0, sport);
@@ -78,18 +86,23 @@ public class AddVenueEnterSports extends AppCompatActivity {
 
     public void update(){
         ((TextView) findViewById(R.id.addVenueErrorPlaceholder2)).setText("");
-        ((TextView)findViewById(R.id.addVenueNumberOfSports)).setText(String.valueOf(selectedSports.getSize()));
+        ((TextView)findViewById(R.id.addVenueNumberOfSports)).setText(String.valueOf(selectedSports.size()));
     }
 
     public void createVenue(View view){
 
         System.out.println("firebase stuff");
 
+        if (selectedSports.size() < 1){
+            Toast.makeText(getApplicationContext(), "At least one sport must be listed", Toast.LENGTH_SHORT).show();
+            return;
+        }
         ArrayList<String> sportsStringList = new ArrayList<String>();
-        for (int i = 0; i < selectedSports.getSize(); i++){
-            sportsStringList.add(selectedSports.get(i));
+        for (int i = 0; i < selectedSports.size(); i++){
+            sportsStringList.add(selectedSports.get(i).getName());
         }
 
+        Collections.sort(sportsStringList);
         CreateVenue.setSports(sportsStringList);
 
         Intent intent = new Intent(this, AddVenue.class);

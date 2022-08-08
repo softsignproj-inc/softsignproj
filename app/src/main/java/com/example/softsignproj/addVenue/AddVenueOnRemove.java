@@ -1,12 +1,14 @@
 package com.example.softsignproj.addVenue;
 
+import java.util.ArrayList;
+
 public class AddVenueOnRemove<E> {
 
-    private AddVenueListManager<E> list;
+    private ArrayList<E> list;
     private AddVenueEnterSports mainPage;
     private AddVenueRecyclerAdapter adapter;
 
-    public AddVenueOnRemove(AddVenueEnterSports mainPage, AddVenueListManager list, AddVenueRecyclerAdapter adapter){
+    public AddVenueOnRemove(AddVenueEnterSports mainPage, ArrayList list, AddVenueRecyclerAdapter adapter){
         this.mainPage = mainPage;
         this.list = list;
         this.adapter = adapter;
