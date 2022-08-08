@@ -3,13 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.2265" />
-        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/drawable/mybuttonicon.xml" value="0.2225" />
-        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/drawable/sign_out.xml" value="0.2225" />
-        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/drawable/sign_out_button.xml" value="0.2225" />
-        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/drawable/sign_out_icon.xml" value="0.2225" />
-        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/menu/menu.xml" value="0.8" />
-        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/menu/my_menu.xml" value="0.6" />
       </map>
     </option>
   </component>
