@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +20,7 @@ import java.util.HashMap;
 public class createAccount extends AppCompatActivity {
     private EditText usernameField, passwordField;
     private Toast toast;
+    private SharedPreferences sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,8 @@ public class createAccount extends AppCompatActivity {
         createAccountButton.setOnClickListener(clickListener);
 
         toast = Toast.makeText(getApplicationContext(), null, Toast.LENGTH_SHORT);
+
+        sharedPref = getApplicationContext().getSharedPreferences(getString(R.string.preference_file_key), MODE_PRIVATE);
     }
 
     View.OnClickListener clickListener = new View.OnClickListener() {
@@ -75,6 +79,10 @@ public class createAccount extends AppCompatActivity {
 
                     toast.setText("Account creation successful");
                     toast.show();
+
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("Current User", u);
+                    editor.apply();
 
                     Intent intent = new Intent(createAccount.this, HomePage.class);
                     startActivity(intent);
