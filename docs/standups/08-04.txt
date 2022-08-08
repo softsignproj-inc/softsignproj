@@ -33,3 +33,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- discovered undesired behaviours when refreshing Venuelist
+
+Name: Sarah Liu
+
+What have you done since yesterday?
+	- added new page for scheduled events
+	
+What are you planning on doing today?
+	- fixing bugs and stuff
+
+Any impediments or stumbling blocks?
+	- nil
