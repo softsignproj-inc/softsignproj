@@ -1,0 +1,12 @@
+Name: Ishaan Upadhyay
+
+What have you done since yesterday?
+    - Changed code to use Hashmaps instead of ArrayLists for storing events and participants
+
+What are you planning on doing today?
+	- Change code to use childEventListener for efficiency concerns (Do not want to fetch entire list of events for individual changes)
+    - Use a SortedList<Event> in EventsAdapter instead of an ArrayList<Event> so that I can display events in order of start time
+    - Add functionality to buttons in each recyclerView item using onClickListener
+
+Any impediments or stumbling blocks?
+	- none

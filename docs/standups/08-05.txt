@@ -1,0 +1,13 @@
+Name: Ishaan Upadhyay
+
+What have you done since yesterday?
+	- updated EventsAdapter and recyclerView so that they would correctly fetch from the database
+    - Drew the view for the first time
+
+What are you planning on doing today?
+	- Replace ArrayList<String> signedUp in (data/model/Event.java) with Hashmap<String, String> and ArrayList<Event> in EventsPage 
+    with Hashmap<String, Event> so I can fetch items pushed using DatabaseReference.push() 
+
+Any impediments or stumbling blocks?
+	- Each recyclerView item isn't filling the width of the screen
+    - Using ArrayList to store events fetched from database poses problems for removing events

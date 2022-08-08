@@ -1,0 +1,11 @@
+Name: Ishaan Upadhyay
+
+What have you done since yesterday?
+    - Modified EventsPage and EventsAdapter to use Hashmaps for storing events and participants instead of ArrayLists
+    - Made recyclerView items fill entire screen width
+
+What are you planning on doing today?
+	- Start working on switching from onDataChanged event listener to child event listener due to working with a list of events
+
+Any impediments or stumbling blocks?
+	- none
