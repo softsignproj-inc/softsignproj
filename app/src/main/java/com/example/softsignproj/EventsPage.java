@@ -1,5 +1,7 @@
 package com.example.softsignproj;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -24,7 +26,8 @@ import java.util.HashMap;
 public class EventsPage extends AppCompatActivity {
     private RecyclerView eventsView;
     private HashMap<String, Event> events = new HashMap<String, Event>();
-    private EventsAdapter eventsAdapter = new EventsAdapter(this, "username1");
+    private SharedPreferences sharedPref;
+    private EventsAdapter eventsAdapter;
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
 
     @Override
@@ -32,9 +35,8 @@ public class EventsPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events_page);
         eventsView = findViewById(R.id.recyclerView);
-
-        System.out.println("Everything initialized");
-
+        sharedPref = getPreferences(Context.MODE_PRIVATE);
+        eventsAdapter = new EventsAdapter(this, sharedPref.getString("Current User", "username1"));
         eventsView.setAdapter(eventsAdapter);
         eventsView.setLayoutManager(new LinearLayoutManager(this));
 
