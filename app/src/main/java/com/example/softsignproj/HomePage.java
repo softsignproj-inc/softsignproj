@@ -36,15 +36,6 @@ public class HomePage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        Button eventList = findViewById(R.id.eventListButton);
-        eventList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomePage.this, AdminEventPageActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override

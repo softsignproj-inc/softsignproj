@@ -25,18 +25,19 @@
         android:text="@string/manage_venues"/>
 
     <Button
-        style="?attr/materialButtonStyle"
         android:id="@+id/scheduleEventButton"
+        style="?attr/materialButtonStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_marginTop="24dp"
         android:layout_marginLeft="2dp"
+        android:layout_marginTop="24dp"
         android:layout_marginRight="2dp"
+        android:layout_weight="1"
         android:ems="10"
-        android:gravity="center"
         android:enabled="true"
-        android:text="@string/schedule_a_venue"/>
+        android:gravity="center"
+        android:onClick="onEventPage"
+        android:text="@string/upcoming_events" />
 
     <Button
         android:id="@+id/addVenueButton"

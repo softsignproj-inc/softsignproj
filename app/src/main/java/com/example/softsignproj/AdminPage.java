@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.softsignproj.addVenue.AddVenue;
@@ -18,6 +19,11 @@ public class AdminPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_page);
+    }
+
+    public void onEventPage(View view) {
+        Intent intent = new Intent(this, AdminEventPageActivity.class);
+        startActivity(intent);
     }
 
     public void onAddVenue(View view){

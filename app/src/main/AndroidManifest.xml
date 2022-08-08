@@ -55,7 +55,7 @@
         <activity
             android:name=".AdminEventPageActivity"
             android:exported="true"
-            android:parentActivityName=".HomePage">
+            android:parentActivityName=".AdminPage">
         </activity>
     </application>
 </manifest>
