@@ -28,21 +28,12 @@ public class AdminPage extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.my_menu, menu);
-        return true;
+        return MenuHandler.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.signOutButton) {
-            Toast toast = Toast.makeText(getApplicationContext(), "You have been signed out", Toast.LENGTH_SHORT);
-            toast.show();
-
-            Intent intent = new Intent(this, SignIn.class);
-            startActivity(intent);
-        }
-        return super.onOptionsItemSelected(item);
+        MenuItem it = MenuHandler.onOptionsItemSelected(item, this, true);
+        return super.onOptionsItemSelected(it);
     }
 }
