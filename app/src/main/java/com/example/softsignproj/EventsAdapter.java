@@ -9,37 +9,80 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SortedList;
 
 import com.example.softsignproj.data.model.Event;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedHashMap;
 
 
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder> {
-
+    DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("event");
     RecyclerView eventsView;
-    ArrayList<Event> data;
+    SortedList<Event> data;
     String userID;
     Context context;
 
-    public EventsAdapter(Context ct, ArrayList<Event> data, String id) {
-        this.data = data;
+    public EventsAdapter(Context ct, String id) {
+        data = new SortedList<>(Event.class, new SortedList.Callback<Event>() {
+            @Override
+            public void onInserted(int position, int count) {
+                notifyItemRangeInserted(position, count);
+            }
+
+            @Override
+            public void onRemoved(int position, int count) {
+                notifyItemRangeRemoved(position, count);
+            }
+
+            @Override
+            public void onMoved(int fromPosition, int toPosition) {
+                notifyItemMoved(fromPosition, toPosition);
+            }
+
+            @Override
+            public int compare(Event o1, Event o2) {
+                return o1.getStart().compareTo(o2.getStart());
+            }
+
+            @Override
+            public void onChanged(int position, int count) {
+                notifyItemRangeChanged(position, count);
+            }
+
+            @Override
+            public boolean areContentsTheSame(Event oldItem, Event newItem) {
+                return oldItem.areContentsSame(newItem);
+            }
+
+            @Override
+            public boolean areItemsTheSame(Event item1, Event item2) {
+                return item1.getId().equals(item2.getId());
+            }
+        });
         this.userID = id;
         this.context = ct;
-        Collections.sort(data, (t0, t1) -> {
-            if (t0.getStart().isBefore(t1.getStart())) return 1;
-            else if (t0.getStart().isAfter(t1.getStart())) return -1;
-            else return 0;
-        }
-        );
     }
 
     @NonNull
     @Override
     public EventsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_item, null));
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_item, parent, false);
+        ViewHolder holder = new ViewHolder(view, new EventClickListener() {
+            @Override
+            public void onClick(int p) {
+                DatabaseReference eventRef = db.child(data.get(p).getId());
+                DatabaseReference addedParticipant = eventRef.child("participants").push();
+                eventRef.child("currCount").setValue(data.get(p).getCurCount() + 1);
+                addedParticipant.setValue(userID);
+                Event event = data.get(p);
+                event.addParticipant(addedParticipant.getKey(), userID);
+                updateEvent(event);
+            }
+        });
+        return holder;
     }
 
     @Override
@@ -51,14 +94,15 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
         holder.date.setText(data.get(position).getTime());
         holder.headCount.setText(data.get(position).getHeadCount());
 
+        System.out.println(data.get(position).getParticpants());
         // Set button accordingly
-        if (data.get(position).isFull()) {
-            holder.schedule.setText("FULL");
+        if (data.get(position).isSignedUp(this.userID)) {
+            holder.schedule.setText("Scheduled");
             holder.schedule.setEnabled(false);
         }
 
-        else if (data.get(position).isSignedUp(this.userID)) {
-            holder.schedule.setText("Scheduled");
+        else if (data.get(position).isFull()) {
+            holder.schedule.setText("FULL");
             holder.schedule.setEnabled(false);
         }
 
@@ -66,31 +110,61 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
             holder.schedule.setText("Add to schedule?");
             holder.schedule.setEnabled(true);
         }
-
     }
 
     public void updateEventsList(ArrayList<Event> events) {
         data.clear();
         data.addAll(events);
-        this.notifyDataSetChanged();
     }
+
+    public void addEvent(Event event) {
+        data.add(event);
+    }
+
+    public void removeEvent(Event event) {
+        data.remove(event);
+    }
+
+    public void updateEvent(Event event) {
+        data.updateItemAt(data.indexOf(event), event);
+    }
+
 
     @Override
     public int getItemCount() {
         return data.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        EventClickListener listener;
         TextView sport, venue, date, headCount;
         Button schedule;
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, EventClickListener listener) {
             super(itemView);
             this.sport = itemView.findViewById(R.id.sport);
             this.venue = itemView.findViewById(R.id.venue);
             this.date = itemView.findViewById(R.id.date);
             this.headCount = itemView.findViewById(R.id.headCount);
             this.schedule = itemView.findViewById(R.id.schedule);
+            this.listener = listener;
+
+            schedule.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.schedule:
+                    listener.onClick(this.getLayoutPosition());
+                default:
+                    break;
+            }
         }
     }
+
+    public interface EventClickListener {
+        void onClick(int p);
+    }
+
 }
 

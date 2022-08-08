@@ -17,19 +17,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.sql.Array;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class EventsPage extends AppCompatActivity {
     private RecyclerView eventsView;
     private HashMap<String, Event> events = new HashMap<String, Event>();
-    private ArrayList<Event> eventsList = new ArrayList<>();
-    private ArrayList<Event> temp = new ArrayList<>();
-    private EventsAdapter eventsAdapter = new EventsAdapter(this, eventsList, "username1");
+    private EventsAdapter eventsAdapter = new EventsAdapter(this, "username1");
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,70 +39,88 @@ public class EventsPage extends AppCompatActivity {
         eventsView.setLayoutManager(new LinearLayoutManager(this));
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("event");
-        ref.getDatabase();
-
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
-                temp.clear();
-                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
-
-                    // Basic information
-                    int currCount = Integer.parseInt(String.valueOf(snapshot.child("currCount").getValue()));
-                    int maxCount = Integer.parseInt(String.valueOf(snapshot.child("maxCount").getValue()));
-                    String sport = (String) snapshot.child("sport").getValue();
-                    String venue = (String) snapshot.child("venue").getValue();
-                    LocalDateTime startTime = LocalDateTime.parse((String) snapshot.child("startTime").getValue(), formatter);
-                    LocalDateTime endTime = LocalDateTime.parse((String) snapshot.child("endTime").getValue(), formatter);
-                    HashMap<String, String> participants = new HashMap<String, String>();
-                    System.out.println(snapshot.child("participants").getValue());
-                    // Get list of participants
-                    DatabaseReference usersRef = ref.child(snapshot.getKey()).child("participants");
-                    usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            for (DataSnapshot childSnapshot: snapshot.getChildren()) {
-                                System.out.println("Child");
-                                System.out.println(childSnapshot.getValue());
-                                participants.put(childSnapshot.getKey(), (String) childSnapshot.getValue());
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
-
-                    // Initialize linked hash map with all fetched events
-                    events.put(snapshot.getKey(), new Event(snapshot.getKey(), currCount, maxCount, startTime, endTime, sport, venue, participants));
-                    // Convert to ArrayList with same order, and push to eventsAdapter
-                    temp = new ArrayList<>(events.values());
-                    eventsAdapter.updateEventsList(temp);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
         ref.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                int currCount = Integer.parseInt(String.valueOf(dataSnapshot.child("currCount").getValue()));
+                int maxCount = Integer.parseInt(String.valueOf(dataSnapshot.child("maxCount").getValue()));
+                String sport = (String) dataSnapshot.child("sport").getValue();
+                String venue = (String) dataSnapshot.child("venue").getValue();
+                LocalDateTime startTime = LocalDateTime.parse((String) dataSnapshot.child("startTime").getValue(), formatter);
+                LocalDateTime endTime = LocalDateTime.parse((String) dataSnapshot.child("endTime").getValue(), formatter);
+                HashMap<String, String> participants = new HashMap<String, String>();
+                System.out.println(dataSnapshot.child("participants").getValue());
 
+                // Initialize linked hash map with all fetched events
+                events.put(dataSnapshot.getKey(), new Event(dataSnapshot.getKey(), currCount, maxCount, startTime, endTime, sport, venue, participants));
+
+                DatabaseReference usersRef = ref.child(dataSnapshot.getKey()).child("participants");
+                usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot childSnapshot: snapshot.getChildren()) {
+                            // System.out.println("Child");
+                            System.out.println("In on child added: " + childSnapshot.getValue());
+                            participants.put(childSnapshot.getKey(), (String) childSnapshot.getValue());
+                        }
+                        events.get(dataSnapshot.getKey()).setParticipants(participants);
+                        eventsAdapter.addEvent(events.get(dataSnapshot.getKey()));
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+                System.out.println("In on child added:" + participants);
+                // Convert to ArrayList with same order, and push to eventsAdapter
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                int currCount = Integer.parseInt(String.valueOf(dataSnapshot.child("currCount").getValue()));
+                int maxCount = Integer.parseInt(String.valueOf(dataSnapshot.child("maxCount").getValue()));
+                String sport = (String) dataSnapshot.child("sport").getValue();
+                String venue = (String) dataSnapshot.child("venue").getValue();
+                LocalDateTime startTime = LocalDateTime.parse((String) dataSnapshot.child("startTime").getValue(), formatter);
+                LocalDateTime endTime = LocalDateTime.parse((String) dataSnapshot.child("endTime").getValue(), formatter);
+                HashMap<String, String> participants = new HashMap<String, String>();
+                System.out.println(dataSnapshot.child("participants").getValue());
 
+                // Initialize linked hash map with all fetched events
+                Event event = events.get(dataSnapshot.getKey());
+                event.setCurCount(currCount);
+                event.setMaxCount(maxCount);
+                event.setSport(sport);
+                event.setVenue(venue);
+                event.setStartTime(startTime);
+                event.setEndTime(endTime);
+
+                DatabaseReference usersRef = ref.child(dataSnapshot.getKey()).child("participants");
+                usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot childSnapshot: snapshot.getChildren()) {
+                            // System.out.println("Child");
+                            System.out.println("In onDataChange/onChildChanged " + childSnapshot.getValue());
+                            participants.put(childSnapshot.getKey(), (String) childSnapshot.getValue());
+                        }
+                        event.setParticipants(participants);
+                        eventsAdapter.updateEvent(event);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
             }
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
+                eventsAdapter.removeEvent(events.get(dataSnapshot.getKey()));
+                events.remove(dataSnapshot.getKey());
             }
 
             @Override
@@ -121,7 +135,7 @@ public class EventsPage extends AppCompatActivity {
         });
     }
 
-    public void onClick(View view) {
+    public void onClickEvent(View view) {
 
     }
 }

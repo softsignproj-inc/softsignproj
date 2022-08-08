@@ -12,7 +12,7 @@
         android:layout_marginStart="120dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="177dp"
-        android:text="TextView"
+        android:text="@string/textview"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/goHome"
@@ -25,6 +25,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:clickable="true"
+        android:contentDescription="@string/goHome"
+        android:focusable="true"
+        app:backgroundTint="#7700FF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="?attr/homeAsUpIndicator" />
