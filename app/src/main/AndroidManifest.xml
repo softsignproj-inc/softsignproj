@@ -54,7 +54,8 @@
             android:parentActivityName=".addVenue.AddVenue" />
         <activity
             android:name=".AdminEventPageActivity"
-            android:exported="true">
+            android:exported="true"
+            android:parentActivityName=".HomePage">
         </activity>
     </application>
 </manifest>

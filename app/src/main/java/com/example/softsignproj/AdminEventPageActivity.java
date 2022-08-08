@@ -25,14 +25,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-//import com.example.softsignproj.data.Administrator;
-//import com.example.softsignproj.data.Customer;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-//import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.ktx.Firebase;
 
 public class AdminEventPageActivity extends Activity implements AdapterView.OnItemSelectedListener {
     private ArrayList<String> display_venues;
