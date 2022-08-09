@@ -25,4 +25,12 @@
     <string name="add_venue_enter_sports_title">Enter Sports:</string>
     <string name="list_of_sports_available">list of sports available:</string>
     <string name="schedule_an_activity">schedule an activity</string>
+    <string name="sports_spinner_prompt">Select sport available for this venue</string>
+    <string name="add_start_time">Select Start Time</string>
+    <string name="add_start_date">Select Start Date</string>
+    <string name="add_end_date">Select End Date</string>
+    <string name="add_end_time">Select End Time</string>
+    <string name="maximum_number_of_players">select maximum number of players</string>
+    <string name="add_event_to_venue">add event to venue</string>
+
 </resources>
