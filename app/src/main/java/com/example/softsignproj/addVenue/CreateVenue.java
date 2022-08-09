@@ -8,15 +8,14 @@ import com.example.softsignproj.data.model.Venue;
 
 import java.util.ArrayList;
 
-import java.util.List;
 
 public class CreateVenue {
 
     private static String venueName;
-    private static ArrayList<String> sports;
+    private static ArrayList sports;
     private static Database db;
 
-    public static void setSports(ArrayList<String> s){
+    public static void setSports(ArrayList s){
         sports = s;
     }
 
@@ -29,7 +28,6 @@ public class CreateVenue {
     }
 
     public static void writeToDatabase(OnSuccessListener<? super Object> onSuccess, OnFailureListener onFailure){
-
         Venue newVenue = new Venue();
         newVenue.setVenue_name(venueName);
         newVenue.setSports(sports);
@@ -43,7 +41,7 @@ public class CreateVenue {
         return venueName;
     }
 
-    public static ArrayList<String> getSports(){
+    public static ArrayList getSports(){
         return sports;
     }
 }

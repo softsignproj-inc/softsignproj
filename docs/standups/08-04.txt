@@ -33,3 +33,40 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- discovered undesired behaviours when refreshing Venuelist
+
+Name: Sarah Liu
+
+What have you done since yesterday?
+	- added new page for scheduled events
+	
+What are you planning on doing today?
+	- fixing bugs and stuff
+
+Any impediments or stumbling blocks?
+	- nil
+
+Name: Ishaan Upadhyay
+
+What have you done since yesterday?
+	- figured out the cause of errors relating to fetching from the database 
+	(Firebase was returning values in wrapper types for primitives, i.e. java.lang.Long)
+	- Helped Daniel to fix code relating to fetching from database
+	(adapter was getting dereferenced because it was recreated in onDataChanged, so initially fetched list of events wasn't being drawn)
+
+What are you planning on doing today?
+	- update my own code with the EventsAdapter and recyclerView to fix the errors that arose in Daniel's work
+	- work on properly fetching items from the database, because I need the list of signed up users as well
+
+Any impediments or stumbling blocks?
+	- none
+	
+Name: Daniel Grishanov
+
+What have you done since yesterday?
+	- display retrieved info from database to recyclerView, fix issue with data not displaying on app start
+
+What are you planning on doing today?
+	- attend meeting with TA
+	
+Any impediments or stumbling blocks?
+	- fix All option dispearing from spinner

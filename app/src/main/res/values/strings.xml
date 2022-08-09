@@ -3,6 +3,10 @@
     <string name="prompt_user">Enter username</string>
     <string name="prompt_password">Enter password</string>
     <string name="sign_in">Sign In</string>
+    <string name="textview">Events</string>
+    <string name="goHome">Go to the home page</string>
+    <string name="filter">Filter by venue:</string>
+    <string name="default_spinner">All venues</string>
     <string name="create_account">Create Account</string>
     <string name="i_am_an_admin">I am an admin</string>
     <string name="don_t_have_an_account">Don\'t have an account?</string>

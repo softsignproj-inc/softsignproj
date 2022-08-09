@@ -2,6 +2,9 @@ package com.example.softsignproj;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -56,56 +59,17 @@ public class VenueList extends AppCompatActivity {
             }
         }, false);
 
-
-//        DatabaseReference venueList = FirebaseDatabase.getInstance("https://softsignproj-default-rtdb.firebaseio.com/").getReference("venue");
-//        venueList.addValueEventListener(eventListener);
-
     }
 
-//    ValueEventListener eventListener = new ValueEventListener() {
-//        @Override
-//        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//
-//            for (DataSnapshot child : dataSnapshot.getChildren()) {
-//                Object obj = child.getValue();
-//
-//                if (obj instanceof HashMap) {
-//                    HashMap<String, Object> venueInfo = (HashMap<String, Object>)obj;
-//
-//                    ArrayList<String> sports = new ArrayList<>();
-//                    ArrayList<String> events = new ArrayList<>();
-//
-//                    if (venueInfo.containsKey("sports") && venueInfo.get("sports") instanceof ArrayList) {
-//                        sports = (ArrayList<String>)(venueInfo.get("sports"));
-//                    }
-//
-//                    if (venueInfo.containsKey("events") && venueInfo.get("events") instanceof ArrayList) {
-//                        events = (ArrayList<String>)(venueInfo.get("events"));
-//                    }
-//
-//                    Venue v = new Venue(child.getKey(), sports, events);
-//                    venues.add(v);
-//
-//                }
-//            }
-//
-//            if (venues != null) {
-//
-//                RecyclerView recyclerView = findViewById(R.id.venueRecycler);
-//                recyclerView.setLayoutManager(new LinearLayoutManager(VenueList.this));
-//
-//                VenueAdapter venueAdapter = new VenueAdapter(venues);
-//                recyclerView.setAdapter(venueAdapter);
-//
-//            }
-//
-//        }
-//
-//        @Override
-//        public void onCancelled(@NonNull DatabaseError databaseError) {
-//            Log.w("warning", "loadPost:onCancelled", databaseError.toException());
-//        }
-//
-//    };
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        return MenuHandler.onCreateOptionsMenu(menu, inflater);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        MenuItem it = MenuHandler.onOptionsItemSelected(item, this, false);
+        return super.onOptionsItemSelected(it);
+    }
 }

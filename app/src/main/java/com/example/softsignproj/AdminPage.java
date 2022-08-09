@@ -4,7 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.softsignproj.addVenue.AddVenue;
 
@@ -16,8 +21,25 @@ public class AdminPage extends AppCompatActivity {
         setContentView(R.layout.activity_admin_page);
     }
 
+    public void onEventPage(View view) {
+        Intent intent = new Intent(this, AdminEventPageActivity.class);
+        startActivity(intent);
+    }
+
     public void onAddVenue(View view){
         Intent intent = new Intent(this, AddVenue.class);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        return MenuHandler.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        MenuItem it = MenuHandler.onOptionsItemSelected(item, this, true);
+        return super.onOptionsItemSelected(it);
     }
 }

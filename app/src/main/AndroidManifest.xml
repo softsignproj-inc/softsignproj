@@ -14,9 +14,15 @@
         android:theme="@style/Theme.Softsignproj"
         tools:targetApi="31">
         <activity
+            android:name=".ScheduledEvents"
+            android:exported="false" />
+        <activity
+            android:name=".MyEvents"
+            android:exported="false" />
+        <activity
             android:name=".AdminPage"
             android:exported="false"
-            android:parentActivityName=".SignIn"/>
+            android:parentActivityName=".SignIn" />
         <activity
             android:name=".VenueList"
             android:exported="false"
@@ -41,14 +47,23 @@
         <activity
             android:name=".addVenue.AddVenue"
             android:exported="true"
-            android:parentActivityName=".HomePage" />
+            android:parentActivityName=".AdminPage" />
         <activity
             android:name=".addVenue.AddVenueEnterSports"
             android:exported="true"
+            android:parentActivityName=".SignInActivity" />
+        <activity
+            android:name=".EventsPage"
+            android:exported="true"
+            android:parentActivityName=".SignInActivity" />
             android:parentActivityName=".addVenue.AddVenue" />
+        <activity
+            android:name=".AdminEventPageActivity"
+            android:exported="true"
+            android:parentActivityName=".AdminPage">
+        </activity>
         <activity android:name=".scheduleEvent.ScheduleEvent"
-            android:exported="false"
+            android:exported="true"
             android:parentActivityName=".VenueList" />
     </application>
-
 </manifest>

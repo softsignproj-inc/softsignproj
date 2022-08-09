@@ -3,6 +3,8 @@ package com.example.softsignproj;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -23,8 +25,8 @@ public class SignIn extends AppCompatActivity {
     private EditText usernameField, passwordField;
     private Button signUpButton;
     private boolean adminMode;
-    private SharedPreferences sharedPref;
     private Toast toast;
+    private SharedPreferences sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +88,7 @@ public class SignIn extends AppCompatActivity {
 
         toast = Toast.makeText(getApplicationContext(), null, Toast.LENGTH_SHORT);
 
-        sharedPref = SignIn.this.getSharedPreferences(getString(R.string.preference_file_key), MODE_PRIVATE);
+        sharedPref = getApplicationContext().getSharedPreferences(getString(R.string.preference_file_key), MODE_PRIVATE);
     }
 
     OnSuccessListener<? super Object> successListener = new OnSuccessListener<Object>() {
@@ -141,4 +143,5 @@ public class SignIn extends AppCompatActivity {
             signUpButton.setEnabled(!isChecked);
         }
     };
+
 }

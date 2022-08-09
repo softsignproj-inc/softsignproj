@@ -1,22 +1,26 @@
 package com.example.softsignproj.addVenue;
 
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.softsignproj.R;
+import com.example.softsignproj.Sport;
+
+import java.util.ArrayList;
 
 public class AddVenueRecyclerAdapter extends RecyclerView.Adapter<AddVenueRecyclerAdapter.AddVenueViewHolder>{
 
-    private AddVenueListManager<String> list;
+    private ArrayList<Sport> list;
     private AddVenueOnRemove onRemove;
 
-    public AddVenueRecyclerAdapter(AddVenueListManager<String> a){
+    public AddVenueRecyclerAdapter(ArrayList<Sport> a){
         this.list = a;
     }
 
@@ -27,7 +31,7 @@ public class AddVenueRecyclerAdapter extends RecyclerView.Adapter<AddVenueRecycl
     public class AddVenueViewHolder extends RecyclerView.ViewHolder{
 
         private TextView txt;
-        private Button remove;
+        private ImageButton remove;
         private AddVenueRecyclerAdapter parent;
 
         public AddVenueViewHolder(final View view){
@@ -51,8 +55,8 @@ public class AddVenueRecyclerAdapter extends RecyclerView.Adapter<AddVenueRecycl
 
     @Override
     public void onBindViewHolder(@NonNull AddVenueRecyclerAdapter.AddVenueViewHolder holder, int position) {
-        String name = list.get(position);
-        holder.txt.setText(name);
+        Sport sport = list.get(position);
+        holder.txt.setText(sport.getName());
         holder.remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,6 +67,6 @@ public class AddVenueRecyclerAdapter extends RecyclerView.Adapter<AddVenueRecycl
 
     @Override
     public int getItemCount() {
-        return list.getSize();
+        return list.size();
     }
 }

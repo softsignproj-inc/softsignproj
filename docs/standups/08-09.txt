@@ -1,0 +1,10 @@
+Name: Christine Zhao
+
+What have you done since yesterday?
+	- removed unused imports
+
+What are you planning on doing today?
+	- Refine code for better readability
+	
+Any impediments or stumbling blocks?
+	- nil
