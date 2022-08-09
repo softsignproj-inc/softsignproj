@@ -26,7 +26,7 @@ import android.widget.Toast;
 import com.example.softsignproj.Database;
 import com.example.softsignproj.R;
 import com.example.softsignproj.adapter.VenueAdapter;
-import com.example.softsignproj.data.model.Event;
+import com.example.softsignproj.data.model.Events;
 import com.example.softsignproj.data.model.Venue;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -145,7 +145,7 @@ public class ScheduleEvent extends AppCompatActivity implements View.OnClickList
                 }, mHour, mMin, false);
         timePickerDialog.show();
     }
-    protected Event getInput(){
+    protected Events getInput(){
         EditText txtNumPlayer = (EditText)findViewById(R.id.editPlayerNum);
 
         String numPlayer = txtNumPlayer.getText().toString();
@@ -190,7 +190,7 @@ public class ScheduleEvent extends AppCompatActivity implements View.OnClickList
             ArrayList<String> participants = new ArrayList<>();
             SharedPreferences preferences = parentContext.getSharedPreferences(getString(R.string.preference_file_key), MODE_PRIVATE);
             participants.add(preferences.getString("Current User", "DEFAULT"));
-            return new Event(1, endDateTime, startDateTime, maxCount, participants, sportSelected, venueName);
+            return new Events(1, endDateTime, startDateTime, maxCount, participants, sportSelected, venueName);
 
         }catch(java.time.format.DateTimeParseException e){
             Toast.makeText(parentContext, "Invalid date or time entered", LENGTH_SHORT).show();
@@ -205,13 +205,13 @@ public class ScheduleEvent extends AppCompatActivity implements View.OnClickList
         if (view == btnEndDatePicker) getDate((txtEndDate));
         if (view == btnEndTimePicker) getTime(txtEndTime);
         if (view == btnAddEvent){
-            Event new_event = getInput();
-            if (new_event != null)            add_event(new_event);
+            Events new_events = getInput();
+            if (new_events != null)            add_event(new_events);
         }
     }
 
-    private void add_event(Event new_event) {
-        event_id = new_event.hashCode();
+    private void add_event(Events new_events) {
+        event_id = new_events.hashCode();
 
         database.read("event", new OnSuccessListener<Object>() {
             @Override
@@ -228,7 +228,7 @@ public class ScheduleEvent extends AppCompatActivity implements View.OnClickList
                 Log.e("schedule event", "failure to read from database");
             }
         }, false);
-        database.write("event/" + event_id, new_event, new OnSuccessListener<Object>() {
+        database.write("event/" + event_id, new_events, new OnSuccessListener<Object>() {
             @Override
             public void onSuccess(Object o) {
                 Toast.makeText(parentContext, "successfully scheduled event", Toast.LENGTH_SHORT).show();

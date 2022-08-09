@@ -2,7 +2,7 @@ package com.example.softsignproj.data.model;
 
 import java.util.ArrayList;
 
-public class Event {
+public class Events {
     private int currcount;
     private String endTime;
     private String startTime;
@@ -11,11 +11,11 @@ public class Event {
     private String sport;
     private String venue;
 
-    public Event(int currcount) {
+    public Events(int currcount) {
         this.currcount = currcount;
     }
 
-    public Event(int currcount, java.lang.String endTime, java.lang.String startTime, int maxCount, ArrayList<java.lang.String> participants, java.lang.String sport, java.lang.String venue) {
+    public Events(int currcount, java.lang.String endTime, java.lang.String startTime, int maxCount, ArrayList<java.lang.String> participants, java.lang.String sport, java.lang.String venue) {
         this.currcount = currcount;
         this.endTime = endTime;
         this.startTime = startTime;
@@ -94,3 +94,4 @@ public class Event {
         this.venue = venue;
     }
 }
+
