@@ -12,16 +12,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.softsignproj.AdminPage;
 import com.example.softsignproj.Database;
 import com.example.softsignproj.MenuHandler;
 import com.example.softsignproj.R;
-import com.example.softsignproj.SignIn;
-import com.example.softsignproj.data.model.Venue;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
-import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
