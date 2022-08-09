@@ -11,6 +11,6 @@ public class EventComparator implements Comparator<Event> {
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public int compare(Event event, Event t1) {
-        return(event.getStartTime().compareTo(t1.getStartTime()));
+        return(event.getStart().compareTo(t1.getStart()));
     }
 }

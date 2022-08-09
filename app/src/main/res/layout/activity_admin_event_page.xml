@@ -33,19 +33,22 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="24dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="22dp"
         android:text="@string/filter"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/teal_200"
+        android:background="@color/purple_500"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toTopOf="@+id/spinner"

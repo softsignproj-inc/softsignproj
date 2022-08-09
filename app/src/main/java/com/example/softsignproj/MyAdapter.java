@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.softsignproj.data.Event;
+import com.example.softsignproj.data.model.Event;
 
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.my_row, parent, false);
+        View view = inflater.inflate(R.layout.admin_recycler_view_item, parent, false);
         return new MyViewHolder(view);
     }
 
@@ -39,12 +39,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
-        holder.venue.setText("Venue: " + events.get(position).venue);
-        holder.curNumPlayers.setText("Current Number of Players: " + String.valueOf(events.get(position).curCount));
-        holder.maxNumPlayers.setText("Max Number of Players: " + String.valueOf(events.get(position).maxCount));
-        holder.startTime.setText("Start Time: " + events.get(position).start.format(format));
-        holder.endTime.setText("End Time: " + events.get(position).end.format(format));
-        holder.sport.setText("Sport: " + events.get(position).sport);
+        System.out.println(events.get(position).getTime());
+
+        holder.sport.setText(events.get(position).getSport());
+        holder.venue.setText(events.get(position).getVenue());
+        holder.date.setText(events.get(position).getTime());
+        holder.headCount.setText(events.get(position).getHeadCount());
+
+        /*holder.venue.setText("Venue: " + events.get(position).venue);
+        holder.headCount.setText("Current Number of Players: " + String.valueOf(events.get(position).curCount));
+        holder.date.setText("Start Time: " + events.get(position).start.format(format));
+        holder.sport.setText("Sport: " + events.get(position).sport);*/
     }
 
     @Override
@@ -54,17 +59,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView venue, curNumPlayers, maxNumPlayers, startTime, endTime, sport;
+        TextView venue, headCount, date, sport;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             venue = itemView.findViewById((R.id.venue));
-            curNumPlayers = itemView.findViewById((R.id.cur_num_player));
-            maxNumPlayers = itemView.findViewById((R.id.max_num_player));
-            startTime = itemView.findViewById((R.id.start_time));
-            endTime = itemView.findViewById((R.id.end_time));
+            headCount = itemView.findViewById((R.id.headCount));
+            date = itemView.findViewById((R.id.date));
             sport = itemView.findViewById((R.id.sport));
-
+            System.out.println(venue);
+            System.out.println(date);
         }
     }
 

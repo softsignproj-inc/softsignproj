@@ -18,7 +18,7 @@ import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.softsignproj.data.Event;
+import com.example.softsignproj.data.model.Event;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.time.LocalDateTime;
@@ -137,7 +137,7 @@ public class AdminEventPageActivity extends Activity implements AdapterView.OnIt
 
         //temp.clear();
         for (Event e:temp_events) {
-            if (e.venue.equals(text)) {
+            if (e.getVenue().equals(text)) {
                 temp.add(e);
             }
         }
