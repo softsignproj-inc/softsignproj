@@ -46,6 +46,9 @@
             android:name=".addVenue.AddVenueEnterSports"
             android:exported="true"
             android:parentActivityName=".addVenue.AddVenue" />
+        <activity android:name=".scheduleEvent.ScheduleEvent"
+            android:exported="false"
+            android:parentActivityName=".VenueList" />
     </application>
 
 </manifest>

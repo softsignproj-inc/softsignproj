@@ -1,13 +1,17 @@
 package com.example.softsignproj.adapter;
 
+import android.content.Intent;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.softsignproj.R;
+import com.example.softsignproj.scheduleEvent.ScheduleEvent;
 import com.example.softsignproj.data.model.Venue;
 import com.example.softsignproj.viewHolder.VenueViewHolder;
 
@@ -15,11 +19,10 @@ import java.util.ArrayList;
 
 public class VenueAdapter extends RecyclerView.Adapter<VenueViewHolder> {
     private final ArrayList<Venue> venues;
-    private final VenueClickListener venueListener;
+    public static final String POSITION = "com.example.softsignproj.POSITION";
 
-    public VenueAdapter(ArrayList<Venue> venues, VenueClickListener venueListener) {
+    public VenueAdapter(ArrayList<Venue> venues) {
         this.venues = venues;
-        this.venueListener = venueListener;
     }
 
     @NonNull
@@ -40,6 +43,16 @@ public class VenueAdapter extends RecyclerView.Adapter<VenueViewHolder> {
             sports = sports + a + '\n';
         }
         holder.getSportsList().setText(sports);
+        holder.getSchedule().setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), ScheduleEvent.class);
+                int position = holder.getBindingAdapterPosition();
+                intent.putExtra(POSITION, venues.get(position).getVenue_name());
+                view.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -47,11 +60,4 @@ public class VenueAdapter extends RecyclerView.Adapter<VenueViewHolder> {
         return venues.size();
     }
 
-    public interface VenueClickListener {
-        void onVenueClick(View view);
-    }
-
-    public VenueClickListener getVenueListener() {
-        return venueListener;
-    }
 }

@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout/activity_scedule_event.xml" value="0.35751037597656254" />
+        <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.22864583333333333" />
+        <entry key="app/src/main/res/layout/activity_venue_list.xml" value="0.19722222222222222" />
       </map>
     </option>
   </component>

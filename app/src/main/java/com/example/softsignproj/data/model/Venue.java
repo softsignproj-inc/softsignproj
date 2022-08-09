@@ -1,6 +1,7 @@
 package com.example.softsignproj.data.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Venue {
     private String venue_name;
@@ -14,6 +15,11 @@ public class Venue {
         this.venue_name = venue_name;
         this.sports = sports;
         this.events = events;
+    }
+    public Venue(HashMap hashMap) {
+        this.venue_name = (String) hashMap.get("venue_name");
+        this.sports = (ArrayList<String>) hashMap.get("sports");
+        this.events = (ArrayList<String>) hashMap.get("events");
     }
 
     public String getVenue_name() {

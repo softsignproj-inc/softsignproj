@@ -1,6 +1,7 @@
 package com.example.softsignproj.viewHolder;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,12 +14,14 @@ public class VenueViewHolder extends RecyclerView.ViewHolder{
     private final VenueAdapter venueAdapter;
     private final TextView venueName;
     private final TextView sportsList;
+    private final Button schedule;
 
     public VenueViewHolder(VenueAdapter venueAdapter, @NonNull View view) {
         super(view);
         this.venueAdapter = venueAdapter;
         venueName = view.findViewById(R.id.venueItem);
         sportsList = view.findViewById(R.id.sportsList);
+        schedule = view.findViewById(R.id.addActivity);
     }
 
     public TextView getVenueName() {
@@ -27,5 +30,9 @@ public class VenueViewHolder extends RecyclerView.ViewHolder{
 
     public TextView getSportsList() {
         return sportsList;
+    }
+
+    public Button getSchedule() {
+        return schedule;
     }
 }

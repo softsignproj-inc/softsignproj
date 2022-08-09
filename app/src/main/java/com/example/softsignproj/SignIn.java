@@ -47,6 +47,8 @@ public class SignIn extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                usernameField.setError(null);
+                passwordField.setError(null);
 
                 usernameField.setError(null);
                 passwordField.setError(null);
