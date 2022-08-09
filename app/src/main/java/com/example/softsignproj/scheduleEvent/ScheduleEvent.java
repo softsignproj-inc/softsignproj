@@ -12,7 +12,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -172,25 +171,31 @@ public class ScheduleEvent extends AppCompatActivity implements View.OnClickList
 
         String startDateTime = startDate + "T" + startTime;
         String endDateTime = endDate + "T" + endTime;
-        LocalDateTime startLocalDateTime = LocalDateTime.parse(startDateTime);
-        LocalDateTime endLocalDateTime = LocalDateTime.parse(endDateTime);
+        try {
+            LocalDateTime startLocalDateTime = LocalDateTime.parse(startDateTime);
+            LocalDateTime endLocalDateTime = LocalDateTime.parse(endDateTime);
+            if (startLocalDateTime.isBefore(LocalDateTime.now())){
+                Toast.makeText(parentContext, "Cannot schedule an event in the past", LENGTH_SHORT).show();
+                return null;
+            }
+            if (endLocalDateTime.isBefore(startLocalDateTime)){
+                Toast.makeText(parentContext, "End time is before start time", LENGTH_SHORT).show();
+                return null;
+            }
+            int maxCount = Integer.parseInt(numPlayer.trim());
+            if (maxCount == 0){
+                Toast.makeText(parentContext, "Number of Players has to be greater of equal to 1", LENGTH_SHORT).show();
+                return null;
+            }
+            ArrayList<String> participants = new ArrayList<>();
+            SharedPreferences preferences = parentContext.getSharedPreferences(getString(R.string.preference_file_key), MODE_PRIVATE);
+            participants.add(preferences.getString("Current User", "DEFAULT"));
+            return new Event(1, endDateTime, startDateTime, maxCount, participants, sportSelected, venueName);
 
-        if (startLocalDateTime.isBefore(LocalDateTime.now())){
-            Toast.makeText(parentContext, "Cannot schedule an event in the past", LENGTH_SHORT).show();
+        }catch(java.time.format.DateTimeParseException e){
+            Toast.makeText(parentContext, "Invalid date or time entered", LENGTH_SHORT).show();
             return null;
         }
-        if (endLocalDateTime.isBefore(startLocalDateTime)){
-            Toast.makeText(parentContext, "End time is before start time", LENGTH_SHORT).show();
-            return null;
-        }
-        Log.e("end", endDateTime);
-        Log.e("start", startDateTime);
-        int maxCount = Integer.parseInt(numPlayer.trim());
-        ArrayList<String> participants = new ArrayList<>();
-        SharedPreferences preferences = parentContext.getSharedPreferences(getString(R.string.preference_file_key), MODE_PRIVATE);
-        participants.add(preferences.getString("Current User", "DEFAULT"));
-        return new Event(1, endDateTime, startDateTime, maxCount, participants, sportSelected, venueName);
-
     }
 
     @Override
