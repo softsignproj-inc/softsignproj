@@ -99,7 +99,7 @@ public class MyEvents extends AppCompatActivity {
                 LocalDateTime startTime = LocalDateTime.parse((String) snapshot.child("startTime").getValue(), formatter);
                 LocalDateTime endTime = LocalDateTime.parse((String) snapshot.child("endTime").getValue(), formatter);
 
-                allEvents.add(new Event(snapshot.getKey(), venue, currCount, maxCount, sport, startTime, endTime));
+                allEvents.add(new Event(snapshot.getKey(), currCount, maxCount, startTime, endTime, sport, venue));
             }
         }
 
@@ -122,7 +122,7 @@ public class MyEvents extends AppCompatActivity {
                     String eventNum = String.valueOf(child.getValue());
 
                     for (int i = 0; i < allEvents.size(); i++) {
-                        if (allEvents.get(i).getEvent_name().equals(eventNum)) {
+                        if (allEvents.get(i).getId().equals(eventNum)) {
                             myJoinedEvents.add(allEvents.get(i));
                             break;
                         }
@@ -148,7 +148,8 @@ public class MyEvents extends AppCompatActivity {
             }
             else {
 
-                Event e = new Event("", "", 0, 0, "", LocalDateTime.of(2000,1,1,1,0), LocalDateTime.of(2000,1,1,1,1));
+                Event e = new Event("", 0, 0, LocalDateTime.of(2000,1,1,1,0),
+                        LocalDateTime.of(2000,1,1,1,1), "", "");
 
                 myJoinedEvents.add(e);
 

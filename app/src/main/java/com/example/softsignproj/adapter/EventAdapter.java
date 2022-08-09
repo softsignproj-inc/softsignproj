@@ -41,10 +41,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder>{
     public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
         Event event = events.get(position);
         holder.getEventName().setText(new String(event.getSport() + " at " + event.getVenue()));
-        holder.getStartTime().setText(String.format("%02d:%02d", event.getStartTime().getHour(), event.getStartTime().getMinute()));
-        holder.getEndTime().setText(String.format("%02d:%02d", event.getEndTime().getHour(), event.getEndTime().getMinute()));
-        holder.getParticipants().setText(new String(event.getCurrCount() + "/" + event.getMaxCount()));
-        holder.getDate().setText(String.format("%02d %s, %04d", event.getStartTime().getDayOfMonth(), event.getStartTime().getMonth().getDisplayName(TextStyle.FULL, Locale.CANADA), event.getStartTime().getYear()));
+        holder.getStartTime().setText(String.format("%02d:%02d", event.getStart().getHour(), event.getStart().getMinute()));
+        holder.getEndTime().setText(String.format("%02d:%02d", event.getEnd().getHour(), event.getEnd().getMinute()));
+        holder.getParticipants().setText(new String(event.getCurCount() + "/" + event.getMaxCount()));
+        holder.getDate().setText(String.format("%02d %s, %04d", event.getStart().getDayOfMonth(), event.getStart().getMonth().getDisplayName(TextStyle.FULL, Locale.CANADA), event.getStart().getYear()));
     }
 
     @Override

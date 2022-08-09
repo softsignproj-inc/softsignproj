@@ -1,5 +1,9 @@
 package com.example.softsignproj.data.model;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -26,6 +30,16 @@ public class Event {
         this.signedUp.putAll(signedUp);
     }
 
+    public Event(String id, int cur, int max, LocalDateTime start, LocalDateTime end, String sport, String venue) {
+        this.id = id;
+        this.curCount = cur;
+        this.maxCount = max;
+        this.start = start;
+        this.end = end;
+        this.sport = sport;
+        this.venue = venue;
+    }
+
     public LocalDateTime getStart() {
         return this.start;
     }
@@ -42,6 +56,7 @@ public class Event {
         return String.format("%d/%d", this.curCount, this.maxCount);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public String getTime() {
         return String.format("%s to %s", customFormatter.format(start), customFormatter.format(end));
     }
