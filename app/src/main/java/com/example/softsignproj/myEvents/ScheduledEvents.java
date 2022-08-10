@@ -1,4 +1,4 @@
-package com.example.softsignproj;
+package com.example.softsignproj.myEvents;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -18,6 +18,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.softsignproj.HomePage;
+import com.example.softsignproj.MenuHandler;
+import com.example.softsignproj.R;
 import com.example.softsignproj.adapter.EventAdapter;
 import com.example.softsignproj.data.model.Event;
 import com.example.softsignproj.data.model.EventComparator;

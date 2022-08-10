@@ -72,7 +72,7 @@ public class JoinEventsAdapter extends RecyclerView.Adapter<JoinEventsAdapter.Vi
     @NonNull
     @Override
     public JoinEventsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.join_events_view_item, parent, false);
         ViewHolder holder = new ViewHolder(view, new EventClickListener() {
             @Override
             public void onClick(int p) {
