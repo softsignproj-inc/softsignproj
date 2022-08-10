@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class AddVenueOnRemove<E> {
 
     private ArrayList<E> list;
-    private AddVenueEnterSports mainPage;
+    private AddVenue mainPage;
     private AddVenueRecyclerAdapter adapter;
 
-    public AddVenueOnRemove(AddVenueEnterSports mainPage, ArrayList list, AddVenueRecyclerAdapter adapter){
+    public AddVenueOnRemove(AddVenue mainPage, ArrayList list, AddVenueRecyclerAdapter adapter){
         this.mainPage = mainPage;
         this.list = list;
         this.adapter = adapter;
