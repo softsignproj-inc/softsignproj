@@ -13,10 +13,12 @@
         android:layout_marginTop="8dp"
         android:onClick="onFinish"
         android:text="FINISH"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addVenueEnterSportsRecyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/addVenueEnterSportsRecyclerView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/addVenueEnterSportsTitle6"
@@ -25,8 +27,9 @@
         android:layout_marginTop="24dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/add_venue_enter_sports_title"
-        android:textSize="28sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addVenueNameInput" />
 
@@ -34,7 +37,7 @@
         android:id="@+id/addVenueNumberOfSports"
         android:layout_width="54dp"
         android:layout_height="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="28dp"
         android:background="#FFFFFF"
         android:fontFamily="sans-serif-black"
         android:text="0"
@@ -44,17 +47,17 @@
         app:layout_constraintBottom_toTopOf="@+id/addVenueEnterSportsRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addVenueSportsErrorPlaceholder"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/addVenueEnterSportsRecyclerView"
         android:layout_width="351dp"
-        android:layout_height="161dp"
-        android:layout_marginTop="316dp"
+        android:layout_height="202dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintHorizontal_bias="0.447"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/addVenueSportsOfferedTitle7" />
 
     <Button
         android:id="@+id/addVenueEnterSportButton"
@@ -71,12 +74,14 @@
         android:id="@+id/addVenueSportsErrorPlaceholder"
         android:layout_width="369dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="256dp"
+        android:layout_marginTop="240dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-black"
         android:textAlignment="center"
         android:textColor="#42007C"
+        app:layout_constraintBottom_toTopOf="@+id/addVenueNumberOfSports"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintHorizontal_bias="0.367"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Sample text" />
@@ -118,14 +123,14 @@
         android:inputType="textPersonName"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.415"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddNewVenueTitle" />
 
     <TextView
         android:id="@+id/AddNewVenueTitle"
         android:layout_width="wrap_content"
-        android:layout_height="64dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/add_venue_page_title"
