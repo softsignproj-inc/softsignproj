@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.softsignproj.venueList.VenueList;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
@@ -84,7 +85,7 @@ public class CreateAccount extends AppCompatActivity {
                     editor.putString("Current User", u);
                     editor.apply();
 
-                    Intent intent = new Intent(CreateAccount.this, HomePage.class);
+                    Intent intent = new Intent(CreateAccount.this, VenueList.class);
                     startActivity(intent);
 
                 } else {

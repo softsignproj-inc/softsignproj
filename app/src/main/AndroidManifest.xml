@@ -14,23 +14,17 @@
         android:theme="@style/Theme.Softsignproj"
         tools:targetApi="31">
         <activity
-            android:name=".myEvents.ScheduledEvents"
+            android:name=".myEvents.MyScheduledEvents"
             android:exported="false" />
         <activity
-            android:name=".myEvents.MyEvents"
+            android:name=".myEvents.MyJoinedEvents"
             android:exported="false" />
-        <activity
-            android:name=".AdminPage"
-            android:exported="false"
-            android:parentActivityName=".SignIn" />
         <activity
             android:name=".venueList.VenueList"
-            android:exported="false"
-            android:parentActivityName=".HomePage" />
+            android:exported="false" />
         <activity
             android:name=".CreateAccount"
-            android:exported="false"
-            android:parentActivityName=".SignIn" />
+            android:exported="false" />
         <activity
             android:name=".SignIn"
             android:exported="true">
@@ -41,24 +35,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HomePage"
-            android:exported="false"
-            android:parentActivityName=".SignIn" />
-        <activity
             android:name=".addVenue.AddVenue"
-            android:exported="true"
-            android:parentActivityName=".AdminPage" />
+            android:exported="false" />
         <activity
-            android:name=".joinEvent.JoinEventsPage"
-            android:exported="true"
-            android:parentActivityName=".HomePage" />
+            android:name=".eventList.EventList"
+            android:exported="false" />
         <activity
-            android:name=".filterEvents.AdminFilterEventsPage"
-            android:exported="true"
-            android:parentActivityName=".AdminPage">
-        </activity>
-        <activity android:name=".scheduleEvent.ScheduleEvent"
-            android:exported="true"
-            android:parentActivityName=".venueList.VenueList" />
+            android:name=".filterEvents.FilterEvents"
+            android:exported="false" />
+        <activity
+            android:name=".venueList.ScheduleEvent"
+            android:exported="false" />
     </application>
 </manifest>

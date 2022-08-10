@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.softsignproj.filterEvents.FilterEvents;
+import com.example.softsignproj.venueList.VenueList;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.switchmaterial.SwitchMaterial;
@@ -107,13 +109,13 @@ public class SignIn extends AppCompatActivity {
 
                     Intent intent;
                     if (adminMode) {
-                        intent = new Intent(SignIn.this, AdminPage.class);
+                        intent = new Intent(SignIn.this, FilterEvents.class);
                     } else {
                         SharedPreferences.Editor editor = sharedPref.edit();
                         editor.putString("Current User", u);
                         editor.apply();
 
-                        intent = new Intent(SignIn.this, HomePage.class);
+                        intent = new Intent(SignIn.this, VenueList.class);
                     }
                     startActivity(intent);
 

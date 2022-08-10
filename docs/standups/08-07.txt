@@ -22,6 +22,19 @@ What are you planning on doing today?
 Any impediments or stumbling blocks?
 	- nil
 
+<<<<<<< HEAD
+Name: Catherine Sun
+
+What have you done since yesterday?
+	- Wrote current customer to shared preferences
+	- However, the emulator device file explorer cannot be accessed until the file is written to. This shouldn't affect the app I think
+
+What are you planning on doing today?
+	- nil
+
+Any impediments or stumbling blocks?
+	- Can't open many folders in the emulator's device file explorer until the first customer signs in
+=======
 Name: Christine Zhao
 
 What have you done since yesterday?
@@ -32,3 +45,4 @@ What are you planning on doing today?
   
 Any impediments or stumbling blocks?
 	- nil
+>>>>>>> af228c0317f254baaaa62e91be8052cb5184329a

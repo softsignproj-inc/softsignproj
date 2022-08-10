@@ -1,11 +1,8 @@
 package com.example.softsignproj;
 
-import android.renderscript.Sampler;
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 
-import com.example.softsignproj.data.model.Event;
+import com.example.softsignproj.model.Event;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
