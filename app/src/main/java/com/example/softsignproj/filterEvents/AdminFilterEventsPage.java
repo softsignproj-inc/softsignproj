@@ -48,12 +48,8 @@ public class AdminFilterEventsPage extends Activity implements AdapterView.OnIte
         display_venues = new ArrayList<>();
         display_venues.add("All");
 
-        //all_events = new ArrayList<>();
         temp_events = new ArrayList<>();
         display_events = new ArrayList<>();
-
-        System.out.println("Outside listner");
-        System.out.println(all_events.toString());
 
         Spinner spinner = findViewById(R.id.spinner);
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, display_venues); //selected item will look like a spinner set from XML
@@ -62,7 +58,6 @@ public class AdminFilterEventsPage extends Activity implements AdapterView.OnIte
         spinner.setOnItemSelectedListener(this);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        //FilterEventsAdapter filterEventsAdapter = new FilterEventsAdapter(this, all_events);
         recyclerView.setAdapter(filterEventsAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         System.out.println("End");
@@ -77,8 +72,6 @@ public class AdminFilterEventsPage extends Activity implements AdapterView.OnIte
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     display_venues.add(snapshot.getKey());
                 }
-                System.out.println("In venues");
-                //filterEventsAdapter.updateEventsList(all_events);
             }
 
             @Override
@@ -93,20 +86,13 @@ public class AdminFilterEventsPage extends Activity implements AdapterView.OnIte
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
                 temp_events.clear();
-                System.out.println("Entered Data change");
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    //System.out.println("Entered loop");
-                    //System.out.println(snapshot.getKey());
                     String sCurrCount = String.valueOf(snapshot.child("currCount").getValue());
                     String sMaxCount = String.valueOf(snapshot.child("maxCount").getValue());
                     String sport = (String) snapshot.child("sport").getValue();
                     String venue = (String) snapshot.child("venue").getValue();
                     String sStartTime = (String) snapshot.child("startTime").getValue();
                     String sEndTime = (String) snapshot.child("endTime").getValue();
-
-                    //System.out.println(sCurrCount + " " + sMaxCount + " " + sport + " " +
-                    //        venue + " " + sStartTime + " " + sEndTime);
-                    //System.out.println("Check if null");
 
                     if (sCurrCount==null || sMaxCount==null || sport==null|| venue==null ||
                             sStartTime==null || sEndTime==null) {
@@ -119,14 +105,9 @@ public class AdminFilterEventsPage extends Activity implements AdapterView.OnIte
                     LocalDateTime startTime = LocalDateTime.parse(sStartTime, formatter);
                     LocalDateTime endTime = LocalDateTime.parse(sEndTime, formatter);
 
-                    //String id, int cur, int max, LocalDateTime start, LocalDateTime end, String sport, String venue
                     temp_events.add(new Event(snapshot.getKey(), currCount, maxCount, startTime, endTime, sport, venue));
                 }
 
-                //System.out.println("Exited loop");
-                //System.out.println(all_events.toString());
-
-                //temp_events.addAll(all_events);
                 filterEventsAdapter.updateEventsList(temp_events);
                 filterEventsAdapter.notifyDataSetChanged();
                 System.out.println(all_events.toString());
@@ -152,7 +133,6 @@ public class AdminFilterEventsPage extends Activity implements AdapterView.OnIte
             temp.addAll(temp_events);
         }
 
-        //temp.clear();
         for (Event e:temp_events) {
             if (e.getVenue().equals(text)) {
                 temp.add(e);
@@ -161,18 +141,7 @@ public class AdminFilterEventsPage extends Activity implements AdapterView.OnIte
 
         filterEventsAdapter.updateEventsList(temp);
         filterEventsAdapter.notifyDataSetChanged();
-        System.out.println("Filter test");
-        System.out.println(temp_events.toString());
 
-        //RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        //FilterEventsAdapter filterEventsAdapter = new FilterEventsAdapter(this, all_events);
-
-        /*recyclerView.setAdapter(null);
-        recyclerView.setLayoutManager(null);
-        recyclerView.setAdapter(filterEventsAdapter);
-        recyclerView.setAdapter(filterEventsAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        filterEventsAdapter.notifyDataSetChanged();*/
     }
 
     @Override
