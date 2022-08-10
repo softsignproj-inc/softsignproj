@@ -17,7 +17,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.HashMap;
 
-public class createAccount extends AppCompatActivity {
+public class CreateAccount extends AppCompatActivity {
     private EditText usernameField, passwordField;
     private Toast toast;
     private SharedPreferences sharedPref;
@@ -84,7 +84,7 @@ public class createAccount extends AppCompatActivity {
                     editor.putString("Current User", u);
                     editor.apply();
 
-                    Intent intent = new Intent(createAccount.this, HomePage.class);
+                    Intent intent = new Intent(CreateAccount.this, HomePage.class);
                     startActivity(intent);
 
                 } else {
