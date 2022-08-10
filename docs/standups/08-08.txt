@@ -30,7 +30,8 @@ What have you done since yesterday?
 	- nil
 
 What are you planning on doing today?
-	- Add sign out button to action bar
-	
+	- Add a sign out button to the action bar so admins and customers are redirected to the sign in page
+	- Customers username in shared preference file is cleared upon sign out
+
 Any impediments or stumbling blocks?
 	- nil

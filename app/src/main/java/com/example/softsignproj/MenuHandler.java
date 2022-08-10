@@ -1,13 +1,8 @@
 package com.example.softsignproj;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
@@ -34,8 +29,8 @@ public class MenuHandler {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         item.setChecked(true);
-                        navDrawer.closeDrawers();
                         pages.openPage(item.getItemId());
+                        navDrawer.closeDrawers();
                         return true;
                     }
                 });

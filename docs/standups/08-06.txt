@@ -20,3 +20,14 @@ What are you planning on doing today?
 	
 Any impediments or stumbling blocks?
 	- nil
+
+Name: Catherine Sun
+
+What have you done since yesterday?
+	- nil
+
+What are you planning on doing today?
+	- Find out why the folders are breaking
+
+Any impediments or stumbling blocks?
+	- Can't open many folders in the emulator's device file explorer until the first customer signs in

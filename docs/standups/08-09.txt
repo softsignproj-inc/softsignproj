@@ -20,3 +20,15 @@ What are you planning on doing today?
 	
 Any impediments or stumbling blocks?
 	- issue with crashing
+
+Name: Catherine Sun
+
+What have you done since yesterday?
+	- Added a sign out button to the action bar
+
+What are you planning on doing today?
+    - Replace the customer and admin homepage with the pages for user stories 2 and 7
+    - Create a menu for navigating between pages and signing out in the action bar
+
+Any impediments or stumbling blocks?
+	- Lots of classes had very similar names, making it hard to tell which should go where

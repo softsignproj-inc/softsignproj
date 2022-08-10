@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/eventsByVenueButton"
+            android:icon="@drawable/ic_baseline_sort_by_alpha_24"
+            android:title="See Events By Venue"
+            android:checked="false" />
+        <item
+            android:id="@+id/addNewVenueButton"
+            android:icon="@drawable/ic_baseline_add_box_24"
+            android:title="Add Another Venue"
+            android:checked="true" />
+        <item
+            android:id="@+id/signOutButton"
+            android:icon="@drawable/ic_baseline_exit_to_app_24"
+            android:title="Sign Out"
+            android:checked="false" />
+    </group>
+</menu>

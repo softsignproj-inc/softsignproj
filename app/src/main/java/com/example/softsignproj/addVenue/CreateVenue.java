@@ -1,10 +1,9 @@
 package com.example.softsignproj.addVenue;
 
 import com.example.softsignproj.Database;
+import com.example.softsignproj.model.Venue;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-
-import com.example.softsignproj.data.model.Venue;
 
 import java.util.ArrayList;
 import java.util.HashMap;

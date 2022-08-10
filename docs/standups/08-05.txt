@@ -33,3 +33,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nil
+
+Name: Catherine Sun
+
+What have you done since yesterday?
+	- Fixed login issues
+
+What are you planning on doing today?
+	- Make only customers write their username to the shared preference file
+
+Any impediments or stumbling blocks?
+	- Can't open many folders in the emulator's device file explorer, including the shared_pref folder.

@@ -11,10 +11,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.softsignproj.filterEvents.FilterEvents;
 import com.example.softsignproj.Database;
 import com.example.softsignproj.MenuHandler;
+import com.example.softsignproj.PageHandler;
 import com.example.softsignproj.R;
+import com.example.softsignproj.SignIn;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
@@ -22,7 +26,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class AddVenue extends AppCompatActivity {
+public class AddVenue extends AppCompatActivity implements PageHandler {
 
     private Database db;
     @Override
@@ -72,7 +76,7 @@ public class AddVenue extends AppCompatActivity {
             }
         }
     }
-/*
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -81,9 +85,23 @@ public class AddVenue extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        MenuItem it = MenuHandler.onOptionsItemSelected(item, this, true);
+        MenuItem it = MenuHandler.onOptionsItemSelected(item, findViewById(R.id.drawer_layout), findViewById(R.id.navigationView), (PageHandler)this);
         return super.onOptionsItemSelected(it);
     }
 
- */
+    @Override
+    public void openPage(int itemId) {
+        if (itemId == R.id.eventsByVenueButton) {
+            Intent intent = new Intent(this, FilterEvents.class);
+            startActivity(intent);
+        }
+
+        if (itemId == R.id.signOutButton) {
+            Intent intent = new Intent(this, SignIn.class);
+            this.startActivity(intent);
+
+            Toast toast = Toast.makeText(this, "You have been signed out", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
 }

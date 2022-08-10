@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.softsignproj.R;
-import com.example.softsignproj.Sport;
+import com.example.softsignproj.model.Sport;
 
 import java.util.ArrayList;
 
