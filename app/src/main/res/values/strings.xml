@@ -30,5 +30,10 @@
     <string name="add_end_time">Select End Time</string>
     <string name="maximum_number_of_players">select maximum number of players</string>
     <string name="add_event_to_venue">add event to venue</string>
+    <string name="sports_offered">Sports offered</string>
+    <string name="enter">ENTER</string>
+    <string name="name_of_sport">Name of sport</string>
+    <string name="finish">FINISH</string>
+    <string name="_0">0</string>
 
 </resources>
