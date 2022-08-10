@@ -1,5 +1,7 @@
 package com.example.softsignproj;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.example.softsignproj.model.Event;
@@ -58,7 +60,7 @@ public class Database {
                             eventAddedToVenue.setValue(pushedEvent.getKey());
                             eventAddedToUser.setValue(pushedEvent.getKey());
                         } else {
-                            // Log.d(TAG, "Copy failed!");
+                            // do nothing
                         }
                     }
                 });
@@ -66,7 +68,7 @@ public class Database {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Log.d("TAG", firebaseError.getMessage()); //Never ignore potential errors!
+                Log.w("warning", databaseError.getMessage());
             }
         });
 
