@@ -120,8 +120,6 @@ public class Event {
     }
 
     public void setParticipants(HashMap<String, String> participants) {
-        System.out.println("In set participants");
-        System.out.println(participants);
         this.signedUp.clear();
         this.signedUp.putAll(participants);
     }

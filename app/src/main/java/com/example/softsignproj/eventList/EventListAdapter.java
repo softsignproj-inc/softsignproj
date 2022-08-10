@@ -100,7 +100,6 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
         holder.date.setText(data.get(position).getTime());
         holder.headCount.setText(data.get(position).getHeadCount());
 
-        System.out.println(data.get(position).getParticpants());
         // Set button accordingly
         if (data.get(position).isSignedUp(this.userID)) {
             holder.schedule.setText("Scheduled");
@@ -118,11 +117,6 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
         }
     }
 
-    public void updateEventsList(ArrayList<Event> events) {
-        data.clear();
-        data.addAll(events);
-    }
-
     public void addEvent(Event event) {
         data.add(event);
     }
@@ -134,7 +128,6 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
     public void updateEvent(Event event) {
         data.updateItemAt(data.indexOf(event), event);
     }
-
 
     @Override
     public int getItemCount() {
@@ -167,10 +160,8 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
             }
         }
     }
-
     public interface EventClickListener {
         void onClick(int p);
     }
-
 }
 

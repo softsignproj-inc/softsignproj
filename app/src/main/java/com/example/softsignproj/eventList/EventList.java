@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -63,7 +64,6 @@ public class EventList extends AppCompatActivity implements PageHandler {
                 LocalDateTime startTime = LocalDateTime.parse((String) dataSnapshot.child("startTime").getValue(), formatter);
                 LocalDateTime endTime = LocalDateTime.parse((String) dataSnapshot.child("endTime").getValue(), formatter);
                 HashMap<String, String> participants = new HashMap<String, String>();
-                System.out.println(dataSnapshot.child("participants").getValue());
 
                 // Initialize linked hash map with all fetched events
                 events.put(dataSnapshot.getKey(), new Event(dataSnapshot.getKey(), currCount, maxCount, startTime, endTime, sport, venue, participants));
@@ -81,12 +81,9 @@ public class EventList extends AppCompatActivity implements PageHandler {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                        Log.w("warning", "Could not read from Realtime DB", databaseError.toException());
                     }
                 });
-
-                System.out.println("In on child added:" + participants);
-                // Convert to ArrayList with same order, and push to eventsAdapter
             }
 
             @Override
@@ -98,7 +95,6 @@ public class EventList extends AppCompatActivity implements PageHandler {
                 LocalDateTime startTime = LocalDateTime.parse((String) dataSnapshot.child("startTime").getValue(), formatter);
                 LocalDateTime endTime = LocalDateTime.parse((String) dataSnapshot.child("endTime").getValue(), formatter);
                 HashMap<String, String> participants = new HashMap<String, String>();
-                System.out.println(dataSnapshot.child("participants").getValue());
 
                 // Initialize linked hash map with all fetched events
                 Event event = events.get(dataSnapshot.getKey());
@@ -122,7 +118,7 @@ public class EventList extends AppCompatActivity implements PageHandler {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                        Log.w("warning", "Could not read from Realtime DB", databaseError.toException());
                     }
                 });
             }
@@ -135,18 +131,14 @@ public class EventList extends AppCompatActivity implements PageHandler {
 
             @Override
             public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+                // Not relevant, used only if data is fetched using orderByChild or orderByValue
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                Log.w("warning", "Could not read from Realtime DB", databaseError.toException());
             }
         });
-    }
-
-    public void onClickEvent(View view) {
-
     }
 
     @Override
