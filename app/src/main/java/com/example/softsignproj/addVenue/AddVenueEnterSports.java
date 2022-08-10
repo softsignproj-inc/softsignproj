@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import com.example.softsignproj.MenuHandler;
 import com.example.softsignproj.R;
-import com.example.softsignproj.Sport;
+import com.example.softsignproj.data.model.Sport;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 

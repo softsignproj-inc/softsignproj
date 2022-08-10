@@ -1,4 +1,4 @@
-package com.example.softsignproj;
+package com.example.softsignproj.data.model;
 
 public class Sport implements Comparable<Sport>{
 
