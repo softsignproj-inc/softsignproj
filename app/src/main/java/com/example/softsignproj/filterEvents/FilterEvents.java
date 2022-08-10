@@ -76,6 +76,8 @@ public class FilterEvents extends AppCompatActivity implements AdapterView.OnIte
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     display_venues.add(snapshot.getKey());
                 }
+                
+                spinnerArrayAdapter.notifyDataSetChanged();
             }
 
             @Override

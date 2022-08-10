@@ -10,6 +10,18 @@ What are you planning on doing today?
 Any impediments or stumbling blocks?
 	- Some git version confusion
 
+Name: Daniel Grishanov
+
+What have you done since yesterday?
+	- fixed issues with crashing, participated in code clean up, removed debug messages
+
+What are you planning on doing today?
+	- fixed issue with spinner not updating, did final testing, particularly with database
+	  changes, and real-time updating
+	
+Any impediments or stumbling blocks?
+	- nil
+
 Name: Ishaan Upadhyay
 
 What have you done since yesterday?
