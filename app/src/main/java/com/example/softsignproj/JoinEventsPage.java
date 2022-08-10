@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.softsignproj.adapter.JoinEventsAdapter;
 import com.example.softsignproj.data.model.Event;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -23,11 +24,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
-public class EventsPage extends AppCompatActivity {
+public class JoinEventsPage extends AppCompatActivity {
     private RecyclerView eventsView;
     private HashMap<String, Event> events = new HashMap<String, Event>();
     private SharedPreferences sharedPref;
-    private EventsAdapter eventsAdapter;
+    private JoinEventsAdapter eventsAdapter;
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
 
     @Override
@@ -36,7 +37,7 @@ public class EventsPage extends AppCompatActivity {
         setContentView(R.layout.activity_events_page);
         eventsView = findViewById(R.id.recyclerView);
         sharedPref = getPreferences(Context.MODE_PRIVATE);
-        eventsAdapter = new EventsAdapter(this, sharedPref.getString("Current User", "username1"));
+        eventsAdapter = new JoinEventsAdapter(this, sharedPref.getString("Current User", "username1"));
         eventsView.setAdapter(eventsAdapter);
         eventsView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -61,8 +62,6 @@ public class EventsPage extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot childSnapshot: snapshot.getChildren()) {
-                            // System.out.println("Child");
-                            System.out.println("In on child added: " + childSnapshot.getValue());
                             participants.put(childSnapshot.getKey(), (String) childSnapshot.getValue());
                         }
                         events.get(dataSnapshot.getKey()).setParticipants(participants);
@@ -104,8 +103,6 @@ public class EventsPage extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot childSnapshot: snapshot.getChildren()) {
-                            // System.out.println("Child");
-                            System.out.println("In onDataChange/onChildChanged " + childSnapshot.getValue());
                             participants.put(childSnapshot.getKey(), (String) childSnapshot.getValue());
                         }
                         event.setParticipants(participants);

@@ -17,7 +17,7 @@ public class Event {
     private LocalDateTime start, end;
     private HashMap<String, String> signedUp;
 
-    public Event(String id, int cur, int max, LocalDateTime start, LocalDateTime end, String sport, String venue, HashMap<String, String> signedUp) {
+    public Event(String id, int cur, int max, LocalDateTime start, LocalDateTime end, String sport, String venue, HashMap<String, String> signedUp, String scheduledBy) {
         this.id = id;
         this.curCount = cur;
         this.maxCount = max;
@@ -30,6 +30,18 @@ public class Event {
         this.signedUp.putAll(signedUp);
     }
 
+    public Event(String id, int cur, int max, LocalDateTime start, LocalDateTime end, String sport, String venue, HashMap<String, String> signedUp) {
+        this.id = id;
+        this.curCount = cur;
+        this.maxCount = max;
+        this.start = start;
+        this.end = end;
+        this.sport = sport;
+        this.venue = venue;
+        this.signedUp = new HashMap<String, String>();
+        this.signedUp.putAll(signedUp);
+    }
+
     public Event(String id, int cur, int max, LocalDateTime start, LocalDateTime end, String sport, String venue) {
         this.id = id;
         this.curCount = cur;
@@ -38,6 +50,10 @@ public class Event {
         this.end = end;
         this.sport = sport;
         this.venue = venue;
+    }
+
+    public String getId() {
+        return this.id;
     }
 
     public LocalDateTime getStart() {
@@ -77,6 +93,8 @@ public class Event {
         return signedUp;
     }
 
+    public String getScheduledBy() {return scheduledBy;}
+
     public void setCurCount(int cur) {
         this.curCount = cur;
     }
@@ -106,10 +124,6 @@ public class Event {
         System.out.println(participants);
         this.signedUp.clear();
         this.signedUp.putAll(participants);
-    }
-
-    public String getId() {
-        return this.id;
     }
 
     public void addParticipant(String key, String val) {
