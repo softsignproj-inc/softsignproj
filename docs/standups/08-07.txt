@@ -22,7 +22,6 @@ What are you planning on doing today?
 Any impediments or stumbling blocks?
 	- nil
 
-<<<<<<< HEAD
 Name: Catherine Sun
 
 What have you done since yesterday?
@@ -34,7 +33,7 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- Can't open many folders in the emulator's device file explorer until the first customer signs in
-=======
+
 Name: Christine Zhao
 
 What have you done since yesterday?
@@ -45,4 +44,14 @@ What are you planning on doing today?
   
 Any impediments or stumbling blocks?
 	- nil
->>>>>>> af228c0317f254baaaa62e91be8052cb5184329a
+
+Name: Sarah Liu
+
+What have you done since yesterday?
+	- testing
+
+What are you planning on doing today?
+	- more testing of everything
+
+Any impediments or stumbling blocks?
+	- nil
