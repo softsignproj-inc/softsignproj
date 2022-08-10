@@ -7,6 +7,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.example.softsignproj.data.model.Venue;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class CreateVenue {
@@ -31,7 +32,7 @@ public class CreateVenue {
         Venue newVenue = new Venue();
         newVenue.setVenue_name(venueName);
         newVenue.setSports(sports);
-        newVenue.setEvents(new ArrayList());
+        newVenue.setEvents(new HashMap<String, String>());
 
         db.write("venue/" + venueName, newVenue, onSuccess, onFailure);
 

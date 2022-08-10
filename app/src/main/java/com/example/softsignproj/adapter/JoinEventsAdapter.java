@@ -1,6 +1,7 @@
-package com.example.softsignproj;
+package com.example.softsignproj.adapter;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,9 +9,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SortedList;
 
+import com.example.softsignproj.R;
 import com.example.softsignproj.data.model.Event;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -18,14 +21,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 
-public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder> {
+public class JoinEventsAdapter extends RecyclerView.Adapter<JoinEventsAdapter.ViewHolder> {
     DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("event");
     RecyclerView eventsView;
     SortedList<Event> data;
     String userID;
     Context context;
 
-    public EventsAdapter(Context ct, String id) {
+    public JoinEventsAdapter(Context ct, String id) {
         data = new SortedList<>(Event.class, new SortedList.Callback<Event>() {
             @Override
             public void onInserted(int position, int count) {
@@ -68,7 +71,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
 
     @NonNull
     @Override
-    public EventsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public JoinEventsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_item, parent, false);
         ViewHolder holder = new ViewHolder(view, new EventClickListener() {
             @Override
@@ -85,8 +88,9 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
         return holder;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
-    public void onBindViewHolder(@NonNull EventsAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull JoinEventsAdapter.ViewHolder holder, int position) {
 
         // Set text for all textViews
         holder.sport.setText(data.get(position).getSport());

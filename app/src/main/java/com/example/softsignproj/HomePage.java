@@ -3,14 +3,12 @@ package com.example.softsignproj;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class HomePage extends AppCompatActivity {
 
@@ -33,6 +31,15 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomePage.this, MyEvents.class);
+                startActivity(intent);
+            }
+        });
+
+        Button joinEvents = findViewById(R.id.eventListButton);
+        joinEvents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePage.this, JoinEventsPage.class);
                 startActivity(intent);
             }
         });
