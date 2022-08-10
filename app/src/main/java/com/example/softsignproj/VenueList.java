@@ -61,6 +61,7 @@ public class VenueList extends AppCompatActivity {
 
     }
 
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -72,4 +73,6 @@ public class VenueList extends AppCompatActivity {
         MenuItem it = MenuHandler.onOptionsItemSelected(item, this, false);
         return super.onOptionsItemSelected(it);
     }
+
+     */
 }

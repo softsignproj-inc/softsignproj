@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/allVenuesButton"
+            android:icon="@drawable/ic_baseline_flag_24"
+            android:title="See All Venues"
+            android:checked="true" />
+        <item
+            android:id="@+id/allEventsButton"
+            android:icon="@drawable/ic_baseline_event_24"
+            android:title="See All Events"
+            android:checked="false" />
+        <item
+            android:id="@+id/signOutButton"
+            android:icon="@drawable/ic_baseline_exit_to_app_24"
+            android:title="Sign Out"
+            android:checked="false" />
+    </group>
+</menu>

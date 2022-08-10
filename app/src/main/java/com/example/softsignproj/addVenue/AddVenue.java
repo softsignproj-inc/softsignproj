@@ -72,7 +72,7 @@ public class AddVenue extends AppCompatActivity {
             }
         }
     }
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -84,4 +84,6 @@ public class AddVenue extends AppCompatActivity {
         MenuItem it = MenuHandler.onOptionsItemSelected(item, this, true);
         return super.onOptionsItemSelected(it);
     }
+
+ */
 }

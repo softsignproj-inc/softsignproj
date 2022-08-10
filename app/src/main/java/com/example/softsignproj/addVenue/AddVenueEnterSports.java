@@ -120,6 +120,7 @@ public class AddVenueEnterSports extends AppCompatActivity {
             }
         });
     }
+    /*
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -132,4 +133,5 @@ public class AddVenueEnterSports extends AppCompatActivity {
         MenuItem it = MenuHandler.onOptionsItemSelected(item, this, false);
         return super.onOptionsItemSelected(it);
     }
+     */
 }

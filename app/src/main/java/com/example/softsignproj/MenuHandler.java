@@ -3,10 +3,17 @@ package com.example.softsignproj;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.navigation.NavigationView;
 
 public class MenuHandler {
 
@@ -15,23 +22,29 @@ public class MenuHandler {
         return true;
     }
 
-    public static MenuItem onOptionsItemSelected(MenuItem item, Context context, boolean isAdmin) {
+    public static MenuItem onOptionsItemSelected(MenuItem item, DrawerLayout navDrawer, NavigationView nav, PageHandler pages) {
         int id = item.getItemId();
 
-        if (id == R.id.signOutButton) {
-            Toast toast = Toast.makeText(context, "You have been signed out", Toast.LENGTH_SHORT);
-            toast.show();
+        if (id == R.id.openNavButton) {
 
-            if (!isAdmin) {
-                SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_key), context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPref.edit();
-                editor.clear();
-                editor.apply();
+            if(!navDrawer.isDrawerOpen(GravityCompat.END)) {
+                navDrawer.openDrawer(GravityCompat.END);
+
+                nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        item.setChecked(true);
+                        navDrawer.closeDrawers();
+                        pages.openPage(item.getItemId());
+                        return true;
+                    }
+                });
+
+            } else {
+                navDrawer.closeDrawer(GravityCompat.END);
             }
-
-            Intent intent = new Intent(context, SignIn.class);
-            context.startActivity(intent);
         }
         return item;
     }
+
 }

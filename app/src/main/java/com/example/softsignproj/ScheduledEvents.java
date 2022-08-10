@@ -176,7 +176,7 @@ public class ScheduledEvents extends AppCompatActivity {
         }
 
     };
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -188,4 +188,6 @@ public class ScheduledEvents extends AppCompatActivity {
         MenuItem it = MenuHandler.onOptionsItemSelected(item, this, false);
         return super.onOptionsItemSelected(it);
     }
+
+ */
 }

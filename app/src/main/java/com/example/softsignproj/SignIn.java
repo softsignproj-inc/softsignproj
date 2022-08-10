@@ -115,7 +115,7 @@ public class SignIn extends AppCompatActivity {
                         editor.putString("Current User", u);
                         editor.apply();
 
-                        intent = new Intent(SignIn.this, HomePage.class);
+                        intent = new Intent(SignIn.this, CustomerActivity.class);
                     }
                     startActivity(intent);
 
