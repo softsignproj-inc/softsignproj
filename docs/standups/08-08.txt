@@ -35,3 +35,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nil
+
+Name: Sarah Liu
+
+What have you done since yesterday?
+	- testing
+	
+What are you planning on doing today?
+	- looking over everyone's parts
+
+Any impediments or stumbling blocks?
+	- nil

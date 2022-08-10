@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,6 +48,20 @@ public class AddVenue extends AppCompatActivity implements PageHandler {
         CreateVenue.setDatabase(db);
         selectedSports = new ArrayList<Sport>();
         createSportsList();
+        Button finishButton = findViewById(R.id.addVenueFinishButton);
+        finishButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onFinish(view);
+            }
+        });
+        Button enterSportButton = findViewById(R.id.addVenueEnterSportButton);
+        enterSportButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                enterSport(view);
+            }
+        });
     }
 
     public void onFinish(View view){

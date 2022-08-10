@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Sport at Venue Name"
+            android:text="@string/sport_at_venue_name"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
-            android:text="Start Time:"
+            android:text="@string/start_time"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="52dp"
             android:layout_marginTop="20dp"
-            android:text="End Time:"
+            android:text="@string/end_time"
             app:layout_constraintStart_toEndOf="@+id/startTime"
             app:layout_constraintTop_toBottomOf="@+id/eventItem" />
 
@@ -52,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
-            android:text="Number of Participants:"
+            android:text="@string/participants"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:layout_marginTop="20dp"
-            android:text="00:00"
+            android:text="@string/start_time_def"
             app:layout_constraintStart_toEndOf="@+id/textView3"
             app:layout_constraintTop_toBottomOf="@+id/eventItem" />
 
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:layout_marginTop="20dp"
-            android:text="00:00"
+            android:text="@string/end_time_def"
             app:layout_constraintStart_toEndOf="@+id/textView4"
             app:layout_constraintTop_toBottomOf="@+id/eventItem" />
 
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:layout_marginTop="40dp"
-            android:text="0/0"
+            android:text="@string/participants_def"
             app:layout_constraintStart_toEndOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/eventItem" />
 
@@ -91,7 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
-            android:text="Date:"
+            android:text="@string/date"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/eventItem" />
 
@@ -100,7 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
-            android:text="01/01/2022"
+            android:text="@string/date_def"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/eventItem"
