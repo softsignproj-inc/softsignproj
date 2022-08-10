@@ -1,0 +1,11 @@
+Name: Christine Zhao
+
+What have you done since yesterday?
+	- Moved all my work to one activity/page
+  - minor layout change
+
+What are you planning on doing today?
+	- Clean up code for submission
+  
+Any impediments or stumbling blocks?
+	- Some git version confusion

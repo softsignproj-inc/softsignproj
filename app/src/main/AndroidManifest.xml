@@ -47,5 +47,4 @@
             android:name=".venueList.ScheduleEvent"
             android:exported="false" />
     </application>
-
 </manifest>
