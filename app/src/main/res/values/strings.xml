@@ -43,5 +43,6 @@
     <string name="end_time_def">00:00</string>
     <string name="participants">Number of Participants:</string>
     <string name="participants_def">0/0</string>
+    <string name="_0">0</string>
 
 </resources>
