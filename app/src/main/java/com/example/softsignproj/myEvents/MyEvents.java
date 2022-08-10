@@ -1,4 +1,4 @@
-package com.example.softsignproj;
+package com.example.softsignproj.myEvents;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -18,11 +18,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.softsignproj.HomePage;
+import com.example.softsignproj.MenuHandler;
+import com.example.softsignproj.R;
 import com.example.softsignproj.adapter.EventAdapter;
-import com.example.softsignproj.data.Customer;
 import com.example.softsignproj.data.model.Event;
 import com.example.softsignproj.data.model.EventComparator;
-import com.example.softsignproj.data.model.Venue;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,7 +34,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 
 public class MyEvents extends AppCompatActivity {
 

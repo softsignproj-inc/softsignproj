@@ -1,4 +1,4 @@
-package com.example.softsignproj;
+package com.example.softsignproj.joinEvent;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.softsignproj.R;
 import com.example.softsignproj.adapter.JoinEventsAdapter;
 import com.example.softsignproj.data.model.Event;
 import com.google.firebase.database.ChildEventListener;

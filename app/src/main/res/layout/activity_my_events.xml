@@ -5,7 +5,7 @@
     android:id="@+id/ConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyEvents">
+    tools:context=".myEvents.MyEvents">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/eventRecycler"

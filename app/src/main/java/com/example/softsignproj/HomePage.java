@@ -10,6 +10,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.softsignproj.joinEvent.JoinEventsPage;
+import com.example.softsignproj.myEvents.MyEvents;
+import com.example.softsignproj.venueList.VenueList;
+
 public class HomePage extends AppCompatActivity {
 
     @Override

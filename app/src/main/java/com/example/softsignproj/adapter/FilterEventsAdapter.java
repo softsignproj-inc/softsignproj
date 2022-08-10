@@ -1,4 +1,4 @@
-package com.example.softsignproj;
+package com.example.softsignproj.adapter;
 
 import android.content.Context;
 import android.os.Build;
@@ -11,17 +11,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.softsignproj.R;
 import com.example.softsignproj.data.model.Event;
 
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class FilterEventsAdapter extends RecyclerView.Adapter<FilterEventsAdapter.MyViewHolder> {
 
     ArrayList<Event> events;
     Context context;
 
-    public MyAdapter(Context ct, ArrayList<Event> evnts) {
+    public FilterEventsAdapter(Context ct, ArrayList<Event> evnts) {
         context = ct;
         events = evnts;
     }

@@ -8,10 +8,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.softsignproj.addVenue.AddVenue;
+import com.example.softsignproj.filterEvents.AdminFilterEventsPage;
 
 public class AdminPage extends AppCompatActivity {
 
@@ -22,7 +21,7 @@ public class AdminPage extends AppCompatActivity {
     }
 
     public void onEventPage(View view) {
-        Intent intent = new Intent(this, AdminEventPageActivity.class);
+        Intent intent = new Intent(this, AdminFilterEventsPage.class);
         startActivity(intent);
     }
 
