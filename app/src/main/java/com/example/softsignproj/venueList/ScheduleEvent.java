@@ -144,7 +144,7 @@ public class ScheduleEvent extends AppCompatActivity implements View.OnClickList
         String startDate = txtStartDate.getText().toString();
         String startTime = txtStartTime.getText().toString();
         String endDate = txtEndDate.getText().toString();
-        String endTime = txtStartTime.getText().toString();
+        String endTime = txtEndTime.getText().toString();
 
         String dateMatcher = "^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$";
         String timeMatcher = "^([0-1][0-9]|2[0-3]):[0-5][0-9]$";
