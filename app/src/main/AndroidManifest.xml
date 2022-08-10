@@ -38,9 +38,6 @@
             android:name=".addVenue.AddVenue"
             android:exported="false" />
         <activity
-            android:name=".addVenue.AddVenueEnterSports"
-            android:exported="false" />
-        <activity
             android:name=".eventList.EventList"
             android:exported="false" />
         <activity

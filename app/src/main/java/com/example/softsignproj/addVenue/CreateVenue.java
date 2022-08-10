@@ -32,7 +32,7 @@ public class CreateVenue {
         newVenue.setVenue_name(venueName);
         newVenue.setSports(sports);
         newVenue.setEvents(new HashMap<String, String>());
-
+        System.out.println("Venue name is " + venueName);
         db.write("venue/" + venueName, newVenue, onSuccess, onFailure);
 
     }
