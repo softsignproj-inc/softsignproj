@@ -6,7 +6,7 @@ What have you done since yesterday?
     - changed listener to childEventListener
 
 What are you planning on doing today?
-	- merging my changes into the master bracnh and fixing any conflicts that arise, making code grab user name from SharedPreferences
+	- merging my changes into the master branch and fixing any conflicts that arise, making code grab user name from SharedPreferences
     - discussing extra functionality like unjoining events
     - figuring out a way to return to the home screen
 
