@@ -21,6 +21,21 @@ What are you planning on doing today?
 Any impediments or stumbling blocks?
 	- issue with crashing
 
+Name: Ishaan Upadhyay
+
+What have you done since yesterday?
+	- merged my pull request into the master branch on Github
+	- discussed extra functionality and decided that it was unimportant to the user story
+	- discussed adding a toolbar to the top of each page to switch screens
+
+What are you planning on doing today?
+	- fix any last minute issues that might arise
+	- modifying my database write to add to venues, customers what events they've joined using push()
+	- getting rid of files that don't need to be around, renaming and reorganizing files to avoid ambiguity
+
+Any impediments or stumbling blocks?
+	- some issues with using getSharedPreferences() incorrectly
+
 Name: Catherine Sun
 
 What have you done since yesterday?
@@ -32,3 +47,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- Lots of classes had very similar names, making it hard to tell which should go where
+	
+Name: Sarah LIu
+
+What have you done since yesterday?
+	- fixed hard coded strings
+	
+What are you planning on doing today?
+	- refining and cleaning up code
+
+Any impediemnts or stumbling blocks?
+	- nil

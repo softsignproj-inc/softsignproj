@@ -6,7 +6,7 @@ What have you done since yesterday?
     - changed listener to childEventListener
 
 What are you planning on doing today?
-	- merging my changes into the master bracnh and fixing any conflicts that arise, making code grab user name from SharedPreferences
+	- merging my changes into the master branch and fixing any conflicts that arise, making code grab user name from SharedPreferences
     - discussing extra functionality like unjoining events
     - figuring out a way to return to the home screen
 
@@ -32,6 +32,17 @@ What have you done since yesterday?
 What are you planning on doing today?
 	- Add a sign out button to the action bar so admins and customers are redirected to the sign in page
 	- Customers username in shared preference file is cleared upon sign out
+
+Any impediments or stumbling blocks?
+	- nil
+
+Name: Sarah Liu
+
+What have you done since yesterday?
+	- testing
+	
+What are you planning on doing today?
+	- looking over everyone's parts
 
 Any impediments or stumbling blocks?
 	- nil

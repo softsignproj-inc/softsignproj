@@ -47,8 +47,8 @@ public class EventList extends AppCompatActivity implements PageHandler {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_list);
         eventsView = findViewById(R.id.recyclerView);
-        sharedPref = getPreferences(Context.MODE_PRIVATE);
-        eventsAdapter = new EventListAdapter(this, sharedPref.getString("Current User", "username1"));
+        sharedPref = getSharedPreferences("com.example.softsignproj.customer_file", Context.MODE_PRIVATE);
+        eventsAdapter = new EventListAdapter(this, sharedPref.getString("Current User", "DEFAULT"));
         eventsView.setAdapter(eventsAdapter);
         eventsView.setLayoutManager(new LinearLayoutManager(this));
 

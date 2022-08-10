@@ -78,6 +78,8 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
             public void onClick(int p) {
                 DatabaseReference eventRef = db.child(data.get(p).getId());
                 DatabaseReference addedParticipant = eventRef.child("participants").push();
+                DatabaseReference joinedEventRef = FirebaseDatabase.getInstance().getReference().child("customer/" + userID + "/joinedEvents").push();
+                joinedEventRef.setValue(eventRef.getKey());
                 eventRef.child("currCount").setValue(data.get(p).getCurCount() + 1);
                 addedParticipant.setValue(userID);
                 Event event = data.get(p);

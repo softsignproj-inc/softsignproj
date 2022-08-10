@@ -54,7 +54,9 @@ public class Database {
                         if (task.isComplete()) {
                             ref.child("temp").removeValue();
                             DatabaseReference eventAddedToVenue = ref.child("venue/" + event.getVenue() + "/events").push();
+                            DatabaseReference eventAddedToUser = ref.child("customer/" + event.getScheduledBy()+"/scheduledEvents").push();
                             eventAddedToVenue.setValue(pushedEvent.getKey());
+                            eventAddedToUser.setValue(pushedEvent.getKey());
                         } else {
                             // Log.d(TAG, "Copy failed!");
                         }

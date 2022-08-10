@@ -40,17 +40,11 @@ public class FilterEventsAdapter extends RecyclerView.Adapter<FilterEventsAdapte
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
-        System.out.println(events.get(position).getTime());
-
         holder.sport.setText(events.get(position).getSport());
         holder.venue.setText(events.get(position).getVenue());
         holder.date.setText(events.get(position).getTime());
         holder.headCount.setText(events.get(position).getHeadCount());
-
-        /*holder.venue.setText("Venue: " + events.get(position).venue);
-        holder.headCount.setText("Current Number of Players: " + String.valueOf(events.get(position).curCount));
-        holder.date.setText("Start Time: " + events.get(position).start.format(format));
-        holder.sport.setText("Sport: " + events.get(position).sport);*/
+        
     }
 
     @Override
@@ -68,8 +62,7 @@ public class FilterEventsAdapter extends RecyclerView.Adapter<FilterEventsAdapte
             headCount = itemView.findViewById((R.id.headCount));
             date = itemView.findViewById((R.id.date));
             sport = itemView.findViewById((R.id.sport));
-            System.out.println(venue);
-            System.out.println(date);
+
         }
     }
 
@@ -77,7 +70,6 @@ public class FilterEventsAdapter extends RecyclerView.Adapter<FilterEventsAdapte
         events.clear();
 
         events.addAll(evnts);
-        System.out.println(events.toString());
-        //this.notifyDataSetChanged();
+
     }
 }

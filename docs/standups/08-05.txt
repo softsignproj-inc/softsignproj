@@ -44,3 +44,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- Can't open many folders in the emulator's device file explorer, including the shared_pref folder.
+	
+Name: Sarah Liu
+
+What have you done since yesterday?
+	- bug testing
+
+What are you planning on doing today?
+	- fixing bugs
+
+Any impediments or stumbling blocks?
+	- nil

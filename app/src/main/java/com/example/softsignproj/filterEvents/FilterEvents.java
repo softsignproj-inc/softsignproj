@@ -64,7 +64,6 @@ public class FilterEvents extends AppCompatActivity implements AdapterView.OnIte
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setAdapter(filterEventsAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        System.out.println("End");
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("venue");
         reference.addValueEventListener(new ValueEventListener() {
@@ -76,6 +75,8 @@ public class FilterEvents extends AppCompatActivity implements AdapterView.OnIte
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     display_venues.add(snapshot.getKey());
                 }
+                
+                spinnerArrayAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -114,7 +115,7 @@ public class FilterEvents extends AppCompatActivity implements AdapterView.OnIte
 
                 filterEventsAdapter.updateEventsList(temp_events);
                 filterEventsAdapter.notifyDataSetChanged();
-                System.out.println(all_events.toString());
+
             }
 
 
