@@ -20,3 +20,14 @@ What are you planning on doing today?
 	
 Any impediments or stumbling blocks?
 	- nil
+	
+Name: Christine Zhao
+
+What have you done since yesterday?
+	- nothing
+
+What are you planning on doing today?
+	- nothing
+  
+Any impediments or stumbling blocks?
+	- nil
