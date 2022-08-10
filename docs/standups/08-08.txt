@@ -46,3 +46,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nil
+	
+Name: Chelsea Chan
+
+What have you done since yesterday?
+	- Finish getting info from different views, writing to database
+
+What are you planning on doing today?
+	- add verification of whether inputs are valid
+
+Any impediments or stumbling blocks?
+	- nil
