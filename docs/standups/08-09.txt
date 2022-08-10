@@ -8,3 +8,15 @@ What are you planning on doing today?
 	
 Any impediments or stumbling blocks?
 	- nil
+
+Name: Daniel Grishanov
+
+What have you done since yesterday?
+	- beautified my layout, attended TA meeting
+
+What are you planning on doing today?
+	- fix some bugs caused my merging, participate in reducing the number of event classes, 
+	  remove debug messages
+	
+Any impediments or stumbling blocks?
+	- issue with crashing
