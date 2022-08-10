@@ -1,0 +1,11 @@
+Member List:
+1. Chelsea Chan
+2. Sarah Liu
+3. Catherine Sun
+4. Daniel Grishanov
+5. Christine Zhao (Scrum Master)
+6. Ishaan Upadhyay
+
+Primary method of communication: Discord
+Scheduled times for all daily standup meetings: Weekdays at 20:00 EST
+The project will be version controlled at GitHub.
