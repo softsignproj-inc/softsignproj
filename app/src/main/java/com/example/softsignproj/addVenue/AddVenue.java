@@ -75,7 +75,6 @@ public class AddVenue extends AppCompatActivity implements PageHandler {
                 Matcher matcher = venueNamePattern.matcher(venueName);
                 if (!matcher.matches()) {
                     inputField.setError("Name may only contain letters, digits and whitespaces");
-                    //((TextView) findViewById(R.id.addVenueErrorPlaceholder)).setText("Name may only contain letters, digits and whitespaces");
                 } else if (venueName.equalsIgnoreCase("sports") ||
                         venueName.equalsIgnoreCase("events")  ||
                         venueName.equalsIgnoreCase("null")){
@@ -96,7 +95,7 @@ public class AddVenue extends AppCompatActivity implements PageHandler {
                     }, new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            ((TextView) findViewById(R.id.addVenueNameErrorPlaceholder)).setText("Error reading from database.");
+                            Toast.makeText(AddVenue.this, "There was a problem connecting to the database", Toast.LENGTH_SHORT).show();
                         }
                     }, false);
                 }
@@ -132,7 +131,7 @@ public class AddVenue extends AppCompatActivity implements PageHandler {
         }, new OnFailureListener(){
             @Override
             public void onFailure(@NonNull Exception e) {
-                System.out.println("Failure writing to db");
+                Toast.makeText(AddVenue.this, "There was a problem connecting to the database", Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         });
