@@ -47,3 +47,15 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nil
+	
+Name: Catherine Sun
+
+What have you done since yesterday?
+	- Made a navigation drawer, replacing the unnecessary home page and admin page activities
+	- Rearranges classes into packages and renames similarly named classes
+
+What are you planning on doing today?
+	- Fixed xml warnings and some code warnings
+  
+Any impediments or stumbling blocks?
+	- Struggled for a while to merge with master after changing a lot of file names and directories
