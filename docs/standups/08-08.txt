@@ -16,7 +16,7 @@ Any impediments or stumbling blocks?
 Name: Daniel Grishanov
 
 What have you done since yesterday?
-	- nothing
+	- implemented filtering
 
 What are you planning on doing today?
 	- add menu bar at top, beautify my layout, attend TA meeting
