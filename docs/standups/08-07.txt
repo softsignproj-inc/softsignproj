@@ -55,3 +55,14 @@ What are you planning on doing today?
 
 Any impediments or stumbling blocks?
 	- nil
+
+Name: Chelsea Chan
+
+What have you done since yesterday?
+	- added time and date picker dialogue, designed layout
+
+What are you planning on doing today?
+	- finish layout
+
+Any impediments or stumbling blocks?
+	- nil

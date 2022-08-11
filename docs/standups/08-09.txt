@@ -58,3 +58,14 @@ What are you planning on doing today?
 
 Any impediemnts or stumbling blocks?
 	- nil
+	
+Name: Chelsea Chan
+
+What have you done since yesterday?
+	- completed user story 2, resolved conflicts when merging
+
+What are you planning on doing today?
+	- nothing
+
+Any impediments or stumbling blocks?
+	- nil
