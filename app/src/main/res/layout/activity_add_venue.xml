@@ -16,8 +16,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
-            tools:context=".addVenue.AddVenue">
+            android:padding="5dp" >
 
             <Button
                 android:id="@+id/addVenueFinishButton"
@@ -185,4 +184,5 @@
             app:behavior_hideable="true"
             app:menu="@menu/admin_nav_add_venue" />
     </RelativeLayout>
+    
 </androidx.drawerlayout.widget.DrawerLayout>

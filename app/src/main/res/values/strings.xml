@@ -44,5 +44,20 @@
     <string name="participants">Number of Participants:</string>
     <string name="participants_def">0/0</string>
     <string name="_0">0</string>
+    <string name="my_joined_events">My Joined Events</string>
+    <string name="see_scheduled_events">See Scheduled Events</string>
+    <string name="nothing_to_see_here">Nothing to see here!</string>
+    <string name="my_scheduled_events">My Scheduled Events</string>
+    <string name="see_joined_events">See Joined Events</string>
+    <string name="yyyy_mm_dd">YYYY-MM-DD</string>
+    <string name="hh_mm">HH:MM</string>
+    <string name="number_of_players">Number of Players:</string>
+    <string name="remove_sport">Remove Sport</string>
+    <string name="button">Button</string>
+    <string name="sport_one_n_sport_two_n_sport_three">sport one \n sport two \n sport three</string>
+    <string name="see_events_by_venue">See Events By Venue</string>
+    <string name="add_another_venue">Add Another Venue</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="see_all_events">See All Events</string>
 
 </resources>

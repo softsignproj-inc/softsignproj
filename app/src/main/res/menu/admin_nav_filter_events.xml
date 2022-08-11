@@ -5,17 +5,17 @@
         <item
             android:id="@+id/eventsByVenueButton"
             android:icon="@drawable/ic_baseline_sort_by_alpha_24"
-            android:title="See Events By Venue"
+            android:title="@string/see_events_by_venue"
             android:checked="true" />
         <item
             android:id="@+id/addNewVenueButton"
             android:icon="@drawable/ic_baseline_add_box_24"
-            android:title="Add Another Venue"
+            android:title="@string/add_another_venue"
             android:checked="false" />
         <item
             android:id="@+id/signOutButton"
             android:icon="@drawable/ic_baseline_exit_to_app_24"
-            android:title="Sign Out"
+            android:title="@string/sign_out"
             android:checked="false" />
     </group>
 </menu>

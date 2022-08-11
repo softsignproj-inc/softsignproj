@@ -23,6 +23,29 @@
         <entry key="..\:/Documents/Code/softsignproj/app/src/main/res/layout/join_events_view_item.xml" value="0.2015625" />
         <entry key="..\:/Documents/Code/softsignproj/app/src/main/res/layout/recycler_view_item.xml" value="0.38697916666666665" />
         <entry key="..\:/Documents/Code/softsignproj/app/src/main/res/layout/venue_item.xml" value="0.2015625" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1685" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/drawable/ic_baseline_event_available_24.xml" value="0.1685" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.1685" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/drawable/ic_baseline_flag_24.xml" value="0.1685" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/drawable/ic_baseline_schedule_24.xml" value="0.1685" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/drawable/ic_baseline_sort_by_alpha_24.xml" value="0.1685" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1685" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/drawable/remove_button_circle.xml" value="0.1685" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/drawable/remove_sport_button.xml" value="0.1685" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/drawable/roundedborder.xml" value="0.1685" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/layout/activity_my_joined_events.xml" value="0.8129032258064516" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/layout/activity_my_scheduled_events.xml" value="0.6711051930758988" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/layout/activity_schedule_event.xml" value="0.6" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/layout/admin_recycler_view_item.xml" value="0.5158648925281474" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/layout/event_item.xml" value="0.4777251184834123" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/layout/join_events_view_item.xml" value="0.5158648925281474" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/layout/venue_item.xml" value="0.49363369245837413" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/menu/admin_nav_add_venue.xml" value="0.8456375838926175" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/menu/admin_nav_filter_events.xml" value="0.8456375838926175" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/menu/customer_nav_event_list.xml" value="0.7917329093799682" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/menu/customer_nav_my_joined_events.xml" value="0.8316831683168316" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/menu/customer_nav_my_scheduled_events.xml" value="0.7917329093799682" />
+        <entry key="..\:/Users/mailc/b07/softsignproj/app/src/main/res/menu/customer_nav_venue_list.xml" value="0.8316831683168316" />
       </map>
     </option>
   </component>

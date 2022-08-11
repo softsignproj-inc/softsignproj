@@ -24,11 +24,12 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:hint="YYYY-MM-DD"
+        android:hint="@string/yyyy_mm_dd"
         app:layout_constraintBaseline_toBaselineOf="@+id/sendStartDateButton"
         app:layout_constraintEnd_toStartOf="@+id/sendStartDateButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/sendStartDateButton"
@@ -48,11 +49,12 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:hint="HH:MM"
+        android:hint="@string/hh_mm"
         app:layout_constraintBaseline_toBaselineOf="@+id/sendStartTimeButton"
         app:layout_constraintEnd_toStartOf="@+id/sendStartTimeButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/sendStartTimeButton"
@@ -71,11 +73,12 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:hint="YYYY-MM-DD"
+        android:hint="@string/yyyy_mm_dd"
         app:layout_constraintBaseline_toBaselineOf="@+id/sendEndDateButton"
         app:layout_constraintEnd_toStartOf="@+id/sendEndDateButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/sendEndDateButton"
@@ -95,11 +98,12 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:hint="HH:MM"
+        android:hint="@string/hh_mm"
         app:layout_constraintBaseline_toBaselineOf="@+id/sendEndTimeButton"
         app:layout_constraintEnd_toStartOf="@+id/sendEndTimeButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/sendEndTimeButton"
@@ -117,14 +121,15 @@
     <EditText
         android:id="@+id/editPlayerNum"
         android:layout_width="0dp"
-
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView" />
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        android:autofillHints=""
+        android:inputType="number" />
 
     <TextView
         android:id="@+id/textView"
@@ -132,7 +137,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Number of Players:"
+        android:text="@string/number_of_players"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/editPlayerNum"
         app:layout_constraintHorizontal_bias="0.5"

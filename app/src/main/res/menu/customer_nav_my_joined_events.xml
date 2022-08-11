@@ -5,27 +5,27 @@
         <item
             android:id="@+id/seeVenueListButton"
             android:icon="@drawable/ic_baseline_flag_24"
-            android:title="See All Venues"
+            android:title="@string/see_all_venues"
             android:checked="false" />
         <item
             android:id="@+id/seeEventListButton"
             android:icon="@drawable/ic_baseline_event_24"
-            android:title="See All Events"
+            android:title="@string/see_all_events"
             android:checked="false" />
         <item
             android:id="@+id/seeJoinedEventsButton"
             android:icon="@drawable/ic_baseline_event_available_24"
-            android:title="My Joined Events"
+            android:title="@string/see_joined_events"
             android:checked="true" />
         <item
             android:id="@+id/seeScheduledEventsButton"
             android:icon="@drawable/ic_baseline_schedule_24"
-            android:title="My Scheduled Events"
+            android:title="@string/see_scheduled_events"
             android:checked="false" />
         <item
             android:id="@+id/signOutButton"
             android:icon="@drawable/ic_baseline_exit_to_app_24"
-            android:title="Sign Out"
+            android:title="@string/sign_out"
             android:checked="false" />
     </group>
 </menu>
