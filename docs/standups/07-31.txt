@@ -49,3 +49,15 @@ What are you planning on doing today?
 	
 Any impediments or stumbling blocks?
 	- nil
+	
+Name: Christine Zhao
+
+What have you done since yesterday?
+	- Created the RecyclerView
+	- Created Database class
+
+What are you planning on doing today?
+	- Finish main funcitonality for user story, successful database writing and reading + adding number of sports
+	
+Any impediments or stumbling blocks?
+	- I realize my code has some SOLID design violations
