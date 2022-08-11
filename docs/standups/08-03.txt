@@ -12,7 +12,7 @@ Any impediments or stumbling blocks?
 Name: Chelsea Chan
 
 What have you done since yesterday?
-	- nothing
+	- finishing VenueList class
 
 What are you planning on doing today?
 	- impleminting scedule activity method
