@@ -36,3 +36,14 @@ What are you planning on doing today?
 	
 Any impediments or stumbling blocks?
 	- none
+	
+Name: Sarah Liu
+
+What have you done since yesterday? 
+	- fixed some bugs
+
+What are you planning on doing today?
+	- finalizing everything and making sure everything works as intended
+
+Any impediments or stumbling blocks?
+	- nil
