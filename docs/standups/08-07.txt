@@ -17,7 +17,7 @@ What have you done since yesterday?
 	- none
 
 What are you planning on doing today?
-	- nothing (work on other courses)
+	- implement filtering
 	
 Any impediments or stumbling blocks?
 	- nil
