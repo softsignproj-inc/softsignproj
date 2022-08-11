@@ -78,7 +78,7 @@ public class AddVenue extends AppCompatActivity implements PageHandler {
                 } else if (venueName.equalsIgnoreCase("sports") ||
                         venueName.equalsIgnoreCase("events")  ||
                         venueName.equalsIgnoreCase("null")){
-                    ((TextView) findViewById(R.id.addVenueNameErrorPlaceholder)).setText("Name cannot be 'null', 'sports' or 'events'");
+                    ((TextView) findViewById(R.id.addVenueNameErrorPlaceholder)).setText(R.string.nullsportsorevents);
                 } else {
                     System.out.println("New Venue " + venueName);
                     db.read("venue/" + venueName, new OnSuccessListener<Object>() {
