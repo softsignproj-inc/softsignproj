@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.softsignproj.R;
 import com.example.softsignproj.model.Event;
 
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class FilterEventsAdapter extends RecyclerView.Adapter<FilterEventsAdapter.MyViewHolder> {
@@ -38,8 +37,6 @@ public class FilterEventsAdapter extends RecyclerView.Adapter<FilterEventsAdapte
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-
         holder.sport.setText(events.get(position).getSport());
         holder.venue.setText(events.get(position).getVenue());
         holder.date.setText(events.get(position).getTime());
@@ -52,7 +49,7 @@ public class FilterEventsAdapter extends RecyclerView.Adapter<FilterEventsAdapte
         return events.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView venue, headCount, date, sport;
 

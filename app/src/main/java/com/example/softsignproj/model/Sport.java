@@ -2,7 +2,7 @@ package com.example.softsignproj.model;
 
 public class Sport implements Comparable<Sport>{
 
-    private String name;
+    private final String name;
     public Sport(String name){
         this.name = name;
     }

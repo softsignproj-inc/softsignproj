@@ -60,5 +60,10 @@
     <string name="sign_out">Sign Out</string>
     <string name="see_all_events">See All Events</string>
     <string name="nullsportsorevents">Name cannot be \'null\', \'sports\' or \'events\'</string>
+    <string name="scheduled">Scheduled</string>
+    <string name="full">FULL</string>
+    <string name="add_to_schedule">Add to schedule?</string>
+    <string name="sport_name_warning_invalid">Sport names may only contain letters, digits and whitespaces</string>
+    <string name="sport_name_warning_null">Sport names cannot be \'null\'</string>
 
 </resources>

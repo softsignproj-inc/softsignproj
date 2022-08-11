@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -35,20 +34,19 @@ import com.google.firebase.database.ValueEventListener;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class EventList extends AppCompatActivity implements PageHandler {
-    private RecyclerView eventsView;
-    private HashMap<String, Event> events = new HashMap<String, Event>();
-    private SharedPreferences sharedPref;
+    private final HashMap<String, Event> events = new HashMap<String, Event>();
     private EventListAdapter eventsAdapter;
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_list);
-        eventsView = findViewById(R.id.recyclerView);
-        sharedPref = getSharedPreferences("com.example.softsignproj.customer_file", Context.MODE_PRIVATE);
+        RecyclerView eventsView = findViewById(R.id.recyclerView);
+        SharedPreferences sharedPref = getSharedPreferences("com.example.softsignproj.customer_file", Context.MODE_PRIVATE);
         eventsAdapter = new EventListAdapter(this, sharedPref.getString("Current User", "DEFAULT"));
         eventsView.setAdapter(eventsAdapter);
         eventsView.setLayoutManager(new LinearLayoutManager(this));
@@ -68,7 +66,7 @@ public class EventList extends AppCompatActivity implements PageHandler {
                 // Initialize linked hash map with all fetched events
                 events.put(dataSnapshot.getKey(), new Event(dataSnapshot.getKey(), currCount, maxCount, startTime, endTime, sport, venue, participants));
 
-                DatabaseReference usersRef = ref.child(dataSnapshot.getKey()).child("participants");
+                DatabaseReference usersRef = ref.child(Objects.requireNonNull(dataSnapshot.getKey())).child("participants");
                 usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -98,6 +96,7 @@ public class EventList extends AppCompatActivity implements PageHandler {
 
                 // Initialize linked hash map with all fetched events
                 Event event = events.get(dataSnapshot.getKey());
+                assert event != null;
                 event.setCurCount(currCount);
                 event.setMaxCount(maxCount);
                 event.setSport(sport);
@@ -105,7 +104,7 @@ public class EventList extends AppCompatActivity implements PageHandler {
                 event.setStartTime(startTime);
                 event.setEndTime(endTime);
 
-                DatabaseReference usersRef = ref.child(dataSnapshot.getKey()).child("participants");
+                DatabaseReference usersRef = ref.child(Objects.requireNonNull(dataSnapshot.getKey())).child("participants");
                 usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -171,7 +170,7 @@ public class EventList extends AppCompatActivity implements PageHandler {
         }
 
         if (itemId == R.id.signOutButton) {
-            SharedPreferences sharedPref = this.getSharedPreferences(this.getString(R.string.preference_file_key), this.MODE_PRIVATE);
+            SharedPreferences sharedPref = this.getSharedPreferences(this.getString(R.string.preference_file_key), MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.clear();
             editor.apply();

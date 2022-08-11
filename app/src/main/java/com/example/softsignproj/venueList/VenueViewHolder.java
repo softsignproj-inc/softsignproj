@@ -8,17 +8,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.softsignproj.R;
-import com.example.softsignproj.venueList.VenueAdapter;
 
 public class VenueViewHolder extends RecyclerView.ViewHolder{
-    private final VenueAdapter venueAdapter;
     private final TextView venueName;
     private final TextView sportsList;
     private final Button schedule;
 
     public VenueViewHolder(VenueAdapter venueAdapter, @NonNull View view) {
         super(view);
-        this.venueAdapter = venueAdapter;
         venueName = view.findViewById(R.id.venueItem);
         sportsList = view.findViewById(R.id.sportsList);
         schedule = view.findViewById(R.id.addActivity);

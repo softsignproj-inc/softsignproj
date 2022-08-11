@@ -1,5 +1,6 @@
 package com.example.softsignproj.venueList;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -96,7 +97,7 @@ public class VenueList extends AppCompatActivity implements PageHandler {
         }
 
         if (itemId == R.id.signOutButton) {
-            SharedPreferences sharedPref = this.getSharedPreferences(this.getString(R.string.preference_file_key), this.MODE_PRIVATE);
+            SharedPreferences sharedPref = this.getSharedPreferences(this.getString(R.string.preference_file_key), MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.clear();
             editor.apply();

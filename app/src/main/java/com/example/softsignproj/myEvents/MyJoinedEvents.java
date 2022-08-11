@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -71,7 +72,7 @@ public class MyJoinedEvents extends AppCompatActivity implements PageHandler {
         allEvents = new ArrayList<Event>();
 
         firebaseDatabase = FirebaseDatabase.getInstance("https://softsignproj-default-rtdb.firebaseio.com/");
-        eventsRef = eventsRef = firebaseDatabase.getReference("event");
+        eventsRef = firebaseDatabase.getReference("event");
         eventsRef.addValueEventListener(eventListener2);
         joinedEventsRef = firebaseDatabase.getReference("customer").child(user).child("joinedEvents");
         joinedEventsRef.addValueEventListener(eventListener);
@@ -209,7 +210,7 @@ public class MyJoinedEvents extends AppCompatActivity implements PageHandler {
         }
 
         if (itemId == R.id.signOutButton) {
-            SharedPreferences sharedPref = this.getSharedPreferences(this.getString(R.string.preference_file_key), this.MODE_PRIVATE);
+            SharedPreferences sharedPref = this.getSharedPreferences(this.getString(R.string.preference_file_key), MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.clear();
             editor.apply();

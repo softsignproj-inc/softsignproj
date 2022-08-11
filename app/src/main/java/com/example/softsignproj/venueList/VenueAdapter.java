@@ -36,11 +36,11 @@ public class VenueAdapter extends RecyclerView.Adapter<VenueViewHolder> {
         Venue venue = venues.get(position);
         holder.getVenueName().setText(venue.getVenue_name());
         ArrayList<String> sportsList = venue.getSports();
-        String sports = "";
+        StringBuilder sports = new StringBuilder();
         for (String a: sportsList){
-            sports = sports + a + '\n';
+            sports.append(a).append('\n');
         }
-        holder.getSportsList().setText(sports);
+        holder.getSportsList().setText(sports.toString());
         holder.getSchedule().setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override

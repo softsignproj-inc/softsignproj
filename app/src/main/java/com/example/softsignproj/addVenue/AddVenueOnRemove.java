@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class AddVenueOnRemove<E> {
 
-    private ArrayList<E> list;
-    private AddVenue mainPage;
-    private AddVenueRecyclerAdapter adapter;
+    private final ArrayList<E> list;
+    private final AddVenue mainPage;
+    private final AddVenueRecyclerAdapter adapter;
 
     public AddVenueOnRemove(AddVenue mainPage, ArrayList list, AddVenueRecyclerAdapter adapter){
         this.mainPage = mainPage;
@@ -17,6 +17,6 @@ public class AddVenueOnRemove<E> {
     public void remove(int index){
         list.remove(index);
         mainPage.update();
-        adapter.notifyDataSetChanged();
+        adapter.notifyItemRemoved(index);
     }
 }

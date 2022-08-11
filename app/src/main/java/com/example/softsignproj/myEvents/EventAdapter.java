@@ -37,10 +37,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
         Event event = events.get(position);
-        holder.getEventName().setText(new String(event.getSport() + " at " + event.getVenue()));
+        holder.getEventName().setText(event.getSport() + " at " + event.getVenue());
         holder.getStartTime().setText(String.format("%02d:%02d", event.getStart().getHour(), event.getStart().getMinute()));
         holder.getEndTime().setText(String.format("%02d:%02d", event.getEnd().getHour(), event.getEnd().getMinute()));
-        holder.getParticipants().setText(new String(event.getCurCount() + "/" + event.getMaxCount()));
+        holder.getParticipants().setText(event.getCurCount() + "/" + event.getMaxCount());
         holder.getDate().setText(String.format("%02d %s, %04d", event.getStart().getDayOfMonth(), event.getStart().getMonth().getDisplayName(TextStyle.FULL, Locale.CANADA), event.getStart().getYear()));
     }
 

@@ -18,12 +18,9 @@ import com.example.softsignproj.model.Event;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-
 
 public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.ViewHolder> {
     DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("event");
-    RecyclerView eventsView;
     SortedList<Event> data;
     String userID;
     Context context;
@@ -102,17 +99,17 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
 
         // Set button accordingly
         if (data.get(position).isSignedUp(this.userID)) {
-            holder.schedule.setText("Scheduled");
+            holder.schedule.setText(R.string.scheduled);
             holder.schedule.setEnabled(false);
         }
 
         else if (data.get(position).isFull()) {
-            holder.schedule.setText("FULL");
+            holder.schedule.setText(R.string.full);
             holder.schedule.setEnabled(false);
         }
 
         else {
-            holder.schedule.setText("Add to schedule?");
+            holder.schedule.setText(R.string.add_to_schedule);
             holder.schedule.setEnabled(true);
         }
     }
@@ -152,11 +149,8 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.View
 
         @Override
         public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.schedule:
-                    listener.onClick(this.getLayoutPosition());
-                default:
-                    break;
+            if (view.getId() == R.id.schedule) {
+                listener.onClick(this.getLayoutPosition());
             }
         }
     }

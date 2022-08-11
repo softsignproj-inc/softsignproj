@@ -6,13 +6,16 @@ import androidx.annotation.RequiresApi;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class Event {
 
     static final DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("E, MMM, dd, yyyy, hh:mm a");
-    private String id, sport, venue, scheduledBy;
+    private final String id;
+    private String sport;
+    private String venue;
+    private String scheduledBy;
     int curCount, maxCount;
     private LocalDateTime start, end;
     private HashMap<String, String> signedUp;
@@ -89,7 +92,7 @@ public class Event {
         return end;
     }
 
-    public HashMap<String, String> getParticpants() {
+    public HashMap<String, String> getParticipants() {
         return signedUp;
     }
 
@@ -137,13 +140,13 @@ public class Event {
     }
 
     public boolean areContentsSame(Event e) {
-        return (id == e.id) &&
+        return (Objects.equals(id, e.id)) &&
                 (sport.equals(e.getSport())) &&
                 (venue.equals(e.getVenue())) &&
                 (curCount == e.getCurCount()) &&
                 (maxCount == e.getMaxCount()) &&
                 (start.equals(e.getStart())) &&
                 (end.equals((e.getEnd()))) &&
-                (signedUp.equals(e.getParticpants()));
+                (signedUp.equals(e.getParticipants()));
     }
 }

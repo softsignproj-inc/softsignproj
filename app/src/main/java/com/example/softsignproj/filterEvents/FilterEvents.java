@@ -38,10 +38,9 @@ import java.util.ArrayList;
 
 public class FilterEvents extends AppCompatActivity implements AdapterView.OnItemSelectedListener, PageHandler {
     private ArrayList<String> display_venues;
-    private ArrayList<Event> all_events = new ArrayList<>();
+    private final ArrayList<Event> all_events = new ArrayList<>();
     private ArrayList<Event> temp_events;
-    private ArrayList<Event> display_events;
-    private FilterEventsAdapter filterEventsAdapter = new FilterEventsAdapter(this, all_events);
+    private final FilterEventsAdapter filterEventsAdapter = new FilterEventsAdapter(this, all_events);
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -53,7 +52,6 @@ public class FilterEvents extends AppCompatActivity implements AdapterView.OnIte
         display_venues.add("All");
 
         temp_events = new ArrayList<>();
-        display_events = new ArrayList<>();
 
         Spinner spinner = findViewById(R.id.spinner);
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, display_venues); //selected item will look like a spinner set from XML
@@ -99,8 +97,7 @@ public class FilterEvents extends AppCompatActivity implements AdapterView.OnIte
                     String sStartTime = (String) snapshot.child("startTime").getValue();
                     String sEndTime = (String) snapshot.child("endTime").getValue();
 
-                    if (sCurrCount==null || sMaxCount==null || sport==null|| venue==null ||
-                            sStartTime==null || sEndTime==null) {
+                    if (sport == null || venue == null || sStartTime == null || sEndTime == null) {
                         continue;
                     }
 

@@ -15,9 +15,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
+
 public class Database {
 
-    private FirebaseDatabase database;
+    private final FirebaseDatabase database;
     private DatabaseReference ref;
     private Object retrievedData;
 
@@ -42,14 +44,14 @@ public class Database {
         pushedEvent.child("endTime").setValue(event.getEnd().toString());
         pushedEvent.child("scheduledBy").setValue(event.getScheduledBy());
         DatabaseReference eventParticipants = pushedEvent.child("participants").push();
-        eventParticipants.setValue(event.getParticpants().get("1"));
+        eventParticipants.setValue(event.getParticipants().get("1"));
 
         DatabaseReference fromPath = pushedEvent;
-        DatabaseReference toPath = ref.child("event").child(pushedEvent.getKey());
+        DatabaseReference toPath = ref.child("event").child(Objects.requireNonNull(pushedEvent.getKey()));
 
         fromPath.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 toPath.setValue(dataSnapshot.getValue()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -59,15 +61,13 @@ public class Database {
                             DatabaseReference eventAddedToUser = ref.child("customer/" + event.getScheduledBy()+"/scheduledEvents").push();
                             eventAddedToVenue.setValue(pushedEvent.getKey());
                             eventAddedToUser.setValue(pushedEvent.getKey());
-                        } else {
-                            // do nothing
                         }
                     }
                 });
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.w("warning", databaseError.getMessage());
             }
         });
@@ -81,8 +81,7 @@ public class Database {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 DataSnapshot data = dataSnapshot.child(path);
-                Object value = data.getValue();
-                retrievedData = value;
+                retrievedData = data.getValue();
                 onSuccess.onSuccess(retrievedData);
             }
 

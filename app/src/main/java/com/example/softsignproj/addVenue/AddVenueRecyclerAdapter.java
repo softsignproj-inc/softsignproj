@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class AddVenueRecyclerAdapter extends RecyclerView.Adapter<AddVenueRecyclerAdapter.AddVenueViewHolder>{
 
-    private ArrayList<Sport> list;
+    private final ArrayList<Sport> list;
     private AddVenueOnRemove onRemove;
 
     public AddVenueRecyclerAdapter(ArrayList<Sport> a){
@@ -28,11 +28,10 @@ public class AddVenueRecyclerAdapter extends RecyclerView.Adapter<AddVenueRecycl
         this.onRemove = onRemove;
     }
 
-    public class AddVenueViewHolder extends RecyclerView.ViewHolder{
+    public static class AddVenueViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView txt;
-        private ImageButton remove;
-        private AddVenueRecyclerAdapter parent;
+        private final TextView txt;
+        private final ImageButton remove;
 
         public AddVenueViewHolder(final View view){
             super(view);
@@ -60,7 +59,7 @@ public class AddVenueRecyclerAdapter extends RecyclerView.Adapter<AddVenueRecycl
         holder.remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onRemove.remove(holder.getAdapterPosition());
+                onRemove.remove(holder.getBindingAdapterPosition());
             }
         });
     }

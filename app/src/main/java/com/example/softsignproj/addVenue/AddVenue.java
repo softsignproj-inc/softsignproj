@@ -85,7 +85,7 @@ public class AddVenue extends AppCompatActivity implements PageHandler {
                         @Override
                         public void onSuccess(Object o) {
                             if (o != null) {
-                                ((TextView) findViewById(R.id.addVenueNameErrorPlaceholder)).setText(venueName + " already exists.");
+                                ((TextView) findViewById(R.id.addVenueNameErrorPlaceholder)).setText(String.format("%s already exists.", venueName));
                             } else {
                                 System.out.println("Valid venue name");
                                 CreateVenue.setVenueName(venueName);
@@ -166,15 +166,15 @@ public class AddVenue extends AppCompatActivity implements PageHandler {
         Sport sport = new Sport(sportName);
         if (!sportName.equals("")){
             if (!matcher.matches()){
-                ((TextView) findViewById(R.id.addVenueSportsErrorPlaceholder)).setText("Sport names may only contain letters, digits and whitespaces");
+                ((TextView) findViewById(R.id.addVenueSportsErrorPlaceholder)).setText(R.string.sport_name_warning_invalid);
                 return;
             } else if (sportName.equalsIgnoreCase("null")){
-                ((TextView) findViewById(R.id.addVenueSportsErrorPlaceholder)).setText("Sport names cannot be 'null'");
+                ((TextView) findViewById(R.id.addVenueSportsErrorPlaceholder)).setText(R.string.sport_name_warning_null);
                 return;
             }
 
             if (selectedSports.contains(sport)){
-                ((TextView) findViewById(R.id.addVenueSportsErrorPlaceholder)).setText(sport.getName() + " already added");
+                ((TextView) findViewById(R.id.addVenueSportsErrorPlaceholder)).setText(String.format("%s already added", sport.getName()));
                 return;
             }
             selectedSports.add(0, sport);

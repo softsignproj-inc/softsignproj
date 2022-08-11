@@ -7,10 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.softsignproj.R;
-import com.example.softsignproj.myEvents.EventAdapter;
 
 public class EventViewHolder extends RecyclerView.ViewHolder{
-    private final EventAdapter eventAdapter;
     private final TextView eventName;
     private final TextView startTime;
     private final TextView endTime;
@@ -19,7 +17,6 @@ public class EventViewHolder extends RecyclerView.ViewHolder{
 
     public EventViewHolder(EventAdapter eventAdapter, @NonNull View view) {
         super(view);
-        this.eventAdapter = eventAdapter;
         eventName = view.findViewById(R.id.eventItem);
         startTime = view.findViewById(R.id.startTime);
         endTime = view.findViewById(R.id.endTime);
